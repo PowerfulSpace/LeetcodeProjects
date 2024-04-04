@@ -18,7 +18,7 @@ Console.ReadLine();
 static int[] TwoSum(int[] nums, int target)
 {
 
-    for (int i = 0; i < nums.Length; i++)
+    for (int i = 0; i < nums.Length-1; i++)
     {
         for (int j = i+1; j < nums.Length; j++)
         {
@@ -29,5 +29,5 @@ static int[] TwoSum(int[] nums, int target)
         }
     }
 
-    return new int[2] { 0,1 };
+    return new int[0];
 }
