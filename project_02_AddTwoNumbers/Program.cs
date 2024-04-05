@@ -1,7 +1,13 @@
 ﻿using System.Text;
 
-List<double> array1 = new List<double>() { 2, 4, 3 };
-List<double> array2 = new List<double>() { 5, 6, 4 };
+//List<double> array1 = new List<double>() { 2, 4, 3 };
+//List<double> array2 = new List<double>() { 5, 6, 4 };
+
+List<double> array1 = new List<double>(0);
+List<double> array2 = new List<double>(0);
+
+//List<double> array1 = new List<double>() { 2, 4, 3 };
+//List<double> array2 = new List<double>() { 5, 6, 4 };
 
 LinkedList<double> l1 = new LinkedList<double>(array1);
 LinkedList<double> l2 = new LinkedList<double>(array2);
@@ -54,7 +60,15 @@ static int TransformationInReverseNums(LinkedListNode<double> link)
         stringBuilder.Append(item);
     }
 
-    return int.Parse(stringBuilder.ToString());
+    if(stack.Count > 0)
+    {
+        return int.Parse(stringBuilder.ToString());
+    }
+    else
+    {
+        return 0;
+    }
+   
 }
 
 
