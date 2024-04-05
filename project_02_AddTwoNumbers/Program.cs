@@ -1,25 +1,23 @@
-﻿
+﻿using System.Text;
 
-using System.Text;
+List<double> array1 = new List<double>() { 2, 4, 3 };
+List<double> array2 = new List<double>() { 5, 6, 4 };
 
-List<int> array1 = new List<int>() { 2, 4, 3 };
-List<int> array2 = new List<int>() { 5, 6, 4 };
+LinkedList<double> l1 = new LinkedList<double>(array1);
+LinkedList<double> l2 = new LinkedList<double>(array2);
 
-LinkedList<int> l1 = new LinkedList<int>(array1);
-LinkedList<int> l2 = new LinkedList<int>(array2);
-
-Print(l1);
-Print(l2);
+Print(l1.First);
+Print(l2.First);
 
 
-var result = AddTwoNumbers(l1, l2);
+LinkedListNode<double> result = AddTwoNumbers(l1.First, l2.First);
 
-
+Print(result);
 
 
 Console.ReadLine();
 
-static LinkedList<double> AddTwoNumbers(LinkedList<int> l1, LinkedList<int> l2)
+static LinkedListNode<double> AddTwoNumbers(LinkedListNode<double> l1, LinkedListNode<double> l2)
 {
     int numL1 = TransformationInReverseNums(l1);
     int numL2 = TransformationInReverseNums(l2);
@@ -35,14 +33,23 @@ static LinkedList<double> AddTwoNumbers(LinkedList<int> l1, LinkedList<int> l2)
         result.AddLast(digit);
     }
 
-    return result;
+    return result.First;
 }
-
-static int TransformationInReverseNums(LinkedList<int> link)
+ 
+static int TransformationInReverseNums(LinkedListNode<double> link)
 {
     StringBuilder stringBuilder = new StringBuilder();
 
-    foreach (var item in link.Reverse())
+    Stack<double> stack = new Stack<double>();
+
+    while (link != null)
+    {
+        stack.Push(link.Value);
+        link = link.Next;
+    }
+
+
+    foreach (var item in stack)
     {
         stringBuilder.Append(item);
     }
@@ -51,11 +58,12 @@ static int TransformationInReverseNums(LinkedList<int> link)
 }
 
 
-static void Print(LinkedList<int> link)
+static void Print(LinkedListNode<double> link)
 {
-	foreach (var item in link)
-	{
-        Console.Write(item + " ");
+    while (link != null)
+    {
+        Console.Write(link.Value + " ");
+        link = link.Next;
     }
     Console.WriteLine();
 }
