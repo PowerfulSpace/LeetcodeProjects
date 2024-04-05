@@ -1,13 +1,16 @@
 ﻿using System.Text;
 
+//Example 1:
 //List<double> array1 = new List<double>() { 2, 4, 3 };
 //List<double> array2 = new List<double>() { 5, 6, 4 };
 
-List<double> array1 = new List<double>(0);
-List<double> array2 = new List<double>(0);
+//Example 2:
+//List<double> array1 = new List<double>(0);
+//List<double> array2 = new List<double>(0);
 
-//List<double> array1 = new List<double>() { 2, 4, 3 };
-//List<double> array2 = new List<double>() { 5, 6, 4 };
+//Example 3:
+List<double> array1 = new List<double>() { 9,9,9,9,9,9,9};
+List<double> array2 = new List<double>() { 9, 9, 9, 9 };
 
 LinkedList<double> l1 = new LinkedList<double>(array1);
 LinkedList<double> l2 = new LinkedList<double>(array2);
