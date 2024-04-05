@@ -12,6 +12,10 @@ int[] result1 = TwoSum(array1, target1);
 int[] result2 = TwoSum(array2, target2);
 int[] result3 = TwoSum(array3, target3);
 
+Print(result1);
+Print(result2);
+Print(result3);
+
 Console.ReadLine();
 
 
@@ -30,4 +34,13 @@ static int[] TwoSum(int[] nums, int target)
     }
 
     return new int[0];
+}
+
+static void Print(int[] array)
+{
+    foreach (var item in array)
+    {
+        Console.WriteLine(item + " ");
+    }
+    Console.WriteLine();
 }
