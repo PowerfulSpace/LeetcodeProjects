@@ -1,5 +1,2 @@
 ﻿
-
-
-
 Console.ReadLine();
