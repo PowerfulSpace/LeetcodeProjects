@@ -1,19 +1,21 @@
-﻿string input = "abcabcbb";
+﻿
 
-//int result = LengthOfLongestSubstring(input);
-//Console.WriteLine(result);
+string input = "abcabcbb";
+//string input = "bbbbb";
+//string input = "pwwkew";
 
-int result = Method(input);
+
+
+int result = LengthOfLongestSubstring(input);
 Console.WriteLine();
 Console.WriteLine(result);
 
 Console.ReadLine();
 
 
-
-static int Method(string s)
+static int LengthOfLongestSubstring(string s)
 {
-    List<char> chars = new List<char>();
+    Dictionary<char, int> chars = new Dictionary<char, int>();
     int count = 0;
     int maxCount = 0;
 
@@ -21,9 +23,10 @@ static int Method(string s)
     {
         Console.Write(s[i]);
 
-        if (chars.Contains(s[i]))
+        if (chars.ContainsKey(s[i]))
         {
-            int index = s.IndexOf(s[i]);
+
+            int index = chars[s[i]];
 
             chars.Clear();
             count = 0;
@@ -31,18 +34,14 @@ static int Method(string s)
         }
         else
         {
-            chars.Add(s[i]);
+            chars.Add(s[i], i);
             count++;
 
             if (count >= maxCount)
             {
                 maxCount = count;
-            }  
+            }
         }
     }
     return maxCount;
 }
-
-//static int LengthOfLongestSubstring(string s)
-//{
-//}
