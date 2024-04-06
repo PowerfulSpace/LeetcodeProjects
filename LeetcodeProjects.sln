@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_01_Two Sum_2", "pro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_02_AddTwoNumbers_2", "project_02_AddTwoNumbers_2\project_02_AddTwoNumbers_2.csproj", "{F82D776A-19E5-4608-B3B5-C345750FB0EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_03_LongestSubstringWithoutRepeatingCharacters_2", "project_03_LongestSubstringWithoutRepeatingCharacters_2\project_03_LongestSubstringWithoutRepeatingCharacters_2.csproj", "{C8F9D8B0-BDEF-440A-9914-3E2057316E2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F82D776A-19E5-4608-B3B5-C345750FB0EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F82D776A-19E5-4608-B3B5-C345750FB0EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F82D776A-19E5-4608-B3B5-C345750FB0EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8F9D8B0-BDEF-440A-9914-3E2057316E2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8F9D8B0-BDEF-440A-9914-3E2057316E2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8F9D8B0-BDEF-440A-9914-3E2057316E2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8F9D8B0-BDEF-440A-9914-3E2057316E2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
