@@ -25,7 +25,7 @@ static LinkedListNode<int> AddTwoNumbers(LinkedListNode<int> l1, LinkedListNode<
 
             if (l2 != null && node.Next == null)
             {
-                node.Next = new LinkedListNode<int>();
+                //node.Next = new LinkedListNode<int>();
             }
         }
 
@@ -35,7 +35,7 @@ static LinkedListNode<int> AddTwoNumbers(LinkedListNode<int> l1, LinkedListNode<
 
             if (node.Next == null)
             {
-                node.Next = new LinkedListNode<int>();
+                //node.Next = new LinkedListNode<int>();
             }
             node.Next.Value += 1;
         }
