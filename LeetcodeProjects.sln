@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_01_Two Sum", "proje
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_02_AddTwoNumbers", "project_02_AddTwoNumbers\project_02_AddTwoNumbers.csproj", "{2B217CAF-B237-44E2-BFBD-8FB75C49F9EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_03_LongestSubstringWithoutRepeatingCharacters", "project_03_LongestSubstringWithoutRepeatingCharacters\project_03_LongestSubstringWithoutRepeatingCharacters.csproj", "{2F8EA0C1-AD69-460C-BE53-F2FF771DD711}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_03_LongestSubstringWithoutRepeatingCharacters", "project_03_LongestSubstringWithoutRepeatingCharacters\project_03_LongestSubstringWithoutRepeatingCharacters.csproj", "{2F8EA0C1-AD69-460C-BE53-F2FF771DD711}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_01_Two Sum_2", "project_01_Two Sum_2\project_01_Two Sum_2.csproj", "{CA6FDFCE-369F-4A7E-8942-39CAB3833464}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{2F8EA0C1-AD69-460C-BE53-F2FF771DD711}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F8EA0C1-AD69-460C-BE53-F2FF771DD711}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F8EA0C1-AD69-460C-BE53-F2FF771DD711}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA6FDFCE-369F-4A7E-8942-39CAB3833464}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA6FDFCE-369F-4A7E-8942-39CAB3833464}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA6FDFCE-369F-4A7E-8942-39CAB3833464}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA6FDFCE-369F-4A7E-8942-39CAB3833464}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
