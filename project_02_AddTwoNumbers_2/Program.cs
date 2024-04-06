@@ -1,5 +1,4 @@
-﻿
-List<int> array1 = new List<int>() { 2, 4, 3 };
+﻿List<int> array1 = new List<int>() { 2, 4, 3 };
 List<int> array2 = new List<int>() { 5, 6, 4 };
 
 LinkedList<int> l1 = new LinkedList<int>(array1);
@@ -13,7 +12,6 @@ LinkedListNode<int> result = AddTwoNumbers(l1.First, l2.First);
 Print(result);
 
 Console.ReadLine();
-
 
 
 static LinkedListNode<int> AddTwoNumbers(LinkedListNode<int> l1, LinkedListNode<int> l2)
