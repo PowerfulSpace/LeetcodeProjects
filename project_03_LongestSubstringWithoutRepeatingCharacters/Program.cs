@@ -23,7 +23,11 @@ static int Method(string s)
 
         if (chars.Contains(s[i]))
         {
+            int index = s.IndexOf(s[i]);
+
+            chars.Clear();
             count = 0;
+            i = index;
         }
         else
         {
