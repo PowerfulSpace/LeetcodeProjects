@@ -9,11 +9,13 @@ string input1 = "babad";
 string input2 = "cbbd";
 string input3 = "a";
 string input4 = "ccc";
+string input5 = "aacabdkacaa";
 
-//Console.WriteLine(LongestPalindrome(input1));
-//Console.WriteLine(LongestPalindrome(input2));
-//Console.WriteLine(LongestPalindrome(input3));
+Console.WriteLine(LongestPalindrome(input1));
+Console.WriteLine(LongestPalindrome(input2));
+Console.WriteLine(LongestPalindrome(input3));
 Console.WriteLine(LongestPalindrome(input4));
+Console.WriteLine(LongestPalindrome(input5));
 
 Console.ReadLine();
 
@@ -32,8 +34,12 @@ static string LongestPalindrome(string s)
 
             if (s[i] == s[j])
             {
-                for (int k = i,t = j; k < j / 2; k++,t--)
+                for (int k = i,t = j; k < j; k++,t--)
                 {
+                    if(k == t)
+                    {
+                        break;
+                    }
                     if (s[k] != s[t])
                     {
                         flag = false;
@@ -41,7 +47,7 @@ static string LongestPalindrome(string s)
                     }
                 }
 
-                if (flag && sb.Length < j - i)
+                if (flag && sb.Length < (j + 1) - i)
                 {
                     if(sb.Length != 0)
                     {
