@@ -7,9 +7,13 @@ using System.Text;
 
 string input1 = "babad";
 string input2 = "cbbd";
+string input3 = "a";
+string input4 = "ccc";
 
-Console.WriteLine(LongestPalindrome(input1));
-Console.WriteLine(LongestPalindrome(input2));
+//Console.WriteLine(LongestPalindrome(input1));
+//Console.WriteLine(LongestPalindrome(input2));
+//Console.WriteLine(LongestPalindrome(input3));
+Console.WriteLine(LongestPalindrome(input4));
 
 Console.ReadLine();
 
@@ -53,5 +57,5 @@ static string LongestPalindrome(string s)
             }
         }
     }
-    return sb.ToString();
+    return sb.Length != 0 ? sb.ToString() : s[0].ToString();
 }
