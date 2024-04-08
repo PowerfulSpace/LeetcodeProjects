@@ -1,5 +1,8 @@
 ﻿
 
+using System;
+using System.Text;
+
 string input = "PAYPALISHIRING";
 int rows = 4;
 
@@ -13,61 +16,24 @@ Console.ReadLine();
 
 static string Convert(string s, int numRows)
 {
-    Dictionary<int, List<char>> groupsRows = new Dictionary<int, List<char>>();
-    int group = 0;
+    int column = (int)Math.Ceiling((decimal)numRows / 2);
+    int rows = 0;
+    char[,] chars = new char[numRows + (numRows / 2),];
+    
 
-    for (int i = 0; i < numRows; i++)
-    {
-        groupsRows.Add(i, new List<char>());
-    }
-
-    bool ascending = false;
-    int descrease = 0;
-
-	for (int i = 0; i < s.Length; i++)
-	{
-        group = i % numRows;
-
-        if (group == 0)
-        {
-            if(ascending == true)
-            {
-                descrease = numRows - 1;
-                ascending = false;
-            }
-            else
-            {
-                ascending = true;
-            }
-        }
-
-        if (ascending)
-        {
-            groupsRows[group].Add(s[i]);
-        }
-        else
-        {
-            groupsRows[group + descrease].Add(s[i]);
-            descrease--;
-        }
-
-        
-    }
-    Console.WriteLine();
-
-    Print(groupsRows);
 
     return s;
 }
 
 
-static void Print(Dictionary<int, List<char>> groupsRows)
+static void Print(char[,] groups)
 {
-    foreach (var key in groupsRows.Keys)
+    for (int i = 0; i < groups.GetLength(0); i++)
     {
-        foreach (var item in groupsRows[key])
+
+        for (int j = 0; j < groups.GetLength(1); j++)
         {
-            Console.Write(item + " ");
+            Console.Write(groups[i,j] + " ");
         }
         Console.WriteLine();
     }
