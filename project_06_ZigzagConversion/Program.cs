@@ -2,7 +2,7 @@
 using System.Text;
 
 string input = "PAYPALISHIRING";
-int rows = 4;
+int rows = 5;
 
 var result = Convert(input, rows);
 Console.WriteLine(result);
