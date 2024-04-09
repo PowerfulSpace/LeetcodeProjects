@@ -19,9 +19,12 @@ static string Convert(string s, int numRows)
     {
         rows[row] += item.ToString();
 
-        directionDown = row == 0 ? true : row == numRows - 1 ? false : directionDown;
+        if(numRows > 1)
+        {
+            directionDown = row == 0 ? true : row == numRows - 1 ? false : directionDown;
 
-        row = directionDown ? row + 1 : row - 1;
+            row = directionDown ? row + 1 : row - 1;
+        }
 
     }
     string output = "";
