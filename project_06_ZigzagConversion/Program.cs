@@ -1,13 +1,11 @@
-﻿
-
-using System;
+﻿using System.Collections.Generic;
 using System.Text;
 
 string input = "PAYPALISHIRING";
-int rows = 5;
+int rows = 4;
 
 var result = Convert(input, rows);
-Console.WriteLine();
+Console.WriteLine(result);
 
 
 
@@ -98,7 +96,48 @@ static string Convert(string s, int numRows)
             }
         }
     }
+  
+    int countLists = (int)Math.Ceiling((decimal)sb.Length / numRows);
 
+    List<List<char>> lists = new List<List<char>>();
+
+    for (int i = 0; i < countLists; i++)
+    {
+        lists.Add(new List<char>());
+    }
+
+    StringBuilder sb2 = new StringBuilder();
+    string myString = sb.ToString();
+
+    int indexRows = 0;
+
+    int isReverse = 0;
+    int countReverse = 0;
+
+    foreach (var item in lists)
+    {
+        for (int i = 0; i < numRows; i++)
+        {
+            if(indexRows < sb.Length)
+            {
+                item.Add(sb[indexRows]);
+                indexRows++;
+            }
+            else { break; }
+          
+        }
+
+        if (numRows > 3 && countReverse > 0)
+        {
+            item.Reverse();
+            countReverse--;
+        }
+        else
+        {
+            countReverse = numRows - 2;
+        }
+        isReverse++;
+    }
 
 
 
