@@ -34,6 +34,5 @@ static string Convert(string s, int numRows)
         output += item;
     }
 
-
     return output;
 }
