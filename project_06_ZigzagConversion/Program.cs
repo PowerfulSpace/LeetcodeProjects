@@ -106,9 +106,6 @@ static string Convert(string s, int numRows)
         lists.Add(new List<char>());
     }
 
-    StringBuilder sb2 = new StringBuilder();
-    string myString = sb.ToString();
-
     int indexRows = 0;
 
     int isReverse = 0;
@@ -139,9 +136,30 @@ static string Convert(string s, int numRows)
         isReverse++;
     }
 
+    StringBuilder sb2 = new StringBuilder();
 
+    char[,] chars = new char[numRows, numRows*2];
 
-    return sb.ToString();
+    for (int i = 0; i < lists.Count; i++)
+    {
+        for (int j = 0; j < lists[i].Count; j++)
+        {
+            chars[j, i] = lists[i][j];
+        }
+    }
+
+    for (int i = 0; i < chars.GetLength(0); i++)
+    {
+        for (int j = 0; j < chars.GetLength(1); j++)
+        {
+            sb2.Append(chars[i, j]);
+            Console.Write(chars[i,j] + " ");
+        }
+        Console.WriteLine();
+    }
+
+    string myString = sb2.ToString().Replace('-','\0');
+    return myString.ToString();
 }
 
 
