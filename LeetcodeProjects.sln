@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_07_ReverseInteger_4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_07_ReverseInteger_5", "project_07_ReverseInteger_5\project_07_ReverseInteger_5.csproj", "{08E76D40-F363-4EB7-ABF0-C36B1194EAE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_07_ReverseInteger_6", "project_07_ReverseInteger_6\project_07_ReverseInteger_6.csproj", "{004CC750-423D-4F45-8EF0-B1B588CD91DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{08E76D40-F363-4EB7-ABF0-C36B1194EAE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08E76D40-F363-4EB7-ABF0-C36B1194EAE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08E76D40-F363-4EB7-ABF0-C36B1194EAE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{004CC750-423D-4F45-8EF0-B1B588CD91DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{004CC750-423D-4F45-8EF0-B1B588CD91DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{004CC750-423D-4F45-8EF0-B1B588CD91DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{004CC750-423D-4F45-8EF0-B1B588CD91DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
