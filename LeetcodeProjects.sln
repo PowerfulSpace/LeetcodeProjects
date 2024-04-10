@@ -35,15 +35,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_06_ZigzagConversion
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_07_ReverseInteger", "project_07_ReverseInteger\project_07_ReverseInteger.csproj", "{37403E5E-AEFA-4825-B429-57EE134D4F93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_07_ReverseInteger_2", "project_07_ReverseInteger_2\project_07_ReverseInteger_2.csproj", "{CFF2CF78-3D93-4618-8BCC-B0879EB99AC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_07_ReverseInteger_2", "project_07_ReverseInteger_2\project_07_ReverseInteger_2.csproj", "{CFF2CF78-3D93-4618-8BCC-B0879EB99AC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_07_ReverseInteger_3", "project_07_ReverseInteger_3\project_07_ReverseInteger_3.csproj", "{83311989-E419-4255-90E8-2094D013DEFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_07_ReverseInteger_3", "project_07_ReverseInteger_3\project_07_ReverseInteger_3.csproj", "{83311989-E419-4255-90E8-2094D013DEFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_07_ReverseInteger_4", "project_07_ReverseInteger_4\project_07_ReverseInteger_4.csproj", "{6FE5D6FC-4A45-4541-8488-1186FCEF8C1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_07_ReverseInteger_4", "project_07_ReverseInteger_4\project_07_ReverseInteger_4.csproj", "{6FE5D6FC-4A45-4541-8488-1186FCEF8C1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_07_ReverseInteger_5", "project_07_ReverseInteger_5\project_07_ReverseInteger_5.csproj", "{08E76D40-F363-4EB7-ABF0-C36B1194EAE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_07_ReverseInteger_5", "project_07_ReverseInteger_5\project_07_ReverseInteger_5.csproj", "{08E76D40-F363-4EB7-ABF0-C36B1194EAE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_07_ReverseInteger_6", "project_07_ReverseInteger_6\project_07_ReverseInteger_6.csproj", "{004CC750-423D-4F45-8EF0-B1B588CD91DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_07_ReverseInteger_6", "project_07_ReverseInteger_6\project_07_ReverseInteger_6.csproj", "{004CC750-423D-4F45-8EF0-B1B588CD91DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_08_StringToInteger (atoi)", "project_08_StringToInteger (atoi)\project_08_StringToInteger (atoi).csproj", "{D1C5EFF6-BCAE-4535-A3EC-24DB2B3DEC3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +137,10 @@ Global
 		{004CC750-423D-4F45-8EF0-B1B588CD91DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{004CC750-423D-4F45-8EF0-B1B588CD91DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{004CC750-423D-4F45-8EF0-B1B588CD91DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1C5EFF6-BCAE-4535-A3EC-24DB2B3DEC3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1C5EFF6-BCAE-4535-A3EC-24DB2B3DEC3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1C5EFF6-BCAE-4535-A3EC-24DB2B3DEC3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1C5EFF6-BCAE-4535-A3EC-24DB2B3DEC3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
