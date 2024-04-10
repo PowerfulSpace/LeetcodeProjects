@@ -37,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_07_ReverseInteger",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_07_ReverseInteger_2", "project_07_ReverseInteger_2\project_07_ReverseInteger_2.csproj", "{CFF2CF78-3D93-4618-8BCC-B0879EB99AC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_07_ReverseInteger_3", "project_07_ReverseInteger_3\project_07_ReverseInteger_3.csproj", "{83311989-E419-4255-90E8-2094D013DEFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{CFF2CF78-3D93-4618-8BCC-B0879EB99AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFF2CF78-3D93-4618-8BCC-B0879EB99AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFF2CF78-3D93-4618-8BCC-B0879EB99AC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83311989-E419-4255-90E8-2094D013DEFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83311989-E419-4255-90E8-2094D013DEFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83311989-E419-4255-90E8-2094D013DEFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83311989-E419-4255-90E8-2094D013DEFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
