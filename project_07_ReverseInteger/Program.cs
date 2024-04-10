@@ -6,13 +6,12 @@ int input1 = 123;
 int input2 = -123;
 int input3 = 1534236469;
 
-//Console.WriteLine(Reverse(input1));
-//Console.WriteLine(Reverse(input2));
+Console.WriteLine(Reverse(input1));
+Console.WriteLine(Reverse(input2));
 Console.WriteLine(Reverse(input3));
 
 Console.ReadLine();
 
-//int проверить на максимальное значение
 static int Reverse(int x)
 {
     bool negative = false;
