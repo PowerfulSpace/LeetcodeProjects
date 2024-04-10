@@ -37,7 +37,7 @@ static int Reverse(int x)
    
     long result = long.Parse(sb.ToString());
 
-    if(result < 2147483647)
+    if(result < int.MaxValue)
     {
         if (negative == true)
         {
