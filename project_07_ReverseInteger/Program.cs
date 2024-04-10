@@ -4,13 +4,15 @@ using System.Text;
 
 int input1 = 123;
 int input2 = -123;
+int input3 = 1534236469;
 
-Console.WriteLine(Reverse(input1));
-Console.WriteLine(Reverse(input2));
+//Console.WriteLine(Reverse(input1));
+//Console.WriteLine(Reverse(input2));
+Console.WriteLine(Reverse(input3));
 
 Console.ReadLine();
 
-
+//int проверить на максимальное значение
 static int Reverse(int x)
 {
     bool negative = false;
@@ -18,13 +20,13 @@ static int Reverse(int x)
     if (x < 0)
         negative = true;
 
-    string digit = x.ToString();
+    string num = x.ToString();
 
 
-    var b = digit.Reverse();
+    var numReverse = num.Reverse();
     StringBuilder sb = new StringBuilder();
 
-    foreach (var item in b)
+    foreach (var item in numReverse)
     {
         sb.Append(item);
     }
@@ -34,15 +36,21 @@ static int Reverse(int x)
         sb.Remove(sb.Length - 1, 1);
     }
    
+    long result = long.Parse(sb.ToString());
 
-    int result = int.Parse(sb.ToString());
-
-    if (negative == true)
+    if(result < 2147483647)
     {
-        result -= (result * 2);
-    }
+        if (negative == true)
+        {
+            result -= (result * 2);
+        }
 
-    return result;
+        return (int)result;
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 
