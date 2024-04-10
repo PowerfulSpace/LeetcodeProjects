@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_06_ZigzagConversion
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_06_ZigzagConversion_4", "project_06_ZigzagConversion_4\project_06_ZigzagConversion_4.csproj", "{B655573F-69B1-46FE-9F17-0507DAF721FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_07_ReverseInteger", "project_07_ReverseInteger\project_07_ReverseInteger.csproj", "{37403E5E-AEFA-4825-B429-57EE134D4F93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{B655573F-69B1-46FE-9F17-0507DAF721FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B655573F-69B1-46FE-9F17-0507DAF721FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B655573F-69B1-46FE-9F17-0507DAF721FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37403E5E-AEFA-4825-B429-57EE134D4F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37403E5E-AEFA-4825-B429-57EE134D4F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37403E5E-AEFA-4825-B429-57EE134D4F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37403E5E-AEFA-4825-B429-57EE134D4F93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
