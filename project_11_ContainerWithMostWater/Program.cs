@@ -6,14 +6,16 @@ int[] input4 = new int[] { 8, 6, 8, 5, 4, 7};
 int[] input5 = new int[] { 1, 2, 1 };
 int[] input6 = new int[] { 2, 1 };
 int[] input7 = new int[] { 1, 2, 4, 3 };
+int[] input8 = new int[] { 1, 8, 6, 2, 5, 4, 8, 25, 7 };
 
-//Console.WriteLine(MaxArea(input1));
-//Console.WriteLine(MaxArea(input2));
-//Console.WriteLine(MaxArea(input3));
-//Console.WriteLine(MaxArea(input4));
-//Console.WriteLine(MaxArea(input5));
-//Console.WriteLine(MaxArea(input6));
+Console.WriteLine(MaxArea(input1));
+Console.WriteLine(MaxArea(input2));
+Console.WriteLine(MaxArea(input3));
+Console.WriteLine(MaxArea(input4));
+Console.WriteLine(MaxArea(input5));
+Console.WriteLine(MaxArea(input6));
 Console.WriteLine(MaxArea(input7));
+Console.WriteLine(MaxArea(input8));
 
 
 Console.ReadLine();
@@ -21,33 +23,42 @@ Console.ReadLine();
 
 static int MaxArea(int[] height)
 {
-
-    if(height.Length <= 2)
+    if (height.Length <= 2)
     {
         return height.Min();
     }
 
-	int s = 0;
-	int maxS = 0;
-	int max = 1;
+    int s = 0;
+    int maxS = 0;
+    int max = 1;
+
+    int dif = 1;
 
     for (int i = 0; i < height.Length; i++)
-	{
-		for (int j = height.Length-1; j > i; j--)
-		{
+    {
+        for (int j = height.Length - 1; j > i; j--)
+        {
             if (height[i] == 1 || height[j] == 1)
             {
                 max = 1;
             }
             else
             {
-                max = height[i] * height[j] * j;
+                dif = j - i;
+                if (height[i] > height[j])
+                {
+                    max = height[i] * height[j] * dif;
+                }
+                else
+                {
+                    max = height[i] * height[j] * dif;
+                }
             }
 
             if (max > maxS)
-			{
-				if(height[i] != 1 && height[j] != 1)
-				{
+            {
+                if (height[i] != 1 && height[j] != 1)
+                {
                     maxS = max;
                     if (height[i] > height[j])
                     {
@@ -59,16 +70,16 @@ static int MaxArea(int[] height)
                     }
                 }
                 else
-                {                 
-                    s = height[i]-1 + j;
+                {
+                    s = height[i] - 1 + j;
                     maxS = s;
                 }
-				
+
             }
         }
-	}
+    }
 
-	if(max == 1 && s == 1) { return 1; }
-    
+    if (max == 1 && s == 1) { return 1; }
+
     return s;
 }
