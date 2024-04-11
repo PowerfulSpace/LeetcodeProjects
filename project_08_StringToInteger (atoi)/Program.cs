@@ -35,12 +35,11 @@ static int MyAtoi(string s)
     }
 
     int result = 0;
-    if (match.Result != null)
+    if (match.Value != null)
     {
         result = int.Parse(match.Value);
-    }
 
-    
+    }
 
     return result;
 }

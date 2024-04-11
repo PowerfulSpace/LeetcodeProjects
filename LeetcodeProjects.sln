@@ -45,7 +45,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_07_ReverseInteger_5
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_07_ReverseInteger_6", "project_07_ReverseInteger_6\project_07_ReverseInteger_6.csproj", "{004CC750-423D-4F45-8EF0-B1B588CD91DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_08_StringToInteger (atoi)", "project_08_StringToInteger (atoi)\project_08_StringToInteger (atoi).csproj", "{D1C5EFF6-BCAE-4535-A3EC-24DB2B3DEC3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_08_StringToInteger (atoi)", "project_08_StringToInteger (atoi)\project_08_StringToInteger (atoi).csproj", "{D1C5EFF6-BCAE-4535-A3EC-24DB2B3DEC3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_08_StringToInteger (atoi)_2", "project_08_StringToInteger (atoi)_2\project_08_StringToInteger (atoi)_2.csproj", "{979E03B0-2FAD-4E3A-9366-7B081462D31D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -141,6 +143,10 @@ Global
 		{D1C5EFF6-BCAE-4535-A3EC-24DB2B3DEC3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1C5EFF6-BCAE-4535-A3EC-24DB2B3DEC3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1C5EFF6-BCAE-4535-A3EC-24DB2B3DEC3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{979E03B0-2FAD-4E3A-9366-7B081462D31D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{979E03B0-2FAD-4E3A-9366-7B081462D31D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{979E03B0-2FAD-4E3A-9366-7B081462D31D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{979E03B0-2FAD-4E3A-9366-7B081462D31D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
