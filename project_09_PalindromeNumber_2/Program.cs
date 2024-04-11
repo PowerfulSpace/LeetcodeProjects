@@ -16,18 +16,15 @@ Console.ReadLine();
 static bool IsPalindrome(int x)
 {
     if (x < 0) return false;
-    string digits = x.ToString();
-    int end = digits.Length - 1;
+    if (x / 10 == 0) return true;
 
-    for (int i = 0; i < digits.Length / 2; i++)
+    var tmp = x;
+    var y = tmp % 10;
+    while (tmp / 10 != 0)
     {
-        if (digits[i] != digits[end])
-        {
-            return false;
-        }
-        end--;
+        y = (y * 10) + (tmp /= 10) % 10;
     }
 
-    return true;
+    return y == x ? true : false;
 }
 
