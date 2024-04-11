@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_09_PalindromeNumber
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_09_PalindromeNumber_2", "project_09_PalindromeNumber_2\project_09_PalindromeNumber_2.csproj", "{3DCEE2A2-FE82-4C15-8661-E4D2CA6BC5A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_10_RegularExpressionMatching", "project_10_RegularExpressionMatching\project_10_RegularExpressionMatching.csproj", "{5B5BED20-AD0B-4C00-A962-C4A1EE617DC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,6 +161,10 @@ Global
 		{3DCEE2A2-FE82-4C15-8661-E4D2CA6BC5A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DCEE2A2-FE82-4C15-8661-E4D2CA6BC5A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DCEE2A2-FE82-4C15-8661-E4D2CA6BC5A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B5BED20-AD0B-4C00-A962-C4A1EE617DC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B5BED20-AD0B-4C00-A962-C4A1EE617DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B5BED20-AD0B-4C00-A962-C4A1EE617DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B5BED20-AD0B-4C00-A962-C4A1EE617DC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
