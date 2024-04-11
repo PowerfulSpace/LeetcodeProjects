@@ -21,9 +21,9 @@ string input6 = "abcd++";
 string pattern6 = "a***abc";
 
 
-//Console.WriteLine(IsMatch(input1, pattern1));
-//Console.WriteLine(IsMatch(input2, pattern2));
-//Console.WriteLine(IsMatch(input3, pattern3));
+Console.WriteLine(IsMatch(input1, pattern1));
+Console.WriteLine(IsMatch(input2, pattern2));
+Console.WriteLine(IsMatch(input3, pattern3));
 Console.WriteLine(IsMatch(input4, pattern4));
 Console.WriteLine(IsMatch(input5, pattern5));
 Console.WriteLine(IsMatch(input6, pattern6));
