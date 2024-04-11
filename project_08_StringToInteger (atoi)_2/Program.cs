@@ -1,15 +1,22 @@
 ﻿
 
 
+using System.Text.RegularExpressions;
+using System.Xml.Linq;
+
 string input1 = "42";
 string input2 = "   -42";
 string input3 = "4193 with words";
 string input4 = "words and 987";
+string input5 = ".1";
+string input6 = "w1";
 
-//Console.WriteLine(MyAtoi(input1));
-//Console.WriteLine(MyAtoi(input2));
-//Console.WriteLine(MyAtoi(input3));
+Console.WriteLine(MyAtoi(input1));
+Console.WriteLine(MyAtoi(input2));
+Console.WriteLine(MyAtoi(input3));
 Console.WriteLine(MyAtoi(input4));
+Console.WriteLine(MyAtoi(input5));
+Console.WriteLine(MyAtoi(input6));
 
 Console.ReadLine();
 
