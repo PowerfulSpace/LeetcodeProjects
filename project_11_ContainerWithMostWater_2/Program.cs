@@ -1,21 +1,25 @@
 ﻿
 int[] input1 = new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 };
-int[] input2 = new int[] { 1, 1};
+int[] input2 = new int[] { 1, 1 };
 int[] input3 = new int[] { 4, 3, 2, 1, 4 };
-int[] input4 = new int[] { 8, 6, 8, 5, 4, 7};
+int[] input4 = new int[] { 8, 6, 8, 5, 4, 7 };
 int[] input5 = new int[] { 1, 2, 1 };
 int[] input6 = new int[] { 2, 1 };
 int[] input7 = new int[] { 1, 2, 4, 3 };
 int[] input8 = new int[] { 1, 8, 6, 2, 5, 4, 8, 25, 7 };
+int[] input9 = new int[] { 1, 2, 4, 3 };
+int[] input10 = new int[] { 1, 0, 0, 0, 0, 0, 0, 2, 2 };
 
-Console.WriteLine(MaxArea(input1));
-Console.WriteLine(MaxArea(input2));
-Console.WriteLine(MaxArea(input3));
-Console.WriteLine(MaxArea(input4));
-Console.WriteLine(MaxArea(input5));
-Console.WriteLine(MaxArea(input6));
-Console.WriteLine(MaxArea(input7));
+//Console.WriteLine(MaxArea(input1));
+//Console.WriteLine(MaxArea(input2));
+//Console.WriteLine(MaxArea(input3));
+//Console.WriteLine(MaxArea(input4));
+//Console.WriteLine(MaxArea(input5));
+//Console.WriteLine(MaxArea(input6));
+//Console.WriteLine(MaxArea(input7));
 Console.WriteLine(MaxArea(input8));
+//Console.WriteLine(MaxArea(input9));
+//Console.WriteLine(MaxArea(input10));
 
 
 Console.ReadLine();
@@ -64,13 +68,13 @@ static int MaxArea(int[] height)
         }
     }
 
-    if (height[startIndex] == 1 || height[endIndex] == 1)
+    if(height[startIndex] == 1 || height[endIndex] == 1)
     {
         int a = Convert.ToInt32(Math.Abs(endIndex - startIndex));
         return a;
     }
 
-    s = height[startIndex] > height[endIndex]
+    s = height[startIndex] > height[endIndex] 
         ? height[endIndex] * height[endIndex] : height[startIndex] * height[startIndex];
 
 
