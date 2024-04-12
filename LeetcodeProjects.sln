@@ -63,8 +63,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_11_ContainerWithMos
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_11_ContainerWithMostWater_3", "project_11_ContainerWithMostWater_3\project_11_ContainerWithMostWater_3.csproj", "{34CC1B52-9A8A-4D24-8C97-F5D2C5FFCE50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_12_Test", "project_12_Test\project_12_Test.csproj", "{5FFE2278-3E43-4B3A-B35C-893B9C3FCE71}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -191,10 +189,6 @@ Global
 		{34CC1B52-9A8A-4D24-8C97-F5D2C5FFCE50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34CC1B52-9A8A-4D24-8C97-F5D2C5FFCE50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34CC1B52-9A8A-4D24-8C97-F5D2C5FFCE50}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5FFE2278-3E43-4B3A-B35C-893B9C3FCE71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5FFE2278-3E43-4B3A-B35C-893B9C3FCE71}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5FFE2278-3E43-4B3A-B35C-893B9C3FCE71}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5FFE2278-3E43-4B3A-B35C-893B9C3FCE71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
