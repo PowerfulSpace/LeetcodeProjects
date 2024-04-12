@@ -60,14 +60,3 @@ static int MaxArea(int[] height)
     }
     return area;
 }
-
-
-
-static void Test(List<int[]> inputs, List<int> expectedOutputs)
-{
-    foreach (var (input, expectedOutput) in inputs.Zip(ExpectedOutputs))
-    {
-        var actualOutput = MaxArea(input);
-        Console.WriteLine($"Input: {input}, Expected Output: {expectedOutput}, Actual Output: {actualOutput}");
-    }
-}
