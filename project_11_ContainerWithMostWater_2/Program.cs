@@ -37,72 +37,14 @@ Console.ReadLine();
 
 static int MaxArea(int[] height)
 {
-    if (height.Length <= 2)
+    int Area = 0;
+    for (int i = 0; i < height.Length; i++)
     {
-        return height.Min();
-    }
-
-    int s = 0;
-    int startIndex = 0;
-    int endIndex = 0;
-
-    int intermediateResult = 0;
-    int difference = 0;
-
-    int num = 0;
-    if(height.Length % 2 != 0)
-    {
-        num = 1;
-    }
-
-    int count = 0;
-
-    for (int i = 0; i < height.Length / 2; i++)
-    {
-        for (int j = height.Length-1; j > 0; j--)
+        for (int j = i + 1; j < height.Length; j++)
         {
-            count++;
-            difference = Math.Abs(j - i);
-
-            //if(Math.Min(height[i], height[i + 1]) > s)
-            //{
-            //    s = Math.Min(height[i], height[i + 1]);
-            //    startIndex = i;
-            //    endIndex = i+1;
-            //}
-            if (Math.Min(height[j], height[j - 1]) > s)
-            {
-                s = Math.Min(height[j], height[j - 1]);
-                startIndex = j;
-                endIndex = j - 1;
-            }
-
-
-            if (difference == 1)
-            {
-                intermediateResult = height[i] > height[j] ? height[j] : height[i];
-            }
-            else
-            {
-
-                intermediateResult = height[i] > height[j]
-                    ? height[j] * difference
-                    : height[i] * difference;
-            }
-
-            if (intermediateResult > s)
-            {
-                s = intermediateResult;
-                startIndex = i;
-                endIndex = j;
-            }
+            Area = Math.Max(Area, Math.Min(height[i], height[j]) *
+                            (j - i));
         }
     }
-
-    if(height[startIndex] == 1 || height[endIndex] == 1)
-    {
-        return Convert.ToInt32(Math.Abs(endIndex - startIndex));
-    }
-
-    return s;
+    return Area;
 }

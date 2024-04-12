@@ -15,6 +15,10 @@ int[] input13 = new int[] { 1, 3, 2, 5, 25, 24, 5 };
 int[] input14 = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
 int[] input15 = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
 
+
+List<int[]> Inputs = new List<int[]>() { new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 } };
+List<int> ExpectedOutputs = new List<int>() { 49 };
+
 //Console.WriteLine(MaxArea(input1));
 //Console.WriteLine(MaxArea(input2));
 //Console.WriteLine(MaxArea(input3));
@@ -37,15 +41,33 @@ Console.ReadLine();
 
 static int MaxArea(int[] height)
 {
-    int Area = 0;
-
-    for (int i = 0; i < height.Length; i++)
+    int area = 0;
+    for (int i = 0; i < height.Length - 1; i++)
     {
+        if (height[i] * height.Length - i < area) continue;
+
         for (int j = i + 1; j < height.Length; j++)
         {
-            Area = Math.Max(Area, Math.Min(height[i], height[j]) *
-                            (j - i));
+            int smallest = height[i] < height[j] ? height[i] : height[j];
+            int distance = j - i;
+            int currentArea = smallest * distance;
+
+            if (currentArea > area)
+            {
+                area = currentArea;
+            }
         }
     }
-    return Area;
+    return area;
+}
+
+
+
+static void Test(List<int[]> inputs, List<int> expectedOutputs)
+{
+    foreach (var (input, expectedOutput) in inputs.Zip(ExpectedOutputs))
+    {
+        var actualOutput = MaxArea(input);
+        Console.WriteLine($"Input: {input}, Expected Output: {expectedOutput}, Actual Output: {actualOutput}");
+    }
 }
