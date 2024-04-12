@@ -51,8 +51,8 @@ static int MaxArea(int[] height)
             {
 
                 intermediateResult = height[i] > height[j]
-                    ? height[j] * height[j] * difference
-                    : height[i] * height[i] * difference;
+                    ? height[j] * difference
+                    : height[i] * difference;
             }
 
             if (intermediateResult > s)
@@ -66,14 +66,8 @@ static int MaxArea(int[] height)
 
     if (height[startIndex] == 1 || height[endIndex] == 1)
     {
-        int a = Convert.ToInt32(Math.Abs(endIndex - startIndex));
-        return a;
+        return Convert.ToInt32(Math.Abs(endIndex - startIndex));
     }
-
-    s = height[startIndex] > height[endIndex]
-        ? height[endIndex] * height[endIndex] : height[startIndex] * height[startIndex];
-
-
 
     return s;
 }
