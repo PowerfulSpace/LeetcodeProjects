@@ -12,6 +12,8 @@ int[] input10 = new int[] { 1, 0, 0, 0, 0, 0, 0, 2, 2 };
 int[] input11 = new int[] { 1, 2, 1 };
 int[] input12 = new int[] { 2, 3, 4, 5, 18, 17, 6 };
 int[] input13 = new int[] { 1, 3, 2, 5, 25, 24, 5 };
+int[] input14 = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+int[] input15 = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
 
 //Console.WriteLine(MaxArea(input1));
 //Console.WriteLine(MaxArea(input2));
@@ -25,7 +27,9 @@ int[] input13 = new int[] { 1, 3, 2, 5, 25, 24, 5 };
 //Console.WriteLine(MaxArea(input10));
 //Console.WriteLine(MaxArea(input11));
 //Console.WriteLine(MaxArea(input12));
-Console.WriteLine(MaxArea(input13));
+//Console.WriteLine(MaxArea(input13));
+//Console.WriteLine(MaxArea(input14));
+Console.WriteLine(MaxArea(input15));
 
 
 Console.ReadLine();
@@ -50,19 +54,23 @@ static int MaxArea(int[] height)
     {
         num = 1;
     }
+
+    int count = 0;
+
     for (int i = 0; i < height.Length / 2; i++)
     {
-        for (int j = height.Length-1; j > (height.Length / 2) - num; j--)
+        for (int j = height.Length-1; j > 0; j--)
         {
+            count++;
             difference = Math.Abs(j - i);
 
-            if(Math.Min(height[i], height[i + 1]) > s)
-            {
-                s = Math.Min(height[i], height[i + 1]);
-                startIndex = i;
-                endIndex = i+1;
-            }
-            if(Math.Min(height[j], height[j - 1]) > s)
+            //if(Math.Min(height[i], height[i + 1]) > s)
+            //{
+            //    s = Math.Min(height[i], height[i + 1]);
+            //    startIndex = i;
+            //    endIndex = i+1;
+            //}
+            if (Math.Min(height[j], height[j - 1]) > s)
             {
                 s = Math.Min(height[j], height[j - 1]);
                 startIndex = j;
