@@ -20,33 +20,33 @@ Console.ReadLine();
 
 static int MaxArea(int[] height)
 {
-    int l = 0;
-    int r = height.Length - 1;
+    int leftIndex = 0;
+    int rightIndex = height.Length - 1;
 
-    int maxArea = CalculateArea(l, r, Math.Min(height[l], height[r]));
+    int maxArea = CalculateArea(leftIndex, rightIndex, Math.Min(height[leftIndex], height[rightIndex]));
 
-    while (l + 1 != r)
+    while (leftIndex + 1 < rightIndex)
     {
-        if (height[l] < height[r])
+        if (height[leftIndex] < height[rightIndex])
         {
-            l++;
+            leftIndex++;
         }
-        else if (height[l] > height[r])
+        else if (height[leftIndex] > height[rightIndex])
         {
-            r--;
+            rightIndex--;
         }
         else
         {
-            l++;
+            leftIndex++;
         }
-        var calcArea = CalculateArea(l, r, Math.Min(height[l], height[r]));
-        maxArea = Math.Max(maxArea, calcArea);
-    }
 
+        int area = CalculateArea(leftIndex, rightIndex, Math.Min(height[leftIndex], height[rightIndex]));
+        maxArea = Math.Max(maxArea, area);
+    }
     return maxArea;
 }
 
-static int CalculateArea(int indexOne, int indexTwo, int height)
+static int CalculateArea(int leftIndex, int rightIndex, int height)
 {
-    return (indexTwo - indexOne) * height;
+    return (rightIndex - leftIndex) * height;
 }
