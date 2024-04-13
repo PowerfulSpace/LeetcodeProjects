@@ -67,6 +67,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_11_ContainerWithMos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_11_ContainerWithMostWater_5", "project_11_ContainerWithMostWater_5\project_11_ContainerWithMostWater_5.csproj", "{EB434712-5624-4A64-BCFB-82DE20F63709}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_12_IntegerToRoman", "project_12_IntegerToRoman\project_12_IntegerToRoman.csproj", "{C4359485-FBB2-4C4C-90C2-FDD20A2A2E1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -201,6 +203,10 @@ Global
 		{EB434712-5624-4A64-BCFB-82DE20F63709}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB434712-5624-4A64-BCFB-82DE20F63709}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB434712-5624-4A64-BCFB-82DE20F63709}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4359485-FBB2-4C4C-90C2-FDD20A2A2E1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4359485-FBB2-4C4C-90C2-FDD20A2A2E1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4359485-FBB2-4C4C-90C2-FDD20A2A2E1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4359485-FBB2-4C4C-90C2-FDD20A2A2E1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
