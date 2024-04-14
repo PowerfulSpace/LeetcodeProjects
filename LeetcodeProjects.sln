@@ -69,11 +69,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_11_ContainerWithMos
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_12_IntegerToRoman", "project_12_IntegerToRoman\project_12_IntegerToRoman.csproj", "{C4359485-FBB2-4C4C-90C2-FDD20A2A2E1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_12_IntegerToRoman_2", "project_12_IntegerToRoman_2\project_12_IntegerToRoman_2.csproj", "{1AD933F2-8F0A-492F-8BE7-BA3643DA71DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_12_IntegerToRoman_2", "project_12_IntegerToRoman_2\project_12_IntegerToRoman_2.csproj", "{1AD933F2-8F0A-492F-8BE7-BA3643DA71DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_12_IntegerToRoman_3", "project_12_IntegerToRoman_3\project_12_IntegerToRoman_3.csproj", "{A6F0DFB4-41A1-496B-832E-DE1ACC9B6C4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_12_IntegerToRoman_3", "project_12_IntegerToRoman_3\project_12_IntegerToRoman_3.csproj", "{A6F0DFB4-41A1-496B-832E-DE1ACC9B6C4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_13_ RomanToInteger", "project_13_ RomanToInteger\project_13_ RomanToInteger.csproj", "{71036589-889E-498C-B5EF-CB40082F6891}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_13_ RomanToInteger", "project_13_ RomanToInteger\project_13_ RomanToInteger.csproj", "{71036589-889E-498C-B5EF-CB40082F6891}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_13_ RomanToInteger_2", "project_13_ RomanToInteger_2\project_13_ RomanToInteger_2.csproj", "{B88D87D6-DADE-4E33-B6F2-6DFC0B12D387}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -225,6 +227,10 @@ Global
 		{71036589-889E-498C-B5EF-CB40082F6891}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71036589-889E-498C-B5EF-CB40082F6891}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71036589-889E-498C-B5EF-CB40082F6891}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B88D87D6-DADE-4E33-B6F2-6DFC0B12D387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B88D87D6-DADE-4E33-B6F2-6DFC0B12D387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B88D87D6-DADE-4E33-B6F2-6DFC0B12D387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B88D87D6-DADE-4E33-B6F2-6DFC0B12D387}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
