@@ -73,6 +73,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_12_IntegerToRoman_2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_12_IntegerToRoman_3", "project_12_IntegerToRoman_3\project_12_IntegerToRoman_3.csproj", "{A6F0DFB4-41A1-496B-832E-DE1ACC9B6C4B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_13_ RomanToInteger", "project_13_ RomanToInteger\project_13_ RomanToInteger.csproj", "{71036589-889E-498C-B5EF-CB40082F6891}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -219,6 +221,10 @@ Global
 		{A6F0DFB4-41A1-496B-832E-DE1ACC9B6C4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6F0DFB4-41A1-496B-832E-DE1ACC9B6C4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6F0DFB4-41A1-496B-832E-DE1ACC9B6C4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71036589-889E-498C-B5EF-CB40082F6891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71036589-889E-498C-B5EF-CB40082F6891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71036589-889E-498C-B5EF-CB40082F6891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71036589-889E-498C-B5EF-CB40082F6891}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
