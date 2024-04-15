@@ -20,67 +20,83 @@ static IList<IList<int>> ThreeSum(int[] nums)
 
     for (int i = 0; i < nums.Length; i++)
     {
-        for (int j = 1; j < 4; j++)
+        for (int j = 0; j < 3; j++)
         {
             skip = 2;
-            index = skip;
+            index = j;
             
-            for (int k = j; k < nums.Length - 1; k++)
+            for (int k = j; k < nums.Length - 2; k++)
             {              
-                if(index == nums.Length - 2) { index = 1; }
+                if(index >= nums.Length) { index = j; }
 
-                if (nums[index - 1] + nums[index] + nums[index + 1] == 0)
+                if (index == j + 1 || index == j + 2)
                 {
-                    CheckOfAddition(lists, new List<int> { nums[index - 1], nums[index], nums[index + 1] });
+                    index+=2;
                 }
 
-                skip--;
-                index++;
+                if (nums[index] + nums[j + 1] + nums[j + 2] == 0)
+                {
+                    CheckOfAddition(lists, new List<int> { nums[index], nums[j + 1], nums[j + 2] });
+                }
 
-                Console.Write("(" + nums[k - 1] + " " + nums[k] + " " + nums[k + 1] + ")");
+                Console.Write("(" + nums[index] + " " + nums[j + 1] + " " + nums[j + 2] + ")");
+
+                skip--;
+                index++;      
             }
 
-
+            Console.WriteLine();
+            Console.WriteLine("----------------------------");
 
 
             skip = 1;
             index = skip;
 
-            for (int k = j; k < nums.Length - 1; k++)
+            for (int k = j; k < nums.Length - 2; k++)
             {
-                if (index == nums.Length - 1) { index = 1; }
+                if (index >= nums.Length) { index = j; }
 
-                if (nums[index - 1] + nums[index] + nums[index + 1] == 0)
+                if (index == j + 1 || index == j + 2)
                 {
-                    CheckOfAddition(lists, new List<int> { nums[index - 1], nums[index], nums[index + 1] });
+                    index += 2;
                 }
+
+                if (nums[index] + nums[j + 1] + nums[j + 2] == 0)
+                {
+                    CheckOfAddition(lists, new List<int> { nums[index], nums[j + 1], nums[j + 2] });
+                }
+
+                Console.Write("(" + nums[index] + " " + nums[j + 1] + " " + nums[j + 2] + ")");
 
                 skip--;
                 index++;
-
-                Console.Write("(" + nums[k - 1] + " " + nums[k] + " " + nums[k + 1] + ")");
             }
-
+            Console.WriteLine();
+            Console.WriteLine("----------------------------");
 
 
             skip = 0;
             index = skip;
 
-            for (int k = j; k < nums.Length - 1; k++)
+            for (int k = j; k < nums.Length - 2; k++)
             {
-                if (index + 2 == nums.Length-1) { index = 1; }
+                if (index >= nums.Length) { index = j; }
 
-                if (nums[index - 1] + nums[index] + nums[index + 1] == 0)
+                if (index == j + 1 || index == j + 2)
                 {
-                    CheckOfAddition(lists, new List<int> { nums[index - 1], nums[index], nums[index + 1] });
+                    index += 2;
                 }
+
+                if (nums[index] + nums[j + 1] + nums[j + 2] == 0)
+                {
+                    CheckOfAddition(lists, new List<int> { nums[index], nums[j + 1], nums[j + 2] });
+                }
+
+                Console.Write("(" + nums[index] + " " + nums[j + 1] + " " + nums[j + 2] + ")");
 
                 skip--;
                 index++;
-
-                Console.Write("(" + nums[k - 1] + " " + nums[k] + " " + nums[k + 1] + ")");
             }
-
 
 
 
