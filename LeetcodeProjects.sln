@@ -77,9 +77,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_13_ RomanToInteger"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_13_ RomanToInteger_2", "project_13_ RomanToInteger_2\project_13_ RomanToInteger_2.csproj", "{B88D87D6-DADE-4E33-B6F2-6DFC0B12D387}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_13_ RomanToInteger_3", "project_13_ RomanToInteger_3\project_13_ RomanToInteger_3.csproj", "{3162EAB2-A2BE-4E1B-AC9A-72CBA1D64558}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_13_ RomanToInteger_3", "project_13_ RomanToInteger_3\project_13_ RomanToInteger_3.csproj", "{3162EAB2-A2BE-4E1B-AC9A-72CBA1D64558}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_14_LongestCommonPrefix", "project_14_LongestCommonPrefix\project_14_LongestCommonPrefix.csproj", "{BCF2C676-C6A2-4707-A839-21E90C7AD4B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_14_LongestCommonPrefix", "project_14_LongestCommonPrefix\project_14_LongestCommonPrefix.csproj", "{BCF2C676-C6A2-4707-A839-21E90C7AD4B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_14_LongestCommonPrefix_2", "project_14_LongestCommonPrefix_2\project_14_LongestCommonPrefix_2.csproj", "{B7334A60-2CC0-4EEA-8600-1E4149C109FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -243,6 +245,10 @@ Global
 		{BCF2C676-C6A2-4707-A839-21E90C7AD4B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCF2C676-C6A2-4707-A839-21E90C7AD4B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCF2C676-C6A2-4707-A839-21E90C7AD4B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7334A60-2CC0-4EEA-8600-1E4149C109FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7334A60-2CC0-4EEA-8600-1E4149C109FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7334A60-2CC0-4EEA-8600-1E4149C109FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7334A60-2CC0-4EEA-8600-1E4149C109FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
