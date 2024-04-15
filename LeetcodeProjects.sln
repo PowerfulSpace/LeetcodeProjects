@@ -83,9 +83,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_14_LongestCommonPre
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_14_LongestCommonPrefix_2", "project_14_LongestCommonPrefix_2\project_14_LongestCommonPrefix_2.csproj", "{B7334A60-2CC0-4EEA-8600-1E4149C109FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_14_LongestCommonPrefix_3", "project_14_LongestCommonPrefix_3\project_14_LongestCommonPrefix_3.csproj", "{7DCDA596-DBE1-40FE-BD98-9ABF13AC2B4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_14_LongestCommonPrefix_3", "project_14_LongestCommonPrefix_3\project_14_LongestCommonPrefix_3.csproj", "{7DCDA596-DBE1-40FE-BD98-9ABF13AC2B4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_15_3Sum", "project_15_3Sum\project_15_3Sum.csproj", "{725D1F18-BBD8-4070-BE0F-D9738BAEA5A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_15_3Sum", "project_15_3Sum\project_15_3Sum.csproj", "{725D1F18-BBD8-4070-BE0F-D9738BAEA5A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_15_3Sum_2", "project_15_3Sum_2\project_15_3Sum_2.csproj", "{72D811B7-4FFB-439C-8750-67D165831EA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -261,6 +263,10 @@ Global
 		{725D1F18-BBD8-4070-BE0F-D9738BAEA5A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{725D1F18-BBD8-4070-BE0F-D9738BAEA5A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{725D1F18-BBD8-4070-BE0F-D9738BAEA5A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72D811B7-4FFB-439C-8750-67D165831EA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72D811B7-4FFB-439C-8750-67D165831EA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72D811B7-4FFB-439C-8750-67D165831EA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72D811B7-4FFB-439C-8750-67D165831EA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
