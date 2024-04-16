@@ -1,11 +1,16 @@
-﻿int[] nums1 = { -1, 0, 1, 2, -1, -4 };
+﻿using System.Collections;
+using System.Collections.Generic;
+
+int[] nums1 = { -1, 0, 1, 2, -1, -4 };
 int[] nums2 = { 0, 1, 1 };
 int[] nums3 = { 0, 0, 0 };
 int[] nums4 = { -1, 0, 1 };
 int[] nums5 = { -1, 0, 1, 2, -1, -4 };
 int[] nums6 = { 1, 2, -2, -1 };
+int[] nums7 = { 1, -1, -1, 0 };
+int[] nums8 = { 1, -1, -1, 0 };
 
-ThreeSum(nums6);
+ThreeSum(nums1);
 
 Console.ReadLine();
 
@@ -23,24 +28,27 @@ static IList<IList<int>> ThreeSum(int[] nums)
         }
     }
    
-
-    
-
     Array.Sort(nums);
 
     for (int i = 0; i < nums.Length; i++)
     {
-        for (int j = 0; j < nums.Length; j++)
+        for (int j = i; j < nums.Length; j++)
         {
-            for (int k = j; k < nums.Length - 2; k++)
+            for (int k = j; k < nums.Length; k++)
             {
                 if (i != j && i != k && j != k)
                 {
                     if (nums[k] + nums[j] + nums[i] == 0)
-                        CheckOfAddition(lists, new List<int> { nums[k], nums[j], nums[i] });
+                    {
+                        List<int> list = new List<int>() { nums[k], nums[j], nums[i] };
+                        list.Sort();
+                        CheckOfAddition(lists, list);
+                    }
+                        
+                    
                 }
                    
-            }           
+            }
         }
     }
 
