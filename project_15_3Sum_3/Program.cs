@@ -5,8 +5,9 @@ using System;
 int[] nums1 = { -1, 0, 1, 2, -1, -4 };
 int[] nums2 = { 0, 1, 1 };
 int[] nums3 = { 0, 0, 0 };
+int[] nums4 = { -1, 0, 1, 2, -1, -4, -2, -3, 3, 0, 4 };
 
-ThreeSum(nums1);
+ThreeSum(nums4);
 
 Console.ReadLine();
 
@@ -16,6 +17,18 @@ static IList<IList<int>> ThreeSum(int[] nums)
     if (nums.Length < 3) { return new List<IList<int>>(); }
 
     List<IList<int>> lists = new List<IList<int>>();
+
+    if (nums.Length == 3)
+    {
+        if (nums[0] == 0 && nums[1] == 0 && nums[2] == 0 || (nums[0] + nums[1] + nums[2] == 0))
+        {
+            lists.Add(nums);
+            return lists;
+        }
+    }
+
+    Array.Sort(nums);
+
 
     int index = 0;
     int index2 = -1;
@@ -53,23 +66,14 @@ static IList<IList<int>> ThreeSum(int[] nums)
             }
             if (index == nums.Length) { index = 0; }
 
-
-            //if (nums[index] + nums[j + 1 == nums.Length ? index2 : j + 1] + nums[j + 2 == nums.Length ? index3 : j + 2] == 0)
-            //{
-            //    CheckOfAddition(lists, new List<int> { nums[index], nums[j + 1 == nums.Length ? index2 : j + 1], nums[j + 2 == nums.Length ? index3 : j + 2] });
-            //}
-
-
             if (nums[index] + nums[j + 1 == nums.Length ? index2 : j + 1] + nums[j + 2 == nums.Length ? index3 : j + 2] == 0)
             {
                 List<int> list = new List<int>() { nums[index], nums[j + 1 == nums.Length ? index2 : j + 1], nums[j + 2 == nums.Length ? index3 : j + 2] };
                 list.Sort();
                 CheckOfAddition(lists, list);
+                Console.Write("(" + nums[index] + " " + nums[j + 1 == nums.Length ? index2 : j + 1] + " " + nums[j + 2 == nums.Length ? index3 : j + 2] + ")");
             }
 
-
-
-            Console.Write("(" + nums[index] + " " + nums[j + 1 == nums.Length ? index2 : j + 1] + " " + nums[j + 2 == nums.Length ? index3 : j + 2] + ")");
 
             if (index2 != -1 || index3 != -1)
             {
@@ -109,21 +113,15 @@ static IList<IList<int>> ThreeSum(int[] nums)
             }
             if (index == nums.Length) { index = 0; }
 
-
-            //if (nums[index] + nums[j + 1 == nums.Length ? index2 : j + 1] + nums[j != 0 ? j - 1 : index3] == 0)
-            //{
-            //    CheckOfAddition(lists, new List<int> { nums[index], nums[j + 1 == nums.Length ? index2 : j + 1], nums[j != 0 ? j - 1 : index3] });
-            //}
-
             if (nums[index] + nums[j + 1 == nums.Length ? index2 : j + 1] + nums[j != 0 ? j - 1 : index3] == 0)
             {
                 List<int> list = new List<int>() { nums[index], nums[j + 1 == nums.Length ? index2 : j + 1], nums[j != 0 ? j - 1 : index3] };
                 list.Sort();
                 CheckOfAddition(lists, list);
+                Console.Write("(" + nums[index] + " " + nums[j + 1 == nums.Length ? index2 : j + 1] + " " + nums[j != 0 ? j - 1 : index3] + ")");
             }
 
 
-            Console.Write("(" + nums[index] + " " + nums[j + 1 == nums.Length ? index2 : j + 1] + " " + nums[j != 0 ? j - 1 : index3] + ")");
 
             if (index2 != -1 || index3 != -1)
             {
@@ -162,19 +160,14 @@ static IList<IList<int>> ThreeSum(int[] nums)
                 index3 = nums.Length - 1;
             }
 
-            //if (nums[index] + nums[j - 2 <= 0 ? index2 : j - 2] + nums[j - 1 <= 0 ? index3 : j - 1] == 0)
-            //{
-            //    CheckOfAddition(lists, new List<int> { nums[index], nums[j - 2 <= 0 ? index2 : j - 2], nums[j - 1 <= 0 ? index3 : j - 1] });
-            //}
-
             if (nums[index] + nums[j - 2 <= 0 ? index2 : j - 2] + nums[j - 1 <= 0 ? index3 : j - 1] == 0)
             {
                 List<int> list = new List<int>() { nums[index], nums[j - 2 <= 0 ? index2 : j - 2], nums[j - 1 <= 0 ? index3 : j - 1] };
                 list.Sort();
                 CheckOfAddition(lists, list);
+                Console.Write("(" + nums[index] + " " + nums[j - 2 <= 0 ? index2 : j - 2] + " " + nums[j - 1 <= 0 ? index3 : j - 1] + ")");
             }
 
-            Console.Write("(" + nums[index] + " " + nums[j - 2 <= 0 ? index2 : j - 2] + " " + nums[j - 1 <= 0 ? index3 : j - 1] + ")");
 
             if (index2 != -1 || index3 != -1)
             {
