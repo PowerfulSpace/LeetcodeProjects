@@ -98,8 +98,6 @@ static IList<IList<int>> ThreeSum(int[] nums)
                 index++;
             }
 
-
-
             Console.WriteLine();
             Console.WriteLine("----------------------------");
         }
