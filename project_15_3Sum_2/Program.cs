@@ -1,20 +1,51 @@
-﻿
-
-using System;
-
-int[] nums1 = { -1, 0, 1, 2, -1, -4 };
+﻿int[] nums1 = { -1, 0, 1, 2, -1, -4 };
 int[] nums2 = { 0, 1, 1 };
 int[] nums3 = { 0, 0, 0 };
+int[] nums4 = { -1, 0, 1 };
+int[] nums5 = { -1, 0, 1, 2, -1, -4 };
+int[] nums6 = { 1, 2, -2, -1 };
 
-ThreeSum(nums1);
+ThreeSum(nums6);
 
 Console.ReadLine();
 
 
 static IList<IList<int>> ThreeSum(int[] nums)
 {
+    List<IList<int>> lists = new List<IList<int>>();
 
-    return new List<IList<int>>();
+    if(nums.Length == 3)
+    {
+        if (nums[0] == 0 && nums[1] == 0 && nums[2] == 0 || (nums[0] + nums[1] + nums[2] == 0))
+        {
+            lists.Add(nums);
+            return lists;
+        }
+    }
+   
+
+    
+
+    Array.Sort(nums);
+
+    for (int i = 0; i < nums.Length; i++)
+    {
+        for (int j = 0; j < nums.Length; j++)
+        {
+            for (int k = j; k < nums.Length - 2; k++)
+            {
+                if (i != j && i != k && j != k)
+                {
+                    if (nums[k] + nums[j] + nums[i] == 0)
+                        CheckOfAddition(lists, new List<int> { nums[k], nums[j], nums[i] });
+                }
+                   
+            }           
+        }
+    }
+
+
+    return lists;
 }
 
 static void CheckOfAddition(List<IList<int>> lists, List<int> list)
@@ -31,5 +62,4 @@ static void CheckOfAddition(List<IList<int>> lists, List<int> list)
     {
         lists.Add(list);
     }
-
 }
