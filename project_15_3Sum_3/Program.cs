@@ -15,7 +15,7 @@ Console.ReadLine();
 static IList<IList<int>> ThreeSum(int[] nums)
 {
     Array.Sort(nums);
-    var res = new List<IList<int>>();
+    IList<IList<int>> result = new List<IList<int>>();
 
     for (int i = 0; i < nums.Length; i++)
     {
@@ -25,35 +25,42 @@ static IList<IList<int>> ThreeSum(int[] nums)
         }
 
         int target = 0 - nums[i];
-        int left = i + 1, right = nums.Length - 1;
 
-        while (left < right)
+        int leftIndex = i + 1;
+        int rigthIndex = nums.Length - 1;
+
+        while (leftIndex < rigthIndex)
         {
-            if (nums[left] + nums[right] > target)
+            if (nums[leftIndex] + nums[rigthIndex] > target)
             {
-                right--;
+                rigthIndex--;
             }
-            else if (nums[left] + nums[right] < target)
+            else if (nums[leftIndex] + nums[rigthIndex] < target)
             {
-                left++;
+                leftIndex++;
             }
             else
             {
-                res.Add(new List<int>() { nums[i], nums[left], nums[right] });
+                result.Add(new List<int>() { nums[i], nums[leftIndex], nums[rigthIndex] });
 
-                left++;
+                leftIndex++;
 
-                while (left < right && nums[left] == nums[left - 1])
+                while (leftIndex < rigthIndex && nums[leftIndex] == nums[leftIndex - 1])
                 {
-                    left++;
+                    leftIndex++;
                 }
-                right--;
-                while (left < right && nums[right] == nums[right + 1])
+
+                rigthIndex--;
+
+                while (leftIndex < rigthIndex && nums[rigthIndex] == nums[rigthIndex - 1])
                 {
-                    right--;
+                    rigthIndex--;
                 }
+
             }
         }
+
     }
-    return res;
+
+    return result;
 }
