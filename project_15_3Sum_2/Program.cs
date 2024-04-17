@@ -1,14 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
+
+using System;
 
 int[] nums1 = { -1, 0, 1, 2, -1, -4 };
 int[] nums2 = { 0, 1, 1 };
 int[] nums3 = { 0, 0, 0 };
-int[] nums4 = { -1, 0, 1 };
-int[] nums5 = { -1, 0, 1, 2, -1, -4 };
-int[] nums6 = { 1, 2, -2, -1 };
-int[] nums7 = { 1, -1, -1, 0 };
-int[] nums8 = { 1, -1, -1, 0 };
+int[] nums4 = { -1, 0, 1, 2, -1, -4, -2, -3, 3, 0, 4 };
 
 ThreeSum(nums1);
 
@@ -17,44 +14,66 @@ Console.ReadLine();
 
 static IList<IList<int>> ThreeSum(int[] nums)
 {
-    List<IList<int>> lists = new List<IList<int>>();
+    var output = new List<IList<int>>();
 
-    if(nums.Length == 3)
-    {
-        if (nums[0] == 0 && nums[1] == 0 && nums[2] == 0 || (nums[0] + nums[1] + nums[2] == 0))
-        {
-            lists.Add(nums);
-            return lists;
-        }
-    }
-   
     Array.Sort(nums);
 
-    for (int i = 0; i < nums.Length; i++)
+    for (int i = 0; i < nums.Length - 2; i++)
     {
-        for (int j = i; j < nums.Length; j++)
+        if (i > 1 && nums[i] == nums[i - 1]) continue;
+
+        int low = i + 1;
+        int high = nums.Length - 1;
+
+        while (low < high)
         {
-            for (int k = j; k < nums.Length; k++)
+            int sum = nums[i] + nums[low] + nums[high];
+
+            if (sum == 0)
             {
-                if (i != j && i != k && j != k)
+                var numlist = new List<int>() { nums[i], nums[low], nums[high] };
+                bool exists = false;
+                foreach (var nlist in output)
                 {
-                    if (nums[k] + nums[j] + nums[i] == 0)
+                    if (nlist[0] == numlist[0] && nlist[1] == numlist[1] && nlist[2] == numlist[2])
                     {
-                        List<int> list = new List<int>() { nums[k], nums[j], nums[i] };
-                        list.Sort();
-                        CheckOfAddition(lists, list);
+                        exists = true;
+                        break;
                     }
-                        
-                    
                 }
-                   
+
+                if (!exists)
+                {
+                    output.Add(numlist);
+                }
+
+                while (low < high && nums[low] == nums[low + 1])
+                {
+                    low++;
+                }
+                while (low < high && nums[high] == nums[high - 1])
+                {
+                    high--;
+                }
+
+                low++;
+                high--;
+            }
+            else if (sum < 0)
+            {
+                low++;
+            }
+            else
+            {
+                high--;
             }
         }
     }
 
-
-    return lists;
+    return output;
 }
+
+
 
 static void CheckOfAddition(List<IList<int>> lists, List<int> list)
 {
