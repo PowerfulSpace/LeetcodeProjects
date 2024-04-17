@@ -14,61 +14,40 @@ Console.ReadLine();
 
 static IList<IList<int>> ThreeSum(int[] nums)
 {
-    var output = new List<IList<int>>();
-
     Array.Sort(nums);
-
-    for (int i = 0; i < nums.Length - 2; i++)
+    IList<IList<int>> result = new List<IList<int>>();
+    var hash = new HashSet<(int, int, int)>();
+    for (var i = 0; i < nums.Length; i++)
     {
-        if (i > 1 && nums[i] == nums[i - 1]) continue;
-
-        int low = i + 1;
-        int high = nums.Length - 1;
-
-        while (low < high)
+        var mv = nums[i];
+        var l = i + 1;
+        var r = nums.Length - 1;
+        while (l < r)
         {
-            int sum = nums[i] + nums[low] + nums[high];
-
-            if (sum == 0)
+            var lv = nums[l];
+            var rv = nums[r];
+            var calValue = mv + lv + rv;
+            if (calValue == 0)
             {
-                var numlist = new List<int>() { nums[i], nums[low], nums[high] };
-                bool exists = false;
-                foreach (var nlist in output)
+                if (!hash.Contains((mv, lv, rv)))
                 {
-                    if (nlist[0] == numlist[0] && nlist[1] == numlist[1] && nlist[2] == numlist[2])
-                    {
-                        exists = true;
-                        break;
-                    }
+                    result.Add(new List<int>() { mv, lv, rv });
+                    hash.Add((mv, lv, rv));
                 }
 
-                if (!exists)
-                {
-                    output.Add(numlist);
-                }
-
-                while (low < high && nums[low] == nums[low + 1])
-                {
-                    low++;
-                }
-                while (low < high && nums[high] == nums[high - 1])
-                {
-                    high--;
-                }
-
-                low++;
-                high--;
+                l++;
+                r--;
             }
-            else if (sum < 0)
+            else if (calValue > 0)
             {
-                low++;
+                r--;
             }
             else
             {
-                high--;
+                l++;
             }
         }
     }
 
-    return output;
+    return result;
 }

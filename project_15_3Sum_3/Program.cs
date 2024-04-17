@@ -15,39 +15,48 @@ Console.ReadLine();
 static IList<IList<int>> ThreeSum(int[] nums)
 {
     Array.Sort(nums);
-    IList<IList<int>> result = new List<IList<int>>();
-    var hash = new HashSet<(int, int, int)>();
-    for (var i = 0; i < nums.Length; i++)
-    {
-        var mv = nums[i];
-        var l = i + 1;
-        var r = nums.Length - 1;
-        while (l < r)
-        {
-            var lv = nums[l];
-            var rv = nums[r];
-            var calValue = mv + lv + rv;
-            if (calValue == 0)
-            {
-                if (!hash.Contains((mv, lv, rv)))
-                {
-                    result.Add(new List<int>() { mv, lv, rv });
-                    hash.Add((mv, lv, rv));
-                }
+    var res = new List<IList<int>>();
 
-                l++;
-                r--;
-            }
-            else if (calValue > 0)
+    for (int i = 0; i < nums.Length; i++)
+    {
+        while (i > 0 && i < nums.Length - 2 && nums[i] == nums[i - 1])
+        {
+            i++;
+        }
+
+        int target = 0 - nums[i];
+        int left = i + 1, right = nums.Length - 1;
+
+        while (left < right)
+        {
+            if (nums[left] + nums[right] > target)
             {
-                r--;
+                right--;
+            }
+            else if (nums[left] + nums[right] < target)
+            {
+                left++;
             }
             else
             {
-                l++;
+                List<int> list = new();
+                list.Add(nums[i]);
+                list.Add(nums[left]);
+                list.Add(nums[right]);
+                res.Add(list);
+
+                left++;
+                while (left < right && nums[left] == nums[left - 1])
+                {
+                    left++;
+                }
+                right--;
+                while (left < right && nums[right] == nums[right + 1])
+                {
+                    right--;
+                }
             }
         }
     }
-
-    return result;
+    return res;
 }
