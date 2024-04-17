@@ -39,13 +39,10 @@ static IList<IList<int>> ThreeSum(int[] nums)
             }
             else
             {
-                List<int> list = new();
-                list.Add(nums[i]);
-                list.Add(nums[left]);
-                list.Add(nums[right]);
-                res.Add(list);
+                res.Add(new List<int>() { nums[i], nums[left], nums[right] });
 
                 left++;
+
                 while (left < right && nums[left] == nums[left - 1])
                 {
                     left++;
