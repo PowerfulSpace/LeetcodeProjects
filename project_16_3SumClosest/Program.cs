@@ -16,71 +16,48 @@ Console.ReadLine();
 
 static int ThreeSumClosest(int[] nums, int target)
 {
-    if(nums.Length < 3) return 0;
-    if(nums.Length == 3) return nums[0] + nums[1] + nums[2];
+    int output = target > 0 ? int.MinValue : int.MaxValue;
 
     Array.Sort(nums);
-    int result = nums[0] + nums[1] + nums[2];
 
-
-    for(int i = 0; i < nums.Length - 1; i++)
+    for (int i = 0; i < nums.Length - 2; i++)
     {
+        int low = i + 1;
+        int high = nums.Length - 1;
 
-        if (result == target) { return result; }
-        while(i > 0 && i < nums.Length - 2 && nums[i] == nums[i - 1])
+        while (low < high)
         {
-            i++;
-        }
+            int sum = nums[i] + nums[low] + nums[high];
 
-        int value = nums[i];
-        int leftIndex = i + 1;
-        int rigthIndex = nums.Length - 1;
-
-        int temporaryResult = value + nums[leftIndex] + nums[rigthIndex];
-
-        if (temporaryResult == target) { return temporaryResult; }
-
-        while (leftIndex < rigthIndex)
-        {
-            if (result < target)
+            if (sum == target)
             {
-                if(result <= temporaryResult)
-                {
-                    result = temporaryResult;
-                }
-                leftIndex++;
+                return target;
             }
-            else if (result > target)
+            else if (sum < target)
             {
-                if(result >= temporaryResult)
-                {
-                    result = temporaryResult;
-                }
-                rigthIndex--;
+                low++;
             }
             else
             {
-
-                result = temporaryResult;
-
-                leftIndex++;
-
-                while (leftIndex < rigthIndex && nums[leftIndex] == nums[leftIndex - 1])
-                {
-                    leftIndex++;
-                }
-
-                rigthIndex--;
-
-                while (leftIndex < rigthIndex && nums[rigthIndex] == nums[rigthIndex - 1])
-                {
-                    rigthIndex--;
-                }
-
+                high--;
             }
-        }
 
+            if (output == int.MaxValue || output == int.MaxValue)
+            {
+                output = sum;
+                continue;
+            }
+
+            int currentDifference = NumberDifference(target, output);
+            int sumDifference = NumberDifference(target, sum);
+
+            if (sumDifference < currentDifference) output = sum;
+        }
     }
 
-    return result;
+    return output;
+}
+static int NumberDifference(int target, int current)
+{
+    return Math.Abs(target - current);
 }
