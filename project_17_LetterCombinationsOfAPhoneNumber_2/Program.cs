@@ -7,9 +7,9 @@ string digits = "23";
 string digits2 = "2";
 string digits3 = "234";
 
-LetterCombinations(digits);
+//LetterCombinations(digits);
 //LetterCombinations(digits2);
-//LetterCombinations(digits3);
+LetterCombinations(digits3);
 
 Console.ReadLine();
 
@@ -29,44 +29,28 @@ static IList<string> LetterCombinations(string digits)
 
     List<List<char>> collectionMatches = new List<List<char>>();
 
-    if(digits.Length == 1)
+    StringBuilder sb = new StringBuilder();
+
+    for (int i = 0; i < digits.Length - 1; i++)
     {
-        for(int i = 0; i < digits.Length; i++)
+        int key = (int)char.GetNumericValue((digits[i]));
+        int key2 = (int)char.GetNumericValue((digits[i + 1]));
+
+        foreach (var item in kit[key])
         {
-            int key = (int)char.GetNumericValue((digits[i]));
-            List<char> letters = kit[key];
-            for (int k = 0; k < letters.Count; k++)
+            sb.Append(item);
+            foreach (char item2 in kit[key2])
             {
-                result.Add(letters[k].ToString());
+                sb.Append(item2);
+                result.Add(sb.ToString());
             }
+            //result.Add(sb.ToString());
+            sb.Clear();
         }
     }
-    else
-    {
-        for (int i = 0; i < digits.Length - 1; i++)
-        {
-            int key = (int)char.GetNumericValue((digits[i]));
-            List<char> letters = kit[key];
+    
 
-            for (int j = 0; j < letters.Count; j++)
-            {
-                int key2 = (int)char.GetNumericValue((digits[i + 1]));
-                List<char> letters2 = kit[key2];
 
-                for (int k = 0; k < letters2.Count; k++)
-                {
-                    result.Add(letters[j].ToString() + letters2[k].ToString());
-                    Console.WriteLine(letters[j] + " " + letters2[k]);
-                }
-
-            }
-
-        }
-    }
-
-   
-
-   
 
 
     return result;
