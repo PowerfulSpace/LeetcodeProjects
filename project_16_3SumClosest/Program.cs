@@ -42,7 +42,7 @@ static int ThreeSumClosest(int[] nums, int target)
                 high--;
             }
 
-            if (output == int.MaxValue || output == int.MaxValue)
+            if (output == int.MaxValue || output == int.MinValue)
             {
                 output = sum;
                 continue;

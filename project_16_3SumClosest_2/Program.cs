@@ -16,6 +16,54 @@ Console.ReadLine();
 
 static int ThreeSumClosest(int[] nums, int target)
 {
-    return 1;
-}
 
+    int result = target > 0 ? int.MinValue : int.MaxValue;
+
+    Array.Sort(nums);
+
+    for (int i = 0; i < nums.Length-2; i++)
+    {
+        int left = i + 1;
+        int right = nums.Length - 1;
+
+        while (left < right)
+        {
+            int sum = nums[i] + nums[left] + nums[right];
+
+            if (sum == target)
+            {
+                return target;
+            }
+            else if(sum < target)
+            {
+                left++;              
+            }
+            else
+            {
+                right--;
+            }
+
+
+            if (result == int.MinValue || result == int.MaxValue)
+            {
+                result = sum;
+                continue;
+            }
+
+
+            int currentRange = NumberDifference(target, result);
+            int sumRange = NumberDifference(target, sum);
+
+            if (currentRange > sumRange)
+            {
+                result = sum;
+            }
+        }
+    }
+
+    return result;
+}
+static int NumberDifference(int target, int current)
+{
+    return Math.Abs(target - current);
+}
