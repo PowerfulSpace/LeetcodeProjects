@@ -44,24 +44,24 @@ static int ThreeSumClosest(int[] nums, int target)
         {
             if (result < target)
             {
-                if(result <= value + nums[leftIndex] + nums[rigthIndex])
+                if(result <= temporaryResult)
                 {
-                    result = value + nums[leftIndex] + nums[rigthIndex];
+                    result = temporaryResult;
                 }
                 leftIndex++;
             }
             else if (result > target)
             {
-                if(result >= value + nums[leftIndex] + nums[rigthIndex])
+                if(result >= temporaryResult)
                 {
-                    result = value + nums[leftIndex] + nums[rigthIndex];
+                    result = temporaryResult;
                 }
                 rigthIndex--;
             }
             else
             {
 
-                result = value + nums[leftIndex] + nums[rigthIndex];
+                result = temporaryResult;
 
                 leftIndex++;
 
