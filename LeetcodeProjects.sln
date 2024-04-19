@@ -97,7 +97,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_16_3SumClosest_2", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_17_LetterCombinationsOfAPhoneNumber", "project_17_LetterCombinationsOfAPhoneNumber\project_17_LetterCombinationsOfAPhoneNumber.csproj", "{BF109F8A-F527-4E06-BE74-B25E50614AE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_17_LetterCombinationsOfAPhoneNumber_2", "project_17_LetterCombinationsOfAPhoneNumber_2\project_17_LetterCombinationsOfAPhoneNumber_2.csproj", "{A307571F-AF2E-476A-91D3-E7B525E033EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_17_LetterCombinationsOfAPhoneNumber_2", "project_17_LetterCombinationsOfAPhoneNumber_2\project_17_LetterCombinationsOfAPhoneNumber_2.csproj", "{A307571F-AF2E-476A-91D3-E7B525E033EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_17_LetterCombinationsOfAPhoneNumber_3", "project_17_LetterCombinationsOfAPhoneNumber_3\project_17_LetterCombinationsOfAPhoneNumber_3.csproj", "{66DFCB36-0676-414D-B896-AE8C593CE968}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -297,6 +299,10 @@ Global
 		{A307571F-AF2E-476A-91D3-E7B525E033EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A307571F-AF2E-476A-91D3-E7B525E033EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A307571F-AF2E-476A-91D3-E7B525E033EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66DFCB36-0676-414D-B896-AE8C593CE968}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66DFCB36-0676-414D-B896-AE8C593CE968}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66DFCB36-0676-414D-B896-AE8C593CE968}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66DFCB36-0676-414D-B896-AE8C593CE968}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

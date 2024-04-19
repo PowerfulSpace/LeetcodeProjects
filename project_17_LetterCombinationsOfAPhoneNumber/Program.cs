@@ -17,87 +17,43 @@ Console.ReadLine();
 static IList<string> LetterCombinations(string digits)
 {
 
-    if (!int.TryParse(digits, out int test))
+    if (digits.Length == 0) return new List<string>();
+    Dictionary<string, string> kit = new Dictionary<string, string>()
     {
-        return new List<string>();
-    }
+        ["2"] = "abc",
+        ["3"] = "def",
+        ["4"] = "ghi",
+        ["5"] = "jkl",
+        ["6"] = "mno",
+        ["7"] = "pqrs",
+        ["8"] = "tuv",
+        ["9"] = "wxyz",
+    };
 
     List<string> result = new List<string>();
 
-    Dictionary<int, List<char>> kit = new Dictionary<int, List<char>>();
-    Comparison(kit);
-
-    List<List<char>> collectionMatches = new List<List<char>>();
-
-    if(digits.Length == 1)
-    {
-        for(int i = 0; i < digits.Length; i++)
-        {
-            int key = (int)char.GetNumericValue((digits[i]));
-            List<char> letters = kit[key];
-            for (int k = 0; k < letters.Count; k++)
-            {
-                result.Add(letters[k].ToString());
-            }
-        }
-    }
-    else
-    {
-        for (int i = 0; i < digits.Length - 1; i++)
-        {
-            int key = (int)char.GetNumericValue((digits[i]));
-            List<char> letters = kit[key];
-
-            for (int j = 0; j < letters.Count; j++)
-            {
-                int key2 = (int)char.GetNumericValue((digits[i + 1]));
-                List<char> letters2 = kit[key2];
-
-                for (int k = 0; k < letters2.Count; k++)
-                {
-                    result.Add(letters[j].ToString() + letters2[k].ToString());
-                    Console.WriteLine(letters[j] + " " + letters2[k]);
-                }
-
-            }
-
-        }
-    }
-
-   
-
-   
+    result = CreateCombinations(result, "", digits, kit);
 
 
     return result;
 }
 
-static void Comparison(Dictionary<int, List<char>> kit)
+static List<string> CreateCombinations(List<string> list, string value, string digits, Dictionary<string, string> kit)
 {
-    int index = 97;
 
-    kit.Add(0, new List<char>());
-    kit.Add(1, new List<char>());
-
-    for (int i = 2; i < 10; i++)
+    foreach (var item in kit[digits.Substring(0, 1)])
     {
-        List<char> list = new List<char>();
+        string temporaryMeaning = value + item;
 
-        for (int j = 0; j < 3; j++)
+        if (digits.Length > 1)
         {
-            list.Add((char)index);
-            index++;
+            list = CreateCombinations(list, temporaryMeaning, digits.Substring(1), kit);
         }
-        if (i == 7)
+        else
         {
-            list.Add((char)index);
-            index++;
+            list.Add(temporaryMeaning);
         }
-        if (i == 9)
-        {
-            list.Add((char)index);
-            index++;
-        }
-        kit.Add(i, list);
     }
+
+    return list;
 }
