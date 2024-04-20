@@ -4,9 +4,9 @@ int[] input1 = { 1, 0, -1, 0, -2, 2 };
 int[] input2 = { 2, 2, 2, 2, 2 };
 int[] input3 = { -3, -1, 0, 2, 4, 5 };
 
-//FourSum(input1, 0);
+FourSum(input1, 0);
 //FourSum(input2, 8);
-FourSum(input3, 0);
+//FourSum(input3, 0);
 
 
 Console.ReadLine();
