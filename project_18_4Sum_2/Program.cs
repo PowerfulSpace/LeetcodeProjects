@@ -3,10 +3,12 @@
 int[] input1 = { 1, 0, -1, 0, -2, 2 };
 int[] input2 = { 2, 2, 2, 2, 2 };
 int[] input3 = { -3, -1, 0, 2, 4, 5 };
+int[] input4 = { -2, -1, -1, 1, 1, 2, 2 };
 
 //FourSum(input1, 0);
-FourSum(input2, 8);
+//FourSum(input2, 8);
 //FourSum(input3, 0);
+FourSum(input4, 0);
 
 
 Console.ReadLine();
@@ -41,7 +43,10 @@ static IList<IList<int>> FourSum(int[] nums, int target)
         sum = nums[startIndex] + nums[index2] + nums[index3] + nums[endIndex];
         if (sum == target)
         {
-            output.Add(new List<int> { nums[startIndex], nums[index2], nums[index3], nums[endIndex] });
+            if (UniquenessCheck(nums[startIndex], nums[index2], nums[index3], nums[endIndex], output))
+            {
+                output.Add(new List<int> { nums[startIndex], nums[index2], nums[index3], nums[endIndex] });
+            }            
             index2++;
             sum = nums[startIndex] + nums[index2] + nums[index3] + nums[endIndex];
         }
@@ -57,7 +62,10 @@ static IList<IList<int>> FourSum(int[] nums, int target)
             {
                 if (sum == target)
                 {
-                    output.Add(new List<int> { nums[startIndex], nums[index2], nums[index3], nums[endIndex] });
+                    if (UniquenessCheck(nums[startIndex], nums[index2], nums[index3], nums[endIndex], output))
+                    {
+                        output.Add(new List<int> { nums[startIndex], nums[index2], nums[index3], nums[endIndex] });
+                    }
                     index2++;
                 }
                 else if (sum < target)
@@ -76,7 +84,10 @@ static IList<IList<int>> FourSum(int[] nums, int target)
             {
                 if (sum == target)
                 {
-                    output.Add(new List<int> { nums[startIndex], nums[index2], nums[index3], nums[endIndex] });
+                    if (UniquenessCheck(nums[startIndex], nums[index2], nums[index3], nums[endIndex], output))
+                    {
+                        output.Add(new List<int> { nums[startIndex], nums[index2], nums[index3], nums[endIndex] });
+                    }
                     startIndex++;
                 }
                 else if (sum < target)
@@ -95,7 +106,10 @@ static IList<IList<int>> FourSum(int[] nums, int target)
             {
                 if (sum == target)
                 {
-                    output.Add(new List<int> { nums[startIndex], nums[index2], nums[index3], nums[endIndex] });
+                    if (UniquenessCheck(nums[startIndex], nums[index2], nums[index3], nums[endIndex], output))
+                    {
+                        output.Add(new List<int> { nums[startIndex], nums[index2], nums[index3], nums[endIndex] });
+                    }
                     index3++;
                 }
                 else if (sum < target)
@@ -108,4 +122,16 @@ static IList<IList<int>> FourSum(int[] nums, int target)
 
 
         return output;
+}
+
+static bool UniquenessCheck(int index1, int index2, int index3, int index4, List<IList<int>> lists)
+{
+    foreach (IList<int> list in lists)
+    {
+        if(list[0] == index1 && list[1] == index2 && list[2] == index3 && list[3] == index4)
+        {
+            return false;
+        }
+    }
+    return true;
 }
