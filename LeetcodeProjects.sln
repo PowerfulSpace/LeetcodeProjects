@@ -119,6 +119,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_19_RemoveNthNodeFro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_19_RemoveNthNodeFromEndOfList_2", "project_19_RemoveNthNodeFromEndOfList_2\project_19_RemoveNthNodeFromEndOfList_2.csproj", "{8BF405B2-CA2F-4A34-97DB-03C8255D1029}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_20_ValidParentheses", "project_20_ValidParentheses\project_20_ValidParentheses.csproj", "{96ED4188-C73B-407F-A898-16A23EBE181B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -357,6 +359,10 @@ Global
 		{8BF405B2-CA2F-4A34-97DB-03C8255D1029}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BF405B2-CA2F-4A34-97DB-03C8255D1029}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BF405B2-CA2F-4A34-97DB-03C8255D1029}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96ED4188-C73B-407F-A898-16A23EBE181B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96ED4188-C73B-407F-A898-16A23EBE181B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96ED4188-C73B-407F-A898-16A23EBE181B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96ED4188-C73B-407F-A898-16A23EBE181B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
