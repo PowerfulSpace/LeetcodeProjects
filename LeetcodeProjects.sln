@@ -113,7 +113,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_17_LetterCombinatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_18_4Sum", "project_18_4Sum\project_18_4Sum.csproj", "{7792C227-0D33-4D9C-B841-AD8749FFAA5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_18_4Sum_2", "project_18_4Sum_2\project_18_4Sum_2.csproj", "{EA6BBE64-EA66-47CD-A1BB-5B3B769D417E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_18_4Sum_2", "project_18_4Sum_2\project_18_4Sum_2.csproj", "{EA6BBE64-EA66-47CD-A1BB-5B3B769D417E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_18_4Sum_3", "project_18_4Sum_3\project_18_4Sum_3.csproj", "{C2253E6D-44E0-49BA-BE18-DE04E7284184}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -345,6 +347,10 @@ Global
 		{EA6BBE64-EA66-47CD-A1BB-5B3B769D417E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA6BBE64-EA66-47CD-A1BB-5B3B769D417E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA6BBE64-EA66-47CD-A1BB-5B3B769D417E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2253E6D-44E0-49BA-BE18-DE04E7284184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2253E6D-44E0-49BA-BE18-DE04E7284184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2253E6D-44E0-49BA-BE18-DE04E7284184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2253E6D-44E0-49BA-BE18-DE04E7284184}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
