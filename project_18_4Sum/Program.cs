@@ -4,11 +4,14 @@ int[] input1 = { 1, 0, -1, 0, -2, 2 };
 int[] input2 = { 2, 2, 2, 2, 2 };
 int[] input3 = { -3, -1, 0, 2, 4, 5 };
 int[] input4 = { -2, -1, -1, 1, 1, 2, 2 };
+int[] input5 = { -3, -1, 0, 2, 4, 5 };
+int[] input6 = { -3, -2, -1, 0, 0, 1, 2, 3 };
 
-//FourSum(input1, 0);
+FourSum(input1, 0);
 //FourSum(input2, 8);
 //FourSum(input3, 0);
-FourSum(input4, 0);
+//FourSum(input4, 0);
+//FourSum(input6, 0);
 
 
 Console.ReadLine();
@@ -17,123 +20,55 @@ Console.ReadLine();
 
 static IList<IList<int>> FourSum(int[] nums, int target)
 {
-    if (nums.Length < 4) { return new List<IList<int>>(); }
-
-    List<IList<int>> output = new List<IList<int>>();
+    var output = new List<IList<int>>();
 
     Array.Sort(nums);
 
-    int startIndex = 0;
-    int index2 = 1;
-    int index3 = nums.Length - 2;
-    int endIndex = nums.Length - 1;
-
-    int sum = nums[startIndex] + nums[index2] + nums[index3] + nums[endIndex];
-
-    for (int i = 0; i < nums.Length - 3; i++)
+    for (int lower = 0; lower < nums.Length - 3; lower++)
     {
-        startIndex = i;
-        index2 = i + 1;
-        index3 = (nums.Length - 2) - i;
-        endIndex = (nums.Length - 1) - i;
+        if (lower > 1 && nums[lower] == nums[lower - 1]) continue;
 
-        if (startIndex >= index2 || index2 >= index3 || index3 >= endIndex) { break; }
-
-
-        sum = nums[startIndex] + nums[index2] + nums[index3] + nums[endIndex];
-        if (sum == target)
+        for (int upper = nums.Length - 1; upper >= lower + 3; upper--)
         {
-            if (UniquenessCheck(nums[startIndex], nums[index2], nums[index3], nums[endIndex], output))
+            if (upper < nums.Length - 1 && nums[upper] == nums[upper + 1]) continue;
+
+            int low = lower + 1;
+            int high = upper - 1;
+
+            while (low < high)
             {
-                output.Add(new List<int> { nums[startIndex], nums[index2], nums[index3], nums[endIndex] });
-            }
-            index2++;
-            sum = nums[startIndex] + nums[index2] + nums[index3] + nums[endIndex];
-        }
+                long sum = (long)nums[lower] + (long)nums[low] + (long)nums[high] + (long)nums[upper];
 
-        if (startIndex >= index2 || index2 >= index3 || index3 >= endIndex) { break; }
-
-        while (index2 < index3)
-        {
-            sum = nums[startIndex] + nums[index2] + nums[index3] + nums[endIndex];
-
-            if (index2 + 1 == index3) { break; }
-            else
-            {
                 if (sum == target)
                 {
-                    if (UniquenessCheck(nums[startIndex], nums[index2], nums[index3], nums[endIndex], output))
+                    if (UniquenessCheck(nums[lower], nums[low], nums[high], nums[upper], output))
                     {
-                        output.Add(new List<int> { nums[startIndex], nums[index2], nums[index3], nums[endIndex] });
+                        output.Add(new List<int>() { nums[lower], nums[low], nums[high], nums[upper] });
                     }
-                    index2++;
+
+                    while (low < high && nums[low] == nums[low + 1])
+                    {
+                        low++;
+                    }
+                    while (low < high && nums[high] == nums[high - 1])
+                    {
+                        high--;
+                    }
+
+                    low++;
+                    high--;
                 }
                 else if (sum < target)
-                    index2++;
-                else if (sum > target)
-                    index3--;
-            }
-        }
-
-        while (startIndex < index2)
-        {
-            sum = nums[startIndex] + nums[index2] + nums[index3] + nums[endIndex];
-
-            if (startIndex + 1 == index2) { break; }
-            else
-            {
-                if (sum == target)
                 {
-                    if (UniquenessCheck(nums[startIndex], nums[index2], nums[index3], nums[endIndex], output))
-                    {
-                        output.Add(new List<int> { nums[startIndex], nums[index2], nums[index3], nums[endIndex] });
-                    }
-                    startIndex++;
+                    low++;
                 }
-                else if (sum < target)
-                    startIndex++;
-                else if (sum > target)
-                    index2--;
-            }
-        }
-
-        while (index3 < endIndex)
-        {
-            sum = nums[startIndex] + nums[index2] + nums[index3] + nums[endIndex];
-
-            if (index3 + 1 == endIndex) { break; }
-            else
-            {
-                if (sum == target)
+                else
                 {
-                    if (UniquenessCheck(nums[startIndex], nums[index2], nums[index3], nums[endIndex], output))
-                    {
-                        output.Add(new List<int> { nums[startIndex], nums[index2], nums[index3], nums[endIndex] });
-                    }
-                    index3++;
+                    high--;
                 }
-                else if (sum < target)
-                    index3++;
-                else if (sum > target)
-                    endIndex--;
             }
         }
     }
-
-
-    for (int i = 0; i < nums.Length - 3; i++)
-    {
-        sum = nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3];
-
-        if (sum == target)
-        {
-            if (UniquenessCheck(nums[i], nums[i + 1], nums[i + 2], nums[i + 3], output))
-            {
-                output.Add(new List<int> { nums[i], nums[i + 1], nums[i + 2], nums[i + 3] });
-            }
-        }
-    }
-
 
     return output;
 }
