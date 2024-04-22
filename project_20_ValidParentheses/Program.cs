@@ -24,7 +24,7 @@ Console.ReadLine();
 
 static bool IsValid(string s)
 {
-    if (s.Length < 2) { return false; }
+    if (s.Length < 2 || s.Length % 2 > 0) { return false; }
     Dictionary<char, char> bracket = new Dictionary<char, char>()
     {
         ['('] = ')',

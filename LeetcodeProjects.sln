@@ -127,6 +127,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_20_ValidParentheses
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_20_ValidParentheses_4", "project_20_ValidParentheses_4\project_20_ValidParentheses_4.csproj", "{B062A4E8-8371-4BEE-989B-890DF4AFE005}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_20_ValidParentheses_5", "project_20_ValidParentheses_5\project_20_ValidParentheses_5.csproj", "{95B5C76C-EE06-499A-8B6D-A5CF93A398DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -381,6 +383,10 @@ Global
 		{B062A4E8-8371-4BEE-989B-890DF4AFE005}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B062A4E8-8371-4BEE-989B-890DF4AFE005}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B062A4E8-8371-4BEE-989B-890DF4AFE005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95B5C76C-EE06-499A-8B6D-A5CF93A398DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95B5C76C-EE06-499A-8B6D-A5CF93A398DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95B5C76C-EE06-499A-8B6D-A5CF93A398DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95B5C76C-EE06-499A-8B6D-A5CF93A398DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
