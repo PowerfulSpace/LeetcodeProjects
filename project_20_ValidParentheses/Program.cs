@@ -1,4 +1,6 @@
 ﻿
+using System.Text;
+
 string input1 = "()";
 string input2 = "()[]{}";
 string input3 = "(]";
@@ -9,13 +11,13 @@ string input7 = "(}{)";
 string input8 = "([]){";
 
 
-//Console.WriteLine(IsValid(input1));
-//Console.WriteLine(IsValid(input2));
-//Console.WriteLine(IsValid(input3));
-//Console.WriteLine(IsValid(input4));
-//Console.WriteLine(IsValid(input5));
-//Console.WriteLine(IsValid(input6));
-//Console.WriteLine(IsValid(input7));
+Console.WriteLine(IsValid(input1));
+Console.WriteLine(IsValid(input2));
+Console.WriteLine(IsValid(input3));
+Console.WriteLine(IsValid(input4));
+Console.WriteLine(IsValid(input5));
+Console.WriteLine(IsValid(input6));
+Console.WriteLine(IsValid(input7));
 Console.WriteLine(IsValid(input8));
 ;
 Console.ReadLine();
@@ -29,27 +31,28 @@ static bool IsValid(string s)
         ['['] = ']',
         ['{'] = '}'
     };
-    string result = string.Empty;
+    StringBuilder value = new StringBuilder(s);
+    StringBuilder result = new StringBuilder();
 
-    for (int i = 0; i < s.Length - 1; i++)
+    for (int i = 0; i < value.Length - 1; i++)
     {
 
         if (result.Length > 0)
         {
-            if (bracket.ContainsKey(s[i]) && result[result.Length - 1] == bracket[s[i]])
+            if (bracket.ContainsKey(value[i]) && result[result.Length - 1] == bracket[value[i]])
             {
                 result = result.Remove(result.Length - 1, 1);
-                s = s.Remove(i, 2);
+                value = value.Remove(i, 2);
             }
-            else if (bracket.ContainsKey(s[i]) && s[i] == bracket[s[i]])
+            else if (bracket.ContainsKey(value[i]) && value[i] == bracket[value[i]])
             {
                 return false;
             }
         }
 
-        if (bracket.ContainsKey(s[i]) && bracket[s[i]] == s[i + 1])
+        if (bracket.ContainsKey(value[i]) && bracket[value[i]] == value[i + 1])
         {
-            s = s.Remove(i, 2);
+            value = value.Remove(i, 2);
             if (result.Length > 0)
             {
                 result = result.Remove(result.Length - 1, 1);
@@ -59,17 +62,17 @@ static bool IsValid(string s)
         }
         else
         {
-            if (!bracket.ContainsKey(s[i]))
+            if (!bracket.ContainsKey(value[i]))
             {
                 return false;
             }
-            result += s[i];
+            result.Append(value[i]);
         }
     }
 
 
-    if (result != "" || s.Length > 0) { return false; }
+    if (result.Length > 0 || value.Length > 0) { return false; }
 
 
-    return false;
+    return true;
 }
