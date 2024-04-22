@@ -1,5 +1,4 @@
 ﻿
-using System.Text;
 
 string input1 = "()";
 string input2 = "()[]{}";
