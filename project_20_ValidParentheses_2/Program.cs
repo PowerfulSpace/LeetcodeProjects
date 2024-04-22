@@ -23,56 +23,38 @@ Console.WriteLine(IsValid(input8));
 Console.ReadLine();
 
 static bool IsValid(string s)
-{   
-    if (s.Length < 2) { return false; }
-    Dictionary<char, char> bracket = new Dictionary<char, char>()
+{
+
+    if (s == null || s == string.Empty || s.Length == 1) return false;
+
+    Stack<char> symbolsStack = new Stack<char>();
+    int symbolStackCounter = 0;
+    foreach (char c in s)
     {
-        ['('] = ')',
-        ['['] = ']',
-        ['{'] = '}'
-    };
-    StringBuilder value = new StringBuilder(s);
-    StringBuilder result = new StringBuilder();
-
-    for (int i = 0; i < value.Length - 1; i++)
-    {
-
-        if (result.Length > 0)
+        if (c == '(' || c == '{' || c == '[')
         {
-            if (bracket.ContainsKey(value[i]) && result[result.Length - 1] == bracket[value[i]])
-            {
-                result = result.Remove(result.Length - 1, 1);
-                value = value.Remove(i, 2);
-            }
-            else if (bracket.ContainsKey(value[i]) && value[i] == bracket[value[i]])
-            {
-                return false;
-            }
-        }
-
-        if (bracket.ContainsKey(value[i]) && bracket[value[i]] == value[i + 1])
-        {
-            value = value.Remove(i, 2);
-            if (result.Length > 0)
-            {
-                result = result.Remove(result.Length - 1, 1);
-            }
-            i = i == 0 ? i - 1 : i - 2;
-
+            symbolsStack.Push(c);
+            symbolStackCounter++;
         }
         else
         {
-            if (!bracket.ContainsKey(value[i]))
+            if (symbolStackCounter > 0 && symbolsStack.Count > 0)
             {
-                return false;
+                char poppedSymbol = symbolsStack.Pop();
+                if ((poppedSymbol == '[' && c == ']')
+                    || (poppedSymbol == '{' && c == '}')
+                    || (poppedSymbol == '(' && c == ')'))
+                {
+                    symbolStackCounter--;
+                }
             }
-            result.Append(value[i]);
+            else
+            {
+                symbolStackCounter++;
+                break;
+            }
         }
     }
 
-
-    if (result.Length > 0 || value.Length > 0) { return false; }
-
-
-    return true;
+    return symbolStackCounter == 0;
 }
