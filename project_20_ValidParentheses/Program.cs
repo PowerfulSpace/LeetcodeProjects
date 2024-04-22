@@ -52,7 +52,8 @@ static string LineTraversal(string s, Dictionary<char, char> bracket)
             }
             else
             {
-                return LineTraversal(value.Substring(2), bracket);
+                value = LineTraversal(value.Substring(2), bracket);
+                return value;
             }
         }
         else { return value; }
