@@ -11,9 +11,9 @@ string input8 = "([]){";
 
 
 //Console.WriteLine(IsValid(input1));
-//Console.WriteLine(IsValid(input2));
-//Console.WriteLine(IsValid(input3));
-//Console.WriteLine(IsValid(input4));
+Console.WriteLine(IsValid(input2));
+Console.WriteLine(IsValid(input3));
+Console.WriteLine(IsValid(input4));
 Console.WriteLine(IsValid(input5));
 Console.WriteLine(IsValid(input6));
 Console.WriteLine(IsValid(input7));
@@ -21,7 +21,6 @@ Console.WriteLine(IsValid(input8));
 ;
 Console.ReadLine();
 
-//Вернуться к этой задаче
 static bool IsValid(string s)
 {
     HashSet<char> open = new() { '(', '[', '{' };

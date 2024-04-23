@@ -1,7 +1,5 @@
 ﻿
 
-using System.Linq;
-
 LinkedList<int> list1 = new LinkedList<int> (new int[] {1,2,3});
 LinkedList<int> list2 = new LinkedList<int> (new int[] {1,3,4});
 
@@ -12,13 +10,13 @@ Console.ReadLine();
 
 static LinkedListNode<int> MergeTwoLists(LinkedListNode<int> list1, LinkedListNode<int> list2)
 {
-
-    if(list1 == null) { return list2; }
-    if(list2 == null) { return list1; }
+    if (list1 == null) { return list2; }
+    if (list2 == null) { return list1; }
 
     LinkedList<int> kit1 = new LinkedList<int>(list1.List);
     LinkedList<int> kit2 = new LinkedList<int>(list2.List);
 
+    //List<int> result = [.. kit1, .. kit2];
     List<int> result = new List<int>();
 
     foreach (var item in kit1)
