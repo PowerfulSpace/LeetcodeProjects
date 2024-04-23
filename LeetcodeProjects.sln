@@ -123,11 +123,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_20_ValidParentheses
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_20_ValidParentheses_2", "project_20_ValidParentheses_2\project_20_ValidParentheses_2.csproj", "{DD48EF72-519E-4BFF-9A27-3B6B1F833B8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_20_ValidParentheses_3", "project_20_ValidParentheses_3\project_20_ValidParentheses_3.csproj", "{1E9A1A74-D00C-4747-B71F-9393884FF0D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_20_ValidParentheses_3", "project_20_ValidParentheses_3\project_20_ValidParentheses_3.csproj", "{1E9A1A74-D00C-4747-B71F-9393884FF0D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_20_ValidParentheses_4", "project_20_ValidParentheses_4\project_20_ValidParentheses_4.csproj", "{B062A4E8-8371-4BEE-989B-890DF4AFE005}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_20_ValidParentheses_4", "project_20_ValidParentheses_4\project_20_ValidParentheses_4.csproj", "{B062A4E8-8371-4BEE-989B-890DF4AFE005}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_20_ValidParentheses_5", "project_20_ValidParentheses_5\project_20_ValidParentheses_5.csproj", "{95B5C76C-EE06-499A-8B6D-A5CF93A398DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_20_ValidParentheses_5", "project_20_ValidParentheses_5\project_20_ValidParentheses_5.csproj", "{95B5C76C-EE06-499A-8B6D-A5CF93A398DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_20_ValidParentheses_6", "project_20_ValidParentheses_6\project_20_ValidParentheses_6.csproj", "{6B663EF5-8EDF-4CD0-9DF2-1F213F54430F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_21_MergeTwoSortedLists", "project_21_MergeTwoSortedLists\project_21_MergeTwoSortedLists.csproj", "{7B5FA7C4-7A89-4FB6-AD39-FD08D15865FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -387,6 +391,14 @@ Global
 		{95B5C76C-EE06-499A-8B6D-A5CF93A398DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95B5C76C-EE06-499A-8B6D-A5CF93A398DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95B5C76C-EE06-499A-8B6D-A5CF93A398DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B663EF5-8EDF-4CD0-9DF2-1F213F54430F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B663EF5-8EDF-4CD0-9DF2-1F213F54430F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B663EF5-8EDF-4CD0-9DF2-1F213F54430F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B663EF5-8EDF-4CD0-9DF2-1F213F54430F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B5FA7C4-7A89-4FB6-AD39-FD08D15865FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B5FA7C4-7A89-4FB6-AD39-FD08D15865FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B5FA7C4-7A89-4FB6-AD39-FD08D15865FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B5FA7C4-7A89-4FB6-AD39-FD08D15865FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
