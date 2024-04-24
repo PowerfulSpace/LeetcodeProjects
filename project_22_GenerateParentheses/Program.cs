@@ -4,9 +4,11 @@ using System.Text;
 
 int num1 = 3;
 int num2 = 1;
+int num3 = 4;
 
 //Console.WriteLine(GenerateParenthesis(num1));
-Console.WriteLine(GenerateParenthesis(num2));
+//Console.WriteLine(GenerateParenthesis(num2));
+Console.WriteLine(GenerateParenthesis(num3));
 
 
 Console.ReadLine();
