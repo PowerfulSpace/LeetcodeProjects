@@ -17,19 +17,7 @@ Console.ReadLine();
 static IList<string> GenerateParenthesis(int n)
 {
     var output = new List<string>();
-    var currentParentheses = CreateInitial(n);
-
-    for (int i = 0; i < currentParentheses.Length; i++)
-    {
-        if (i < n)
-        {
-            currentParentheses[i] = '(';
-        }
-        else
-        {
-            currentParentheses[i] = ')';
-        }
-    }
+    char[] currentParentheses = CreateInitial(n);
 
     output.Add(new string(currentParentheses));
 
@@ -45,7 +33,7 @@ static IList<string> GenerateParenthesis(int n)
 
 static char[] CreateInitial(int n)
 {
-    var currentParentheses = new char[n * 2];
+    char[] currentParentheses = new char[n * 2];
 
     for (int i = 0; i < currentParentheses.Length; i++)
     {
