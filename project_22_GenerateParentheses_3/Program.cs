@@ -1,8 +1,4 @@
-﻿
-
-using System.Text;
-
-int num1 = 3;
+﻿int num1 = 3;
 int num2 = 1;
 int num3 = 4;
 
