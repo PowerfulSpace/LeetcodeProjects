@@ -27,7 +27,6 @@ static IList<string> GenerateParenthesis(int n)
         output = MoveParentheses(currentParentheses, i, output);
     }
 
-
     return output;
 }
 
