@@ -10,7 +10,8 @@ int num8 = 8;
 
 //Console.WriteLine(GenerateParenthesis(num1));
 //Console.WriteLine(GenerateParenthesis(num2));
-Console.WriteLine(GenerateParenthesis(num3));
+//Console.WriteLine(GenerateParenthesis(num3));
+Console.WriteLine(GenerateParenthesis(num4));
 
 
 Console.ReadLine();
