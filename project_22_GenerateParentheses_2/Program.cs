@@ -45,3 +45,4 @@ static void Gen(IList<string> all, string currentStr, int toOpen, int opened)
     if (toOpen == 0 && opened == 0)
         all.Add(currentStr);
 }
+
