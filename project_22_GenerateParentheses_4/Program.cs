@@ -1,5 +1,7 @@
 ﻿
 
+using System.Text;
+
 int num1 = 1;
 int num2 = 2;
 int num3 = 3;
@@ -17,41 +19,31 @@ Console.ReadLine();
 IList<string> GenerateParenthesis(int n)
 {
     List<string> result = new List<string>();
-
-    Gen(result, "", n, 0);
-
+    GenerateParenthesisHelper(result, new StringBuilder(), 0, 0, n);
     return result;
 }
 
 
-static void Gen(IList<string> all, string pattern, int toOpen, int opened)
+static void GenerateParenthesisHelper(List<string> result, StringBuilder current, int open, int close, int max)
 {
-
-    if (opened < 0)
+    if (current.Length == max * 2)
     {
+        result.Add(current.ToString());
         return;
     }
 
-    if (toOpen == 0)
+    if (open < max)
     {
-        if (opened > 0)
-        {
-            pattern += new string(')', opened);
-            opened = 0;
-        }
+        current.Append('(');
+        GenerateParenthesisHelper(result, current, open + 1, close, max);
+        current.Length--;
     }
-    else
+    if (close < open)
     {
-        Gen(all, pattern + "(", toOpen - 1, opened + 1);
-        Gen(all, pattern + "(", toOpen, opened - 1);
+        current.Append(')');
+        GenerateParenthesisHelper(result, current, open, close + 1, max);
+        current.Length--;
     }
-
-    if (toOpen == 0 && opened == 0)
-    {
-        all.Add(pattern);
-    }
-
 }
-
 
 
