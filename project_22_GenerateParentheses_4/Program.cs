@@ -7,9 +7,9 @@ int num2 = 2;
 int num3 = 3;
 int num4 = 4;
 
-//Console.WriteLine(GenerateParenthesis(num1));
-//Console.WriteLine(GenerateParenthesis(num2));
-//Console.WriteLine(GenerateParenthesis(num3));
+Console.WriteLine(GenerateParenthesis(num1));
+Console.WriteLine(GenerateParenthesis(num2));
+Console.WriteLine(GenerateParenthesis(num3));
 Console.WriteLine(GenerateParenthesis(num4));
 
 
