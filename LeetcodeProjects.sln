@@ -141,7 +141,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_22_GenerateParenthe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_22_GenerateParentheses_2", "project_22_GenerateParentheses_2\project_22_GenerateParentheses_2.csproj", "{61BEDFC3-4CAE-4F0C-A6EB-5D0A29B0C8B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_22_GenerateParentheses_3", "project_22_GenerateParentheses_3\project_22_GenerateParentheses_3.csproj", "{0C116DE9-797E-4CBB-812F-5F3725C5C5C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_22_GenerateParentheses_3", "project_22_GenerateParentheses_3\project_22_GenerateParentheses_3.csproj", "{0C116DE9-797E-4CBB-812F-5F3725C5C5C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_22_GenerateParentheses_4", "project_22_GenerateParentheses_4\project_22_GenerateParentheses_4.csproj", "{289231F1-E7F1-45CE-8F98-477D18756D58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -429,6 +431,10 @@ Global
 		{0C116DE9-797E-4CBB-812F-5F3725C5C5C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C116DE9-797E-4CBB-812F-5F3725C5C5C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C116DE9-797E-4CBB-812F-5F3725C5C5C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{289231F1-E7F1-45CE-8F98-477D18756D58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{289231F1-E7F1-45CE-8F98-477D18756D58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{289231F1-E7F1-45CE-8F98-477D18756D58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{289231F1-E7F1-45CE-8F98-477D18756D58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
