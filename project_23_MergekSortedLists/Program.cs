@@ -1,49 +1,72 @@
 ﻿
-ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
-ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+using System;
 
-//ListNode l1 = new ListNode(9, new ListNode(9, new ListNode(9,
-//              new ListNode(9, new ListNode(9, new ListNode(9,
-//              new ListNode(9, new ListNode(9, new ListNode(9)))))))));
-//ListNode l2 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9))));
+ListNode l1 = new ListNode(1, new ListNode(4, new ListNode(5)));
+ListNode l2 = new ListNode(1, new ListNode(3, new ListNode(4)));
+ListNode l3 = new ListNode(2, new ListNode(6));
 
-AddTwoNumbers(l1, l2);
+ListNode[] lists = new ListNode[] { l1, l2, l3 };
+
+MergeKLists(lists);
 
 
 Console.ReadLine();
 
 
 
-static ListNode AddTwoNumbers(ListNode l1, ListNode l2)
+static ListNode MergeKLists(ListNode[] lists)
 {
+    List<int> kit = new List<int>();
 
-    var response = new ListNode(l1.val + l2.val);
-
-    var firstNext = GetNext(l1.next);
-    firstNext.val += GetRemainder(response);
-
-    if (l1.next == null && l2.next == null && firstNext.val < 1)
+    foreach (ListNode l in lists)
     {
-        return response;
+        if(kit.Count == 0)
+        {
+            var element = l;
+            while(element != null)
+            {
+                kit.Add(element.val);
+                element = element.next;
+            }
+            continue;
+        }
+
+        var item = l;
+        while (item != null)
+        {
+            for (int i = 0; i < kit.Count; i++)
+            {
+                if (item.val <= kit[i] )
+                {
+                    kit.Insert(i, item.val);
+                    break;
+                }
+                
+                if(i == kit.Count - 1)
+                {
+                    kit.Add(item.val);
+                    break;
+                }
+            }
+            item = item.next;
+        }
+
+
+
+    }
+    ListNode head = new ListNode();
+    ListNode tail = head;
+
+    foreach (int item in kit)
+    {
+        tail.next = new ListNode(item);
+        tail = tail.next;
     }
 
-    response.next = AddTwoNumbers(firstNext, GetNext(l2.next));
-
-    return response;
+    return head.next;
 }
 
-static ListNode GetNext(ListNode listNode)
-{
-    return listNode != null ? listNode : new ListNode(0);
-}
 
-static int GetRemainder(ListNode listNode)
-{
-    var response = listNode.val / 10;
-    listNode.val = listNode.val % 10;
-
-    return response;
-}
 
 public class ListNode {
     public int val;
