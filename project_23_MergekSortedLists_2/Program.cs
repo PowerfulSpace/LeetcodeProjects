@@ -4,8 +4,23 @@ using System;
 ListNode l1 = new ListNode(1, new ListNode(4, new ListNode(5)));
 ListNode l2 = new ListNode(1, new ListNode(3, new ListNode(4)));
 ListNode l3 = new ListNode(2, new ListNode(6));
+ListNode l4 = new ListNode(1, new ListNode(4, new ListNode(5)));
+ListNode l5 = new ListNode(1, new ListNode(3, new ListNode(4)));
+ListNode l6 = new ListNode(2, new ListNode(6));
+ListNode l7 = new ListNode(2, new ListNode(6));
+ListNode l8 = new ListNode(2, new ListNode(6));
+ListNode l9 = new ListNode(2, new ListNode(6));
+ListNode l10 = new ListNode(2, new ListNode(6));
+ListNode l11 = new ListNode(2, new ListNode(6));
+ListNode l12 = new ListNode(2, new ListNode(6));
+ListNode l13 = new ListNode(2, new ListNode(6));
+ListNode l14 = new ListNode(2, new ListNode(6));
+ListNode l15 = new ListNode(2, new ListNode(6));
+ListNode l16 = new ListNode(2, new ListNode(6));
+ListNode l17 = new ListNode(2, new ListNode(6));
 
-ListNode[] lists = new ListNode[] { l1, l2, l3 };
+
+ListNode[] lists = new ListNode[] { l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, l15, l16, l17 };
 
 MergeKLists(lists);
 
