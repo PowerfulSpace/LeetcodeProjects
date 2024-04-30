@@ -149,13 +149,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_23_MergekSortedList
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_02_AddTwoNumbers_3", "project_02_AddTwoNumbers_3\project_02_AddTwoNumbers_3.csproj", "{72EDDD1A-B00A-4D22-911D-02AC3E4E6CB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_02_AddTwoNumbers_4", "project_02_AddTwoNumbers_4\project_02_AddTwoNumbers_4.csproj", "{70672B78-6452-4378-A38F-66277FAC2CBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_02_AddTwoNumbers_4", "project_02_AddTwoNumbers_4\project_02_AddTwoNumbers_4.csproj", "{70672B78-6452-4378-A38F-66277FAC2CBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_02_AddTwoNumbers_5", "project_02_AddTwoNumbers_5\project_02_AddTwoNumbers_5.csproj", "{F82333E3-EF28-4F59-ABEC-B4EFEC0155D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_02_AddTwoNumbers_5", "project_02_AddTwoNumbers_5\project_02_AddTwoNumbers_5.csproj", "{F82333E3-EF28-4F59-ABEC-B4EFEC0155D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_02_AddTwoNumbers_6", "project_02_AddTwoNumbers_6\project_02_AddTwoNumbers_6.csproj", "{DA7C1796-94ED-4958-83C0-06229F42A7BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_02_AddTwoNumbers_6", "project_02_AddTwoNumbers_6\project_02_AddTwoNumbers_6.csproj", "{DA7C1796-94ED-4958-83C0-06229F42A7BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_23_MergekSortedLists_2", "project_23_MergekSortedLists_2\project_23_MergekSortedLists_2.csproj", "{DEC0996A-CE64-40DE-957F-1CE52083A09D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_23_MergekSortedLists_2", "project_23_MergekSortedLists_2\project_23_MergekSortedLists_2.csproj", "{DEC0996A-CE64-40DE-957F-1CE52083A09D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_24_SwapNodesInPairs", "project_24_SwapNodesInPairs\project_24_SwapNodesInPairs.csproj", "{1A578011-E3D5-4A28-9B3A-DAA307AC2D64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -471,6 +473,10 @@ Global
 		{DEC0996A-CE64-40DE-957F-1CE52083A09D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEC0996A-CE64-40DE-957F-1CE52083A09D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEC0996A-CE64-40DE-957F-1CE52083A09D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A578011-E3D5-4A28-9B3A-DAA307AC2D64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A578011-E3D5-4A28-9B3A-DAA307AC2D64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A578011-E3D5-4A28-9B3A-DAA307AC2D64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A578011-E3D5-4A28-9B3A-DAA307AC2D64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
