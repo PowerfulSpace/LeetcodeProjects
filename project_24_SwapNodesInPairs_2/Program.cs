@@ -13,7 +13,6 @@ SwapPairs(l3);
 Console.ReadLine();
 
 
-
 static ListNode SwapPairs(ListNode head)
 {
     if (head == null || head.next == null) return head;
