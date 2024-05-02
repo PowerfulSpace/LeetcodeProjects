@@ -11,6 +11,7 @@ Console.ReadLine();
 
 static ListNode ReverseKGroup(ListNode head, int k)
 {
+    if (k == 1 || head?.next == null) return head;
 
     ListNode headResult = new ListNode();
     ListNode tailResult = headResult;
