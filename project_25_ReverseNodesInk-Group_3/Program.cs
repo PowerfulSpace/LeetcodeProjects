@@ -43,10 +43,6 @@ static ListNode ReverseKGroup(ListNode head, int k)
     return dummy.next;
 }
 
-
-
-
-
 public class ListNode
 {
     public int val;
