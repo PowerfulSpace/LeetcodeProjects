@@ -7,8 +7,40 @@ Console.ReadLine();
 
 static ListNode ReverseKGroup(ListNode head, int k)
 {
-   
-    return head;
+    if (k == 1 || head?.next == null) return head;
+
+    ListNode dummy = new();
+
+    dummy.next = head;
+    ListNode previous = dummy;
+    ListNode tail = dummy;
+
+    while (true)
+    {
+        int i = 0;
+        while (tail != null && i < k)
+        {
+            ++i;
+            tail = tail.next;
+        }
+
+        if (tail == null) break;
+
+        ListNode groupHead = previous.next;
+        while (i > 1)
+        {
+            ListNode temp = groupHead.next;
+            groupHead.next = temp.next;
+            temp.next = previous.next;
+            previous.next = temp;
+            --i;
+        }
+
+        previous = groupHead;
+        tail = groupHead;
+    }
+
+    return dummy.next;
 }
 
 
