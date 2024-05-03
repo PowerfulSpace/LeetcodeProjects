@@ -15,15 +15,18 @@ Console.ReadLine();
 
 static int RemoveElement(int[] nums, int val)
 {
-    int index = 0;
-    for (int i = 0; i < nums.Length; i++)
+    int k = 0;
+    var finalList = new List<int>();
+
+    foreach (int i in nums)
     {
-        if (nums[i] != val)
+        if (i != val)
         {
-            nums[index] = nums[i];
-            index++;
+            finalList.Add(i);
+            k++;
         }
     }
+    finalList.ToArray().CopyTo(nums, 0);
 
-    return index;
+    return k;
 }
