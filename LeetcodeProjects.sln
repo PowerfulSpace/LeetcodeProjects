@@ -165,7 +165,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_25_ReverseNodesInk-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_25_ReverseNodesInk-Group_2", "project_25_ReverseNodesInk-Group_2\project_25_ReverseNodesInk-Group_2.csproj", "{487A8B85-7923-4169-86DC-E0A008CF485F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_25_ReverseNodesInk-Group_3", "project_25_ReverseNodesInk-Group_3\project_25_ReverseNodesInk-Group_3.csproj", "{CFC32C77-7EE8-4F4C-871C-E76EFFC5C7F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_25_ReverseNodesInk-Group_3", "project_25_ReverseNodesInk-Group_3\project_25_ReverseNodesInk-Group_3.csproj", "{CFC32C77-7EE8-4F4C-871C-E76EFFC5C7F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_26_RemoveDuplicatesFromSortedArray", "project_26_RemoveDuplicatesFromSortedArray\project_26_RemoveDuplicatesFromSortedArray.csproj", "{48318F77-E282-4AF9-853F-0E258659903A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -501,6 +503,10 @@ Global
 		{CFC32C77-7EE8-4F4C-871C-E76EFFC5C7F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFC32C77-7EE8-4F4C-871C-E76EFFC5C7F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFC32C77-7EE8-4F4C-871C-E76EFFC5C7F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48318F77-E282-4AF9-853F-0E258659903A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48318F77-E282-4AF9-853F-0E258659903A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48318F77-E282-4AF9-853F-0E258659903A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48318F77-E282-4AF9-853F-0E258659903A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
