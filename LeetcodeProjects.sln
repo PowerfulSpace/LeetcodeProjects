@@ -171,11 +171,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_26_RemoveDuplicates
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_26_RemoveDuplicatesFromSortedArray_2", "project_26_RemoveDuplicatesFromSortedArray_2\project_26_RemoveDuplicatesFromSortedArray_2.csproj", "{6D84768F-67A1-45AE-AF28-FAA4FC480F22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_27_RemoveElement", "project_27_RemoveElement\project_27_RemoveElement.csproj", "{FA47CB09-E0E1-4CE2-9D5C-62192AE20615}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_27_RemoveElement", "project_27_RemoveElement\project_27_RemoveElement.csproj", "{FA47CB09-E0E1-4CE2-9D5C-62192AE20615}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_27_RemoveElement_2", "project_27_RemoveElement_2\project_27_RemoveElement_2.csproj", "{2354D626-D3C9-4C03-B78D-000643CDE708}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_27_RemoveElement_2", "project_27_RemoveElement_2\project_27_RemoveElement_2.csproj", "{2354D626-D3C9-4C03-B78D-000643CDE708}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_28_FindTheIndexOfTheFirstOccurrenceInAString", "project_28_FindTheIndexOfTheFirstOccurrenceInAString\project_28_FindTheIndexOfTheFirstOccurrenceInAString.csproj", "{2BD1C297-2104-4EFA-B6C5-F75192B5E260}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_28_FindTheIndexOfTheFirstOccurrenceInAString", "project_28_FindTheIndexOfTheFirstOccurrenceInAString\project_28_FindTheIndexOfTheFirstOccurrenceInAString.csproj", "{2BD1C297-2104-4EFA-B6C5-F75192B5E260}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_29_DivideTwoIntegers", "project_29_DivideTwoIntegers\project_29_DivideTwoIntegers.csproj", "{E6609061-0B6D-4298-B761-EFBE3596E290}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -531,6 +533,10 @@ Global
 		{2BD1C297-2104-4EFA-B6C5-F75192B5E260}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BD1C297-2104-4EFA-B6C5-F75192B5E260}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BD1C297-2104-4EFA-B6C5-F75192B5E260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6609061-0B6D-4298-B761-EFBE3596E290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6609061-0B6D-4298-B761-EFBE3596E290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6609061-0B6D-4298-B761-EFBE3596E290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6609061-0B6D-4298-B761-EFBE3596E290}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
