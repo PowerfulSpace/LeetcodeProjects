@@ -11,13 +11,13 @@ string[] words2 = { "word", "good", "best", "word" };
 string str3 = "barfoofoobarthefoobarman";
 string[] words3 = { "bar", "foo", "the" };
 
-string str4 = "";
-string[] words4 = { };
+string str4 = "wordgoodgoodgoodbestword";
+string[] words4 = { "word", "good", "best", "good" };
 
-FindSubstring(str1, words1);
-FindSubstring(str2, words2);
-FindSubstring(str3, words3);
-//FindSubstring(str4, words4);
+//FindSubstring(str1, words1);
+//FindSubstring(str2, words2);
+//FindSubstring(str3, words3);
+FindSubstring(str4, words4);
 
 
 Console.ReadLine();
@@ -28,7 +28,6 @@ static IList<int> FindSubstring(string s, string[] words)
 
     StringBuilder str = new StringBuilder(s);
     int wordLength = words[0].Length;
-    int compoudWordLength = wordLength * words.Length;
 
     string[] array = new string[s.Length / wordLength];
 
@@ -39,7 +38,7 @@ static IList<int> FindSubstring(string s, string[] words)
 
     List<int> indexes = new List<int>();
 
-    for (int i = 0; i < array.Length - words.Length; i++)
+    for (int i = 0; i <= array.Length - words.Length; i++)
     {
         index = i;
         for (int j = 0; j < words.Length; j++)
