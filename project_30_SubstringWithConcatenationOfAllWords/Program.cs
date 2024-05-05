@@ -24,34 +24,36 @@ Console.ReadLine();
 
 static IList<int> FindSubstring(string s, string[] words)
 {
-	if(words.Length < 1 || words[0].Length > s.Length) { return new List<int>(); }
+	if(words.Length < 1 || words[0].Length > s.Length || s.Length < words.Length * words[0].Length) { return new List<int>(); }
+
+    var a = words.Length;
+    var b = words[0].Length;
 
     StringBuilder str = new StringBuilder(s);
     int wordLength = words[0].Length;
+    int compoudWordLength = wordLength * words.Length;
     int index = 0;
 
     List<int> blockIndexes = new List<int>();
 
-    string checkString = s;
-
-    for (int i = 0; i < words.Length; i++)
+    for (int i = 0; i < s.Length && s.Length > i + compoudWordLength; i++)
     {
-        if (!checkString.Contains(words[i])) { return new List<int>(); }
+        
+        str.Length = compoudWordLength;
 
-        index = checkString.IndexOf(words[i]);
+        for (int j = 0; j < words.Length; j++)
+        {
+            if (str.ToString().Contains(words[i]))
+            {
 
-        //Продумать как правильно проверять. не плодя при этом лишнии обьекты
-        //if (blockIndexes.Contains(index))
-        //{
-        //    checkString = str.ToString();
-        //    checkString = checkString.Remove(index, wordLength);
-        //    checkString = checkString.Insert(index, new string('_', wordLength));
-        //}
+            }
+        }
 
+        str.Clear();
+        str.Append(s);
+        str.Remove(i, 1);
 
-        blockIndexes.Add(index);
-        str.Remove(index, wordLength);
-        str.Insert(index, "_", wordLength);
+        //if (!s.Contains(words[i])) { return new List<int>(); }
     }
 
     str.Clear();
