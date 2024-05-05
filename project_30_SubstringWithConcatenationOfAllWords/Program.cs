@@ -62,10 +62,6 @@ static IList<int> FindSubstring(string s, string[] words)
     List<int> indexs = new List<int>();
 
 
-    for (int i = 0; i < s.Length; i++)
-    {
-
-    }
 
 
 
