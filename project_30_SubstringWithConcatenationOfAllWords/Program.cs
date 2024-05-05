@@ -36,14 +36,18 @@ static IList<int> FindSubstring(string s, string[] words)
 
     for (int i = 0; i < words.Length; i++)
     {
-        if (blockIndexes.Contains(index))
-        {
-            checkString = checkString.Substring(index + wordLength);
-        }
-
         if (!checkString.Contains(words[i])) { return new List<int>(); }
 
         index = checkString.IndexOf(words[i]);
+
+        //Продумать как правильно проверять. не плодя при этом лишнии обьекты
+        //if (blockIndexes.Contains(index))
+        //{
+        //    checkString = str.ToString();
+        //    checkString = checkString.Remove(index, wordLength);
+        //    checkString = checkString.Insert(index, new string('_', wordLength));
+        //}
+
 
         blockIndexes.Add(index);
         str.Remove(index, wordLength);
