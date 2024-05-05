@@ -14,9 +14,9 @@ string[] words3 = { "bar", "foo", "the" };
 string str4 = "";
 string[] words4 = { };
 
-//FindSubstring(str1, words1);
+FindSubstring(str1, words1);
 FindSubstring(str2, words2);
-//FindSubstring(str3, words3);
+FindSubstring(str3, words3);
 //FindSubstring(str4, words4);
 
 
@@ -26,46 +26,58 @@ static IList<int> FindSubstring(string s, string[] words)
 {
 	if(words.Length < 1 || words[0].Length > s.Length || s.Length < words.Length * words[0].Length) { return new List<int>(); }
 
-    var a = words.Length;
-    var b = words[0].Length;
-
     StringBuilder str = new StringBuilder(s);
     int wordLength = words[0].Length;
     int compoudWordLength = wordLength * words.Length;
+
+    string[] array = new string[s.Length / wordLength];
+
+    GetArrayOfWords(array, str, wordLength);
+
+    List<string> lists = new List<string>();
     int index = 0;
 
-    List<int> blockIndexes = new List<int>();
+    List<int> indexes = new List<int>();
 
-    for (int i = 0; i < s.Length && s.Length > i + compoudWordLength; i++)
+    for (int i = 0; i < array.Length - words.Length; i++)
     {
-        
-        str.Length = compoudWordLength;
+        index = i;
+        for (int j = 0; j < words.Length; j++)
+        {
+            lists.Add(array[index]);
+            index++;
+        }
 
         for (int j = 0; j < words.Length; j++)
         {
-            if (str.ToString().Contains(words[i]))
+            if (lists.Contains(words[j]))
             {
-
+                lists.Remove(words[j]);
             }
+            else { break; }
         }
-
-        str.Clear();
-        str.Append(s);
-        str.Remove(i, 1);
-
-        //if (!s.Contains(words[i])) { return new List<int>(); }
+        if (lists.Count == 0)
+        {
+            indexes.Add(i * wordLength);
+        }
+        lists.Clear();
     }
 
-    str.Clear();
-    str.Append(s);
-
-    List<int> indexs = new List<int>();
-
-
-
-
-
-    return indexs;
+    return indexes;
 }
 
 
+static void GetArrayOfWords(string[] array,StringBuilder str, int wordLength)
+{
+    for (int i = 0; str.Length != 0; i++)
+    {
+        char[] chars = new char[wordLength];
+        for (int j = 0; j < wordLength; j++)
+        {
+            chars[j] = str[j];
+        }
+        array[i] = string.Concat(chars);
+
+        str.Remove(0, wordLength);
+    }
+}
