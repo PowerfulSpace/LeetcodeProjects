@@ -68,12 +68,13 @@ static IList<int> FindSubstring(string s, string[] words)
 static List<string> GetArrayOfWords(string[] array,int wordLength, string mainLIne, string[] words)
 {
     List<string> result = new List<string>();
-    for (int i = 0; i < mainLIne.Length; i++)
-    {
-        char[] chars = new char[wordLength];
-        for (int j = i,k = 0; j < i + wordLength; j++,k++)
+    char[] chars = new char[wordLength];
+
+    for (int i = 0; i <= mainLIne.Length - wordLength; i++)
+    {   
+        for (int j = 0,k = i; j < wordLength; j++,k++)
         {
-            chars[k] = mainLIne[j];
+            chars[j] = mainLIne[k];
         }
 
         foreach (var word in words)
@@ -90,6 +91,8 @@ static List<string> GetArrayOfWords(string[] array,int wordLength, string mainLI
             if (flag)
             {
                 result.Add(string.Concat(chars));
+                i += wordLength - 1;
+                break;
             }
         }
     }
