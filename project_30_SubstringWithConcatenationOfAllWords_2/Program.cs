@@ -24,16 +24,15 @@ Console.ReadLine();
 
 static IList<int> FindSubstring(string s, string[] words)
 {
-	if(words.Length < 1 || words[0].Length > s.Length || s.Length < words.Length * words[0].Length) { return new List<int>(); }
+    if (words.Length < 1 || words[0].Length > s.Length || s.Length < words.Length * words[0].Length) { return new List<int>(); }
 
     StringBuilder str = new StringBuilder(s);
     int wordLength = words[0].Length;
 
     string[] array = new string[s.Length / wordLength];
 
-    GetArrayOfWords(array, str, wordLength);
-
-    List<string> lists = new List<string>();
+    
+    List<string> lists = GetArrayOfWords(array, wordLength, s, words);
     int index = 0;
 
     List<int> indexes = new List<int>();
@@ -66,17 +65,33 @@ static IList<int> FindSubstring(string s, string[] words)
 }
 
 
-static void GetArrayOfWords(string[] array,StringBuilder str, int wordLength)
+static List<string> GetArrayOfWords(string[] array,int wordLength, string mainLIne, string[] words)
 {
-    for (int i = 0; str.Length != 0; i++)
+    List<string> result = new List<string>();
+    for (int i = 0; i < mainLIne.Length; i++)
     {
         char[] chars = new char[wordLength];
-        for (int j = 0; j < wordLength; j++)
+        for (int j = i,k = 0; j < i + wordLength; j++,k++)
         {
-            chars[j] = str[j];
+            chars[k] = mainLIne[j];
         }
-        array[i] = string.Concat(chars);
 
-        str.Remove(0, wordLength);
+        foreach (var word in words)
+        {
+            bool flag = true;
+            for (int j = 0; j < chars.Length; j++)
+            {
+                if (word[j] != chars[j])
+                {
+                    flag = false; 
+                    break;
+                }
+            }
+            if (flag)
+            {
+                result.Add(string.Concat(chars));
+            }
+        }
     }
+    return result;
 }
