@@ -14,10 +14,18 @@ string[] words3 = { "bar", "foo", "the" };
 string str4 = "lingmindraboofooowingdingbarrwingmonkeypoundcake";
 string[] words4 = { "fooo", "barr", "wing", "ding", "wing" };
 
-//FindSubstring(str1, words1);
-//FindSubstring(str2, words2);
-//FindSubstring(str3, words3);
+string str5 = "aaaaa";
+string[] words5 = { "aa", "aa" };
+
+string str6 = "wordgoodgoodgoodbestword";
+string[] words6 = { "word", "good", "best", "good" };
+
+FindSubstring(str1, words1);
+FindSubstring(str2, words2);
+FindSubstring(str3, words3);
 FindSubstring(str4, words4);
+FindSubstring(str5, words5);
+FindSubstring(str6, words6);
 
 
 Console.ReadLine();
@@ -36,12 +44,10 @@ static IList<int> FindSubstring(string s, string[] words)
 
     List<int> indexes = new List<int>();
 
-
-
     for (int i = 0; i <= dictionary.Count - words.Length; i++)
     {
         int skip = i;
-        foreach (var item in dictionary)
+        for (int j = 0; j < dictionary.Count; j++)
         {
             if (skip != 0)
             {
@@ -51,22 +57,22 @@ static IList<int> FindSubstring(string s, string[] words)
 
             if (index < words.Length)
             {
-                lists.Add(item.Value);
+                lists.Add(dictionary[j].Value);
                 if (lists.Count == 1)
                 {
-                    key = item.Key;
+                    key = dictionary[j].Key;
                 }
             }
             else { break; }
             index++;
 
-            //Оптимизировать проверку
-            //if (item.Key + sumWords - index > s.Length)
+            //if (dictionary[j].Key + wordLength - 1 > dictionary[dictionary.Count - 1].Key)
             //{
             //    lists.Add(" ");
             //    break;
             //}
         }
+
         index = 0;
 
         for (int j = 0; j < words.Length; j++)
@@ -83,16 +89,6 @@ static IList<int> FindSubstring(string s, string[] words)
         }
         lists.Clear();
     }
-
-    //if (dictionary.Count > 1)
-    //{
-    //    if (dictionary[dictionary.Count - 1].Value == dictionary[dictionary.Count - 2].Value)
-    //    {
-    //        indexes.Remove(dictionary[dictionary.Count - 1].Key);
-    //    }
-    //}
-
-
     return indexes;
 }
 
