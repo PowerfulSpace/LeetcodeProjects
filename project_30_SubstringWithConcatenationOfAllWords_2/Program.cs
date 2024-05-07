@@ -14,18 +14,18 @@ string[] words3 = { "bar", "foo", "the" };
 string str4 = "lingmindraboofooowingdingbarrwingmonkeypoundcake";
 string[] words4 = { "fooo", "barr", "wing", "ding", "wing" };
 
-string str5 = "aaaaaaaaaaaaaa";
+string str5 = "aaaaa";
 string[] words5 = { "aa", "aa" };
 
 string str6 = "wordgoodgoodgoodbestword";
 string[] words6 = { "word", "good", "best", "good" };
 
-//FindSubstring(str1, words1);
-//FindSubstring(str2, words2);
-//FindSubstring(str3, words3);
-//FindSubstring(str4, words4);
+FindSubstring(str1, words1);
+FindSubstring(str2, words2);
+FindSubstring(str3, words3);
+FindSubstring(str4, words4);
 FindSubstring(str5, words5);
-//FindSubstring(str6, words6);
+FindSubstring(str6, words6);
 
 
 Console.ReadLine();
@@ -34,25 +34,36 @@ static IList<int> FindSubstring(string s, string[] words)
 {
     if (words.Length < 1 || words[0].Length > s.Length || s.Length < words.Length * words[0].Length) { return new List<int>(); }
     int wordLength = words[0].Length;
+    int sumWords = wordLength * words.Length;
 
     Dictionary<int, string> dictionary = GetArrayOfWords(wordLength, s, words);
+
     List<string> lists = new List<string>();
     int key = 0;
     int index = 0;
 
     List<int> indexes = new List<int>();
 
+
+
     for (int i = 0; i <= dictionary.Count - words.Length; i++)
     {
-
         int skip = i;
         foreach (var item in dictionary)
-        {            
-            if(skip != 0)
+        {
+            if (skip != 0)
             {
                 skip--;
                 continue;
             }
+
+            //Оптимизировать проверку
+            if (item.Key + sumWords - index > s.Length)
+            {
+                lists.Add(" ");
+                break;
+            }
+
             if (index < words.Length)
             {
                 lists.Add(item.Value);
@@ -65,8 +76,6 @@ static IList<int> FindSubstring(string s, string[] words)
             index++;
         }
         index = 0;
-
-        //Проблема в проверке, из-за одинаковых слов, мы не правильно удаляем
 
         for (int j = 0; j < words.Length; j++)
         {
