@@ -14,10 +14,18 @@ string[] words3 = { "bar", "foo", "the" };
 string str4 = "lingmindraboofooowingdingbarrwingmonkeypoundcake";
 string[] words4 = { "fooo", "barr", "wing", "ding", "wing" };
 
-FindSubstring(str1, words1);
+string str5 = "aaaaaaaaaaaaaa";
+string[] words5 = { "aa", "aa" };
+
+string str6 = "wordgoodgoodgoodbestword";
+string[] words6 = { "word", "good", "best", "good" };
+
+//FindSubstring(str1, words1);
 //FindSubstring(str2, words2);
 //FindSubstring(str3, words3);
 //FindSubstring(str4, words4);
+FindSubstring(str5, words5);
+//FindSubstring(str6, words6);
 
 
 Console.ReadLine();
@@ -29,23 +37,17 @@ static IList<int> FindSubstring(string s, string[] words)
 
     Dictionary<int, string> dictionary = GetArrayOfWords(wordLength, s, words);
     List<string> lists = new List<string>();
+    int key = 0;
     int index = 0;
 
     List<int> indexes = new List<int>();
 
     for (int i = 0; i <= dictionary.Count - words.Length; i++)
     {
-        //index = i;
-        //for (int j = 0; j < words.Length; j++)
-        //{
-        //    lists.Add(dictionary[index]);
-        //    index++;
-        //}
 
         int skip = i;
         foreach (var item in dictionary)
-        {
-            
+        {            
             if(skip != 0)
             {
                 skip--;
@@ -54,11 +56,17 @@ static IList<int> FindSubstring(string s, string[] words)
             if (index < words.Length)
             {
                 lists.Add(item.Value);
+                if(lists.Count == 1)
+                {
+                    key = item.Key;
+                }
             }
             else { break; }
             index++;
         }
         index = 0;
+
+        //Проблема в проверке, из-за одинаковых слов, мы не правильно удаляем
 
         for (int j = 0; j < words.Length; j++)
         {
@@ -70,7 +78,7 @@ static IList<int> FindSubstring(string s, string[] words)
         }
         if (lists.Count == 0)
         {
-            indexes.Add(dictionary.First().Key);
+            indexes.Add(key);
         }
         lists.Clear();
     }
@@ -105,7 +113,10 @@ static Dictionary<int, string> GetArrayOfWords(int wordLength, string mainLIne, 
             if (flag)
             {
                 result.Add(i,string.Concat(chars));
-                i += wordLength - 1;
+                if (i + 1 < mainLIne.Length && mainLIne[i] != mainLIne[i + 1])
+                {
+                    i += wordLength - 1;
+                }                
                 break;
             }
         }
