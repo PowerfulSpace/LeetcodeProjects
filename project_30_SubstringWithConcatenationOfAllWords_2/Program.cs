@@ -20,12 +20,12 @@ string[] words5 = { "aa", "aa" };
 string str6 = "wordgoodgoodgoodbestword";
 string[] words6 = { "word", "good", "best", "good" };
 
-FindSubstring(str1, words1);
-FindSubstring(str2, words2);
-FindSubstring(str3, words3);
-FindSubstring(str4, words4);
+//FindSubstring(str1, words1);
+//FindSubstring(str2, words2);
+//FindSubstring(str3, words3);
+//FindSubstring(str4, words4);
 FindSubstring(str5, words5);
-FindSubstring(str6, words6);
+//FindSubstring(str6, words6);
 
 
 Console.ReadLine();
@@ -36,7 +36,7 @@ static IList<int> FindSubstring(string s, string[] words)
     int wordLength = words[0].Length;
     int sumWords = wordLength * words.Length;
 
-    Dictionary<int, string> dictionary = GetArrayOfWords(wordLength, s, words);
+    List<KeyValuePair<int, string>> dictionary = GetArrayOfWords(wordLength, s, words);
 
     List<string> lists = new List<string>();
     int key = 0;
@@ -92,11 +92,20 @@ static IList<int> FindSubstring(string s, string[] words)
         lists.Clear();
     }
 
+    //if (dictionary.Count > 1)
+    //{
+    //    if (dictionary[dictionary.Count - 1].Value == dictionary[dictionary.Count - 2].Value)
+    //    {
+    //        indexes.Remove(dictionary[dictionary.Count - 1].Key);
+    //    }
+    //}
+  
+
     return indexes;
 }
 
 
-static Dictionary<int, string> GetArrayOfWords(int wordLength, string mainLIne, string[] words)
+static List<KeyValuePair<int, string>> GetArrayOfWords(int wordLength, string mainLIne, string[] words)
 {
     Dictionary<int, string> result = new Dictionary<int, string>();
     char[] chars = new char[wordLength];
@@ -130,5 +139,5 @@ static Dictionary<int, string> GetArrayOfWords(int wordLength, string mainLIne, 
             }
         }
     }
-    return result;
+    return result.ToList();
 }
