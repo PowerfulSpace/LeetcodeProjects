@@ -69,11 +69,11 @@ static IList<int> FindSubstring(string s, string[] words)
             index++;
 
             //Оптимизировать проверку
-            if (key + sumWords - 1 > s.Length)
-            {
-                lists.Add(" ");
-                break;
-            }
+            //if (item.Key + sumWords - index > s.Length)
+            //{
+            //    lists.Add(" ");
+            //    break;
+            //}
         }
         index = 0;
 

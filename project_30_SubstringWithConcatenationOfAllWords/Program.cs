@@ -24,28 +24,50 @@ Console.ReadLine();
 
 static IList<int> FindSubstring(string s, string[] words)
 {
-	if(words.Length < 1 || words[0].Length > s.Length || s.Length < words.Length * words[0].Length) { return new List<int>(); }
-
-    StringBuilder str = new StringBuilder(s);
+    if (words.Length < 1 || words[0].Length > s.Length || s.Length < words.Length * words[0].Length) { return new List<int>(); }
     int wordLength = words[0].Length;
+    int sumWords = wordLength * words.Length;
 
-    string[] array = new string[s.Length / wordLength];
-
-    GetArrayOfWords(array, str, wordLength);
+    Dictionary<int, string> dictionary = GetArrayOfWords(wordLength, s, words);
 
     List<string> lists = new List<string>();
+    int key = 0;
     int index = 0;
 
     List<int> indexes = new List<int>();
 
-    for (int i = 0; i <= array.Length - words.Length; i++)
+
+
+    for (int i = 0; i <= dictionary.Count - words.Length; i++)
     {
-        index = i;
-        for (int j = 0; j < words.Length; j++)
+        int skip = i;
+        foreach (var item in dictionary)
         {
-            lists.Add(array[index]);
+            if (skip != 0)
+            {
+                skip--;
+                continue;
+            }
+
+            if (index < words.Length)
+            {
+                lists.Add(item.Value);
+                if (lists.Count == 1)
+                {
+                    key = item.Key;
+                }
+            }
+            else { break; }
             index++;
+
+            //Оптимизировать проверку
+            //if (item.Key + sumWords - index > s.Length)
+            //{
+            //    lists.Add(" ");
+            //    break;
+            //}
         }
+        index = 0;
 
         for (int j = 0; j < words.Length; j++)
         {
@@ -57,7 +79,7 @@ static IList<int> FindSubstring(string s, string[] words)
         }
         if (lists.Count == 0)
         {
-            indexes.Add(i * wordLength);
+            indexes.Add(key);
         }
         lists.Clear();
     }
@@ -66,17 +88,39 @@ static IList<int> FindSubstring(string s, string[] words)
 }
 
 
-static void GetArrayOfWords(string[] array,StringBuilder str, int wordLength)
+static Dictionary<int, string> GetArrayOfWords(int wordLength, string mainLIne, string[] words)
 {
-    for (int i = 0; str.Length != 0; i++)
-    {
-        char[] chars = new char[wordLength];
-        for (int j = 0; j < wordLength; j++)
-        {
-            chars[j] = str[j];
-        }
-        array[i] = string.Concat(chars);
+    Dictionary<int, string> result = new Dictionary<int, string>();
+    char[] chars = new char[wordLength];
 
-        str.Remove(0, wordLength);
+    for (int i = 0; i <= mainLIne.Length - wordLength; i++)
+    {
+        for (int j = 0, k = i; j < wordLength; j++, k++)
+        {
+            chars[j] = mainLIne[k];
+        }
+
+        foreach (var word in words)
+        {
+            bool flag = true;
+            for (int j = 0; j < chars.Length; j++)
+            {
+                if (word[j] != chars[j])
+                {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag)
+            {
+                result.Add(i, string.Concat(chars));
+                if (i + 1 < mainLIne.Length && mainLIne[i] != mainLIne[i + 1])
+                {
+                    i += wordLength - 1;
+                }
+                break;
+            }
+        }
     }
+    return result;
 }
