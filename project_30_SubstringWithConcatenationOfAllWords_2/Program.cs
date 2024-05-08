@@ -20,12 +20,25 @@ string[] words5 = { "aa", "aa" };
 string str6 = "wordgoodgoodgoodbestword";
 string[] words6 = { "word", "good", "best", "good" };
 
-FindSubstring(str1, words1);
-FindSubstring(str2, words2);
-FindSubstring(str3, words3);
-FindSubstring(str4, words4);
-FindSubstring(str5, words5);
-FindSubstring(str6, words6);
+//FindSubstring(str1, words1);
+//FindSubstring(str2, words2);
+//FindSubstring(str3, words3);
+//FindSubstring(str4, words4);
+//FindSubstring(str5, words5);
+//FindSubstring(str6, words6);
+
+Array.ForEach(FindSubstring(str1, words1).ToArray(), x => Console.Write(x + " "));
+Console.WriteLine();
+Array.ForEach(FindSubstring(str2, words2).ToArray(), x => Console.Write(x + " "));
+Console.WriteLine();
+Array.ForEach(FindSubstring(str3, words3).ToArray(), x => Console.Write(x + " "));
+Console.WriteLine();
+Array.ForEach(FindSubstring(str4, words4).ToArray(), x => Console.Write(x + " "));
+Console.WriteLine();
+Array.ForEach(FindSubstring(str5, words5).ToArray(), x => Console.Write(x + " "));
+Console.WriteLine();
+Array.ForEach(FindSubstring(str6, words6).ToArray(), x => Console.Write(x + " "));
+Console.WriteLine();
 
 
 Console.ReadLine();
@@ -80,39 +93,3 @@ static IList<int> FindSubstring(string s, string[] words)
 }
 
 
-static Dictionary<int, string> GetArrayOfWords(int wordLength, string mainLIne, string[] words)
-{
-    Dictionary<int, string> result = new Dictionary<int, string>();
-    char[] chars = new char[wordLength];
-
-    for (int i = 0; i <= mainLIne.Length - wordLength; i++)
-    {
-        for (int j = 0, k = i; j < wordLength; j++, k++)
-        {
-            chars[j] = mainLIne[k];
-        }
-
-        foreach (var word in words)
-        {
-            bool flag = true;
-            for (int j = 0; j < chars.Length; j++)
-            {
-                if (word[j] != chars[j])
-                {
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag)
-            {
-                result.Add(i, string.Concat(chars));
-                if (i + 1 < mainLIne.Length && mainLIne[i] != mainLIne[i + 1])
-                {
-                    i += wordLength - 1;
-                }
-                break;
-            }
-        }
-    }
-    return result;
-}
