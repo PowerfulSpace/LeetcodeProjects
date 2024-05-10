@@ -54,7 +54,10 @@ static IList<int> FindSubstring(string s, string[] words)
     var wordCount = new Dictionary<string, int>();
     foreach (var word in words)
     {
-        if (!wordCount.ContainsKey(word)) wordCount[word] = 0;
+        if (!wordCount.ContainsKey(word))
+        {
+            wordCount[word] = 0;
+        }
         wordCount[word]++;
     }
 
