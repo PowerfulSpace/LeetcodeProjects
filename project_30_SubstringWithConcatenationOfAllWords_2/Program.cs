@@ -21,11 +21,11 @@ string str6 = "wordgoodgoodgoodbestword";
 string[] words6 = { "word", "good", "best", "good" };
 
 //FindSubstring(str1, words1);
-FindSubstring(str2, words2);
-FindSubstring(str3, words3);
-FindSubstring(str4, words4);
-FindSubstring(str5, words5);
-FindSubstring(str6, words6);
+//FindSubstring(str2, words2);
+//FindSubstring(str3, words3);
+//FindSubstring(str4, words4);
+//FindSubstring(str5, words5);
+//FindSubstring(str6, words6);
 
 //Array.ForEach(FindSubstring(str1, words1).ToArray(), x => Console.Write(x + " "));
 //Console.WriteLine();
@@ -35,10 +35,10 @@ FindSubstring(str6, words6);
 //Console.WriteLine();
 //Array.ForEach(FindSubstring(str4, words4).ToArray(), x => Console.Write(x + " "));
 //Console.WriteLine();
-//Array.ForEach(FindSubstring(str5, words5).ToArray(), x => Console.Write(x + " "));
-//Console.WriteLine();
-//Array.ForEach(FindSubstring(str6, words6).ToArray(), x => Console.Write(x + " "));
-//Console.WriteLine();
+Array.ForEach(FindSubstring(str5, words5).ToArray(), x => Console.Write(x + " "));
+Console.WriteLine();
+Array.ForEach(FindSubstring(str6, words6).ToArray(), x => Console.Write(x + " "));
+Console.WriteLine();
 
 
 Console.ReadLine();
@@ -73,10 +73,12 @@ static IList<int> FindSubstring(string s, string[] words)
 
             if (!wordCount.ContainsKey(currentWord)) break;
 
-            if (!seenWords.TryGetValue(currentWord, out int seenWordCount)
-                || seenWordCount < wordCount[currentWord])
+            if (!seenWords.TryGetValue(currentWord, out int seenWordCount) || seenWordCount < wordCount[currentWord])
             {
-                if (!seenWords.ContainsKey(currentWord)) seenWords[currentWord] = 0;
+                if (!seenWords.ContainsKey(currentWord))
+                {
+                    seenWords[currentWord] = 0;
+                }
                 seenWords[currentWord]++;
                 concatWords++;
             }
