@@ -27,10 +27,10 @@ string[] words6 = { "word", "good", "best", "good" };
 //FindSubstring(str5, words5);
 //FindSubstring(str6, words6);
 
-Array.ForEach(FindSubstring(str1, words1).ToArray(), x => Console.Write(x + " "));
-Console.WriteLine();
-Array.ForEach(FindSubstring(str2, words2).ToArray(), x => Console.Write(x + " "));
-Console.WriteLine();
+//Array.ForEach(FindSubstring(str1, words1).ToArray(), x => Console.Write(x + " "));
+//Console.WriteLine();
+//Array.ForEach(FindSubstring(str2, words2).ToArray(), x => Console.Write(x + " "));
+//Console.WriteLine();
 Array.ForEach(FindSubstring(str3, words3).ToArray(), x => Console.Write(x + " "));
 Console.WriteLine();
 Array.ForEach(FindSubstring(str4, words4).ToArray(), x => Console.Write(x + " "));
@@ -48,8 +48,8 @@ static IList<int> FindSubstring(string s, string[] words)
     if (s == null || words == null || words.Length == 0) return result;
 
     int wordLength = words[0].Length;
-    int windowSize = wordLength * words.Length;
-    if (s.Length < windowSize) return result;
+    int concatLength = wordLength * words.Length;
+    if (s.Length < concatLength) return result;
 
     var wordCount = new Dictionary<string, int>();
     foreach (string word in words)
