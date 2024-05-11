@@ -35,76 +35,76 @@ Console.ReadLine();
 
 static IList<int> FindSubstring(string s, string[] words)
 {
-    if(s == null || words == null) { return new List<int>(); }
-
-    List<int> result = new List<int>();
-
-    int wordLength = words[0].Length;
-    int wordCount = words.Length;
-
-    Dictionary<string,int> foundWords = new Dictionary<string, int>();
-
     foreach (var word in words)
     {
-        if (foundWords.ContainsKey(word))
+        if (originDict.ContainsKey(word))
         {
-            foundWords[word]++;
+            originDict[word]++;
         }
         else
         {
-            foundWords.Add(word, 1);
+            originDict[word] = 1;
         }
     }
 
+    var totalWords = words.Length;
+    var wordLength = words[0].Length;
 
-    for (int i = 0; i < wordLength; i++)
+    for (var i = 0; i < wordLength; i++)
     {
-        int left = i;
-        int count = 0;
-        Dictionary<string, int> countWords = new Dictionary<string, int>();
-
-        for (int rigth = left; rigth < s.Length - wordLength; rigth+= wordLength)
-        {
-            string word = s.Substring(rigth, wordLength);
-
-            if (foundWords.ContainsKey(word))
-            {
-                if (countWords.ContainsKey(word))
-                {
-                    countWords[word]++;
-                }
-                else
-                {
-                    countWords.Add(word, 1);
-                }
-                count++;
-
-
-                while (countWords[word] > foundWords[word])
-                {
-                    countWords[word]--;
-                    count--;
-                    left += wordLength;
-                }
-
-                if(count == wordCount)
-                {
-                    result.Add(left);
-                }
-            }
-            else
-            {
-                countWords.Clear();
-                count = 0;
-                left += wordLength;
-            }
-
-        }
+        // sliding windows
+        processSubstring(new Dictionary<string, int>(originDict), i, wordLength, totalWords, s);
     }
 
-
-
-    return result;
+    return res;
 }
 
 
+static void processSubstring(Dictionary<string, int> dict, int start, int wordLen, int totalWords, string s)
+{
+    var l = start;
+    var r = start + wordLen - 1;
+
+    while (r < s.Length)
+    {
+        // Console.WriteLine("start: "+start);
+        // Console.WriteLine("l: "+l);
+        // Console.WriteLine("r: "+r);
+        var key = s.Substring(l, wordLen);
+        // Console.WriteLine("key: "+key);
+
+        if (!dict.ContainsKey(key))
+        {
+            start = r + 1;
+            l = start;
+            r = l + wordLen - 1;
+            dict = new Dictionary<string, int>(originDict);
+        }
+        else if (dict[key] == 0)
+        {
+            dict[s.Substring(start, wordLen)]++;
+            start += wordLen;
+        }
+        else
+        {
+            // Console.WriteLine("key count: "+dict[key]);
+            if (r - start == wordLen * totalWords - 1)
+            {
+                // found 
+                // Console.WriteLine("found");
+                res.Add(start);
+                dict[key]--;
+                dict[s.Substring(start, wordLen)]++;
+                start += wordLen;
+                l += wordLen;
+                r += wordLen;
+            }
+            else
+            {
+                dict[key]--;
+                l += wordLen;
+                r += wordLen;
+            }
+        }
+    }
+}
