@@ -35,64 +35,41 @@ Console.ReadLine();
 
 static IList<int> FindSubstring(string s, string[] words)
 {
-    List<int> substringStarts = new();
+    int k = words[0].Length;
+    int len = k * words.Length;
 
-    int wordLength = words[0].Length;
-    int substringLength = wordLength * words.Length;
+    Dictionary<string, int> count = new();
+    foreach (var w in words)
+        if (!count.TryAdd(w, 1))
+            count[w]++;
 
-    List<int> checkLastPos = new();
-    List<string> checkLastWord = new();
+    List<int> lst = new();
 
-    for (int subStart = 0; subStart <= s.Length - substringLength; subStart++)
+    for (int i = 0; i < s.Length - len + 1; i++)
     {
-        int checkLastIndex = checkLastPos.FindIndex(x => x.Equals(subStart));
-        if (checkLastIndex != -1)
-        {
-            string wordToCheck = checkLastWord[checkLastIndex];
-            string wordInSubstring = s.Substring(subStart + substringLength - wordLength, wordLength);
+        string word = s[i..(i + k)];
 
-            checkLastPos.RemoveAt(checkLastIndex);
-            checkLastWord.RemoveAt(checkLastIndex);
-
-            if (!wordInSubstring.Equals(wordToCheck))
-                continue;
-
-            checkLastPos.Add(subStart + wordLength);
-            checkLastWord.Add(s.Substring(subStart, wordLength));
-            substringStarts.Add(subStart);
+        if (!count.ContainsKey(word))
             continue;
-        }
 
-        string substringToCheck = s.Substring(subStart, substringLength);
-        bool foundAllWords = true;
+        int start = i;
+        Dictionary<string, int> count_ = new(count);
+        count_[word]--;
 
-        List<string> substrings = new();
-        for (int wordStart = 0; wordStart < substringToCheck.Length; wordStart += wordLength)
+        for (int j = i + k; j < i + len; j += k)
         {
-            substrings.Add(substringToCheck.Substring(wordStart, wordLength));
-        }
+            word = s[j..(j + k)];
 
-        foreach (string word in words)
-        {
-            int index = substrings.FindIndex(x => x.Equals(word));
-
-            if (index == -1)
-            {
-                foundAllWords = false;
+            if (!count.ContainsKey(word) || count_[word] <= 0)
                 break;
-            }
 
-            substrings.RemoveAt(index);
+            count_[word]--;
         }
 
-        if (foundAllWords)
-        {
-            substringStarts.Add(subStart);
-            checkLastPos.Add(subStart + wordLength);
-            checkLastWord.Add(substringToCheck.Substring(0, wordLength));
-        }
+        if (count_.Values.Sum() == 0)
+            lst.Add(start);
     }
 
-    return substringStarts;
+    return lst;
 }
 
