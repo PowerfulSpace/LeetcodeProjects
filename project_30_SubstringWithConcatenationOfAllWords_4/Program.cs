@@ -35,76 +35,64 @@ Console.ReadLine();
 
 static IList<int> FindSubstring(string s, string[] words)
 {
-    foreach (var word in words)
+    List<int> substringStarts = new();
+
+    int wordLength = words[0].Length;
+    int substringLength = wordLength * words.Length;
+
+    List<int> checkLastPos = new();
+    List<string> checkLastWord = new();
+
+    for (int subStart = 0; subStart <= s.Length - substringLength; subStart++)
     {
-        if (originDict.ContainsKey(word))
+        int checkLastIndex = checkLastPos.FindIndex(x => x.Equals(subStart));
+        if (checkLastIndex != -1)
         {
-            originDict[word]++;
+            string wordToCheck = checkLastWord[checkLastIndex];
+            string wordInSubstring = s.Substring(subStart + substringLength - wordLength, wordLength);
+
+            checkLastPos.RemoveAt(checkLastIndex);
+            checkLastWord.RemoveAt(checkLastIndex);
+
+            if (!wordInSubstring.Equals(wordToCheck))
+                continue;
+
+            checkLastPos.Add(subStart + wordLength);
+            checkLastWord.Add(s.Substring(subStart, wordLength));
+            substringStarts.Add(subStart);
+            continue;
         }
-        else
+
+        string substringToCheck = s.Substring(subStart, substringLength);
+        bool foundAllWords = true;
+
+        List<string> substrings = new();
+        for (int wordStart = 0; wordStart < substringToCheck.Length; wordStart += wordLength)
         {
-            originDict[word] = 1;
+            substrings.Add(substringToCheck.Substring(wordStart, wordLength));
+        }
+
+        foreach (string word in words)
+        {
+            int index = substrings.FindIndex(x => x.Equals(word));
+
+            if (index == -1)
+            {
+                foundAllWords = false;
+                break;
+            }
+
+            substrings.RemoveAt(index);
+        }
+
+        if (foundAllWords)
+        {
+            substringStarts.Add(subStart);
+            checkLastPos.Add(subStart + wordLength);
+            checkLastWord.Add(substringToCheck.Substring(0, wordLength));
         }
     }
 
-    var totalWords = words.Length;
-    var wordLength = words[0].Length;
-
-    for (var i = 0; i < wordLength; i++)
-    {
-        // sliding windows
-        processSubstring(new Dictionary<string, int>(originDict), i, wordLength, totalWords, s);
-    }
-
-    return res;
+    return substringStarts;
 }
 
-
-static void processSubstring(Dictionary<string, int> dict, int start, int wordLen, int totalWords, string s)
-{
-    var l = start;
-    var r = start + wordLen - 1;
-
-    while (r < s.Length)
-    {
-        // Console.WriteLine("start: "+start);
-        // Console.WriteLine("l: "+l);
-        // Console.WriteLine("r: "+r);
-        var key = s.Substring(l, wordLen);
-        // Console.WriteLine("key: "+key);
-
-        if (!dict.ContainsKey(key))
-        {
-            start = r + 1;
-            l = start;
-            r = l + wordLen - 1;
-            dict = new Dictionary<string, int>(originDict);
-        }
-        else if (dict[key] == 0)
-        {
-            dict[s.Substring(start, wordLen)]++;
-            start += wordLen;
-        }
-        else
-        {
-            // Console.WriteLine("key count: "+dict[key]);
-            if (r - start == wordLen * totalWords - 1)
-            {
-                // found 
-                // Console.WriteLine("found");
-                res.Add(start);
-                dict[key]--;
-                dict[s.Substring(start, wordLen)]++;
-                start += wordLen;
-                l += wordLen;
-                r += wordLen;
-            }
-            else
-            {
-                dict[key]--;
-                l += wordLen;
-                r += wordLen;
-            }
-        }
-    }
-}
