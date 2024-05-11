@@ -1,6 +1,4 @@
 ﻿
-using System;
-using System.Text;
 
 string str1 = "barfoothefoobarman";
 string[] words1 = { "foo", "bar" };
