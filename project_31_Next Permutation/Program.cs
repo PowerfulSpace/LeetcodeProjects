@@ -41,7 +41,7 @@ static void NextPermutation(int[] nums)
             newArray.Add(nums[i + 1]);
 
             List<int> array = nums.Skip(i - 1).Take(nums.Length - (i - 1)).ToList();
-            array.Remove(newArray.First());
+            array.Remove(newArray[0]);
             array.Sort();
             newArray.AddRange(array);
 
