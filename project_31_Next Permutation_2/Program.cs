@@ -20,7 +20,6 @@ Print(nums8);
 
 Console.ReadLine();
 
-
 static void Print(int[] nums)
 {
     Array.ForEach(nums, x => Console.Write(x + " "));
