@@ -6,25 +6,23 @@ int[] nums3 = { 1, 1, 5 };
 int[] nums4 = { 1, 3, 2 };
 int[] nums5 = { 2, 3, 1 };
 
-NextPermutation(nums1);
-NextPermutation(nums2);
-NextPermutation(nums3);
-NextPermutation(nums4);
-NextPermutation(nums5);
-
-Array.ForEach(nums1,x => Console.Write(x + " "));
-Console.WriteLine();
-Array.ForEach(nums2,x => Console.Write(x + " "));
-Console.WriteLine();
-Array.ForEach(nums3,x => Console.Write(x + " "));
-Console.WriteLine();
-Array.ForEach(nums4,x => Console.Write(x + " "));
-Console.WriteLine();
-Array.ForEach(nums5, x => Console.Write(x + " "));
-Console.WriteLine();
-
+Print(nums1);
+Print(nums2);
+Print(nums3);
+Print(nums4);
+Print(nums5);
 
 Console.ReadLine();
+
+
+static void Print(int[] nums)
+{
+    Array.ForEach(nums, x => Console.Write(x + " "));
+    NextPermutation(nums);
+    Console.Write(" - - - ");
+    Array.ForEach(nums, x => Console.Write(x + " "));
+    Console.WriteLine();
+}
 
 static void NextPermutation(int[] nums)
 {
@@ -34,26 +32,6 @@ static void NextPermutation(int[] nums)
 
 	for (int i = nums.Length - 1; i > 0; i--)
 	{
-        if (i != nums.Length - 1 && nums[i] > nums[i - 1] && nums[i] > nums[i + 1])
-        {
-            if(nums[i - 1] < nums[i + 1])
-            {
-                int swap = nums[i - 1];
-                nums[i - 1] = nums[i + 1];
-                nums[i + 1] = nums[i];
-                nums[i] = swap;
-                break;
-            }
-            if (nums[i - 1] > nums[i + 1])
-            {
-                int swap = nums[i - 1];
-                nums[i - 1] = nums[i];
-                nums[i] = nums[i + 1];
-                nums[i + 1] = swap;
-                break;
-            }
-        }
-
         if (nums[i] > nums[i - 1])
 		{
 			int swap = nums[i];
