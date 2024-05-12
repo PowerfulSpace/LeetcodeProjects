@@ -5,12 +5,14 @@ int[] nums2 = { 3, 2, 1 };
 int[] nums3 = { 1, 1, 5 };
 int[] nums4 = { 1, 3, 2 };
 int[] nums5 = { 2, 3, 1 };
+int[] nums6 = { 5, 4, 7, 5, 3, 2 };
 
 Print(nums1);
 Print(nums2);
 Print(nums3);
 Print(nums4);
 Print(nums5);
+Print(nums6);
 
 Console.ReadLine();
 
@@ -32,12 +34,24 @@ static void NextPermutation(int[] nums)
 
 	for (int i = nums.Length - 1; i > 0; i--)
 	{
+
         if (nums[i] > nums[i - 1])
-		{
-			int swap = nums[i];
-			nums[i]	= nums[i - 1];
-			nums[i - 1] = swap;
-			break;
+        {
+            List<int> newArray = new List<int>();
+            newArray.Add(nums[i + 1]);
+
+            List<int> array = nums.Skip(i - 1).Take(nums.Length - (i - 1)).ToList();
+            array.Remove(newArray.First());
+            array.Sort();
+            newArray.AddRange(array);
+
+            int index = i - 1;
+            for (int j = 0; j < newArray.Count; j++)
+            {
+                nums[index] = newArray[j];
+                index++;
+            }
+            break;
         }
 
         if (i - 1 == 0)
@@ -51,5 +65,6 @@ static void NextPermutation(int[] nums)
 	{
 		Array.Sort(nums);
 	}
+
 
 }
