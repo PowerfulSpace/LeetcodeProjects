@@ -7,7 +7,7 @@ int[] nums4 = { 1, 3, 2 };
 int[] nums5 = { 2, 3, 1 };
 int[] nums6 = { 5, 4, 7, 5, 3, 2 };
 int[] nums7 = { 2, 2, 7, 5, 4, 3, 2, 2, 1 };
-int[] nums8 = { 5, 4, 7, 5, 3, 2 };
+int[] nums8 = { 1, 4, 3, 2, 2 };
 
 //Print(nums1);
 //Print(nums2);
@@ -38,16 +38,16 @@ static void NextPermutation(int[] nums)
 
 	for (int i = nums.Length -1; i > 0; i--)
 	{
-        if(i != nums.Length - 1 && i - 1 != 0)
+        if(i != nums.Length - 1)
         {
             if (nums[i] > nums[i - 1])
             {
                 List<int> newArray = new List<int>();
                 
                 int next = nums[i];
-                for (int j = i; j < nums.Length - 1; j++)
+                for (int j = i; j < nums.Length; j++)
                 {
-                    if(nums[j] >= nums[i - 2] && (next > nums[j]))
+                    if(nums[j] > nums[i - 1] && (next > nums[j]))
                     {
                         next = nums[j];
                     }
