@@ -33,6 +33,7 @@ static void NextPermutation(int[] nums)
 {
     int index = -1;
     int n = nums.Length;
+
     for (int i = n - 2; i >= 0; i--)
     {
         if (nums[i] < nums[i + 1])
@@ -41,21 +42,22 @@ static void NextPermutation(int[] nums)
             break;
         }
     }
-    if (index == -1)
+    if(index == -1)
     {
-        Array.Reverse(nums, 0, n);
+        nums.Reverse();
         return;
     }
+
     for (int i = n - 1; i >= 0; i--)
     {
         if (nums[index] < nums[i])
         {
-            int swap = 0;
-            swap = nums[i];
-            nums[i] = nums[index];
-            nums[index] = swap;
+            int swap = nums[index];
+            nums[index] = nums[i];
+            nums[i] = swap;
             break;
         }
     }
-    Array.Reverse(nums, index + 1, n - 1 - index);
+    Array.Reverse(nums, index + 1, n - (index + 1));
+
 }
