@@ -9,13 +9,13 @@ int[] nums6 = { 5, 4, 7, 5, 3, 2 };
 int[] nums7 = { 2, 2, 7, 5, 4, 3, 2, 2, 1 };
 int[] nums8 = { 1, 4, 3, 2, 2 };
 
-//Print(nums1);
-//Print(nums2);
-//Print(nums3);
-//Print(nums4);
-//Print(nums5);
-//Print(nums6);
-//Print(nums7);
+Print(nums1);
+Print(nums2);
+Print(nums3);
+Print(nums4);
+Print(nums5);
+Print(nums6);
+Print(nums7);
 Print(nums8);
 
 Console.ReadLine();
