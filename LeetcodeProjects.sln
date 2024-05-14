@@ -191,7 +191,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_31_Next Permutation
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_30_SubstringWithConcatenationOfAllWords_4", "project_30_SubstringWithConcatenationOfAllWords_4\project_30_SubstringWithConcatenationOfAllWords_4.csproj", "{7E451BB5-CD46-4DD5-90EB-7F36D9020AEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_31_Next Permutation_2", "project_31_Next Permutation_2\project_31_Next Permutation_2.csproj", "{2CC3E7A3-A0FF-44D3-9A59-1D6E377DA735}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_31_Next Permutation_2", "project_31_Next Permutation_2\project_31_Next Permutation_2.csproj", "{2CC3E7A3-A0FF-44D3-9A59-1D6E377DA735}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_32_LongestValidParentheses", "project_32_LongestValidParentheses\project_32_LongestValidParentheses.csproj", "{9C7A7909-3715-4C46-8672-8A6EC89AF8DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -579,6 +581,10 @@ Global
 		{2CC3E7A3-A0FF-44D3-9A59-1D6E377DA735}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CC3E7A3-A0FF-44D3-9A59-1D6E377DA735}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CC3E7A3-A0FF-44D3-9A59-1D6E377DA735}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C7A7909-3715-4C46-8672-8A6EC89AF8DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C7A7909-3715-4C46-8672-8A6EC89AF8DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C7A7909-3715-4C46-8672-8A6EC89AF8DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C7A7909-3715-4C46-8672-8A6EC89AF8DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
