@@ -35,8 +35,6 @@ static int LongestValidParentheses(string s)
 
     for (int i = 0; i < s.Length; i++)
     {
-        //left--;
-        //right--;
 
         if (s[i] == ')' && parentheses.Count == 0)
         {
@@ -60,8 +58,6 @@ static int LongestValidParentheses(string s)
         {
             inARowCount = count;
         }    
-        
-        if(left == 0 || right == 0) { break; }
 
     }
 
