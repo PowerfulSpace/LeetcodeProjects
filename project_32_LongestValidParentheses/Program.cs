@@ -28,7 +28,5 @@ static int LongestValidParentheses(string s)
             }
         }
     }
-
-
     return count;
 }
