@@ -19,43 +19,48 @@ Console.ReadLine();
 
 static int LongestValidParentheses(string s)
 {
-    int count = 0;
-    int inARowCount = 0;
+    if (s.Length <= 1) return 0;
 
-    Stack<char> parentheses = new Stack<char>();
+    bool[] matching = new bool[s.Length];
 
-    int result = GetCountCombination(s,0,count, inARowCount, 0,0);
-    return result;
-}
+    Stack<int> openingIndexes = new Stack<int>();
 
-static int GetCountCombination(string s,int index,int count, int inARowCount, int left, int rigth)
-{
-    if(index > s.Length - 1)
+    for (int i = 0; i < s.Length; i++)
     {
-        return count;
+        char c = s[i];
+
+        if (c == '(')
+        {
+            openingIndexes.Push(i);
+        }
+        else
+        {
+            if (openingIndexes.Count != 0)
+            {
+                int openingIndex = openingIndexes.Pop();
+                matching[i] = true;
+                matching[openingIndex] = true;
+            }
+        }
     }
 
-    if (s[index] == '(')
+    int longest = 0;
+    int current = 0;
+    foreach (bool match in matching)
     {
-        left++;
-        count = GetCountCombination(s, index + 1, count, inARowCount, left,rigth);
+        if (match)
+        {
+            current++;
+            if (current > longest)
+            {
+                longest = current;
+            }
+        }
+        else
+        {
+            current = 0;
+        }
     }
 
-
-
-    if (s[index] == ')')
-    {
-        rigth++;
-        count = GetCountCombination(s, index + 1, count, inARowCount, left, rigth);
-    }
-
-    if (left < rigth) { count = 0; }
-    if (left == rigth)
-    {
-        count = left * 2;
-    }
-
-    if (inARowCount < count) { inARowCount = count; }
-
-    return inARowCount;
+    return longest;
 }
