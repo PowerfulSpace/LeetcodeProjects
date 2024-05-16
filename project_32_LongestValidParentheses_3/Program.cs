@@ -15,8 +15,6 @@ Console.WriteLine(LongestValidParentheses(input5));
 
 Console.ReadLine();
 
-
-
 static int LongestValidParentheses(string s)
 {
     Stack<int> st = new();
