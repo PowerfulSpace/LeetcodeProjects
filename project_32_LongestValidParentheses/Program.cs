@@ -19,48 +19,48 @@ Console.ReadLine();
 
 static int LongestValidParentheses(string s)
 {
-    if(s == null) return 0;
-    
-    int left = 0; int right = 0;
-    for (int i = 0; i < s.Length; i++)
-    {
-        if (s[i] == '(') { left++; }
-        else { right++; }
-    }
+    if (s.Length <= 1) return 0;
 
-    int count = 0;
-    int inARowCount = 0;
+    bool[] matching = new bool[s.Length];
 
-    Stack<char> parentheses = new Stack<char>();
+    Stack<int> openingIndexes = new Stack<int>();
 
     for (int i = 0; i < s.Length; i++)
     {
+        char c = s[i];
 
-        if (s[i] == ')' && parentheses.Count == 0)
+        if (c == '(')
         {
-            count = 0;
-            continue;
+            openingIndexes.Push(i);
         }
-        if (s[i] == '(')
+        else
         {
-            parentheses.Push(s[i]);
-            continue;
+            if (openingIndexes.Count != 0)
+            {
+                int openingIndex = openingIndexes.Pop();
+                matching[i] = true;
+                matching[openingIndex] = true;
+            }
         }
-        if (s[i] == ')')
-        {
-            if (parentheses.Count > 0)
-            {                
-                parentheses.Pop();
-                count += 2;
-            }         
-        }
-        if(inARowCount < count)
-        {
-            inARowCount = count;
-        }    
-
     }
 
+    int longest = 0;
+    int current = 0;
+    foreach (bool match in matching)
+    {
+        if (match)
+        {
+            current++;
+            if (current > longest)
+            {
+                longest = current;
+            }
+        }
+        else
+        {
+            current = 0;
+        }
+    }
 
-    return inARowCount;
+    return longest;
 }
