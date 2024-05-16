@@ -19,29 +19,30 @@ Console.ReadLine();
 
 static int LongestValidParentheses(string s)
 {
-    Stack<int> stack = new Stack<int>();
-    stack.Push(-1);
-    int maxLength = 0;
+    Stack<int> st = new();
+    st.Push(-1);
+
+    int res = 0;
 
     for (int i = 0; i < s.Length; i++)
     {
         if (s[i] == '(')
         {
-            stack.Push(i);
+            st.Push(i);
         }
         else
         {
-            stack.Pop();
-
-            if (stack.Count == 0)
+            st.Pop();
+            if (st.Count == 0)
             {
-                stack.Push(i);
+                st.Push(i);
             }
             else
             {
-                maxLength = Math.Max(maxLength, i - stack.Peek());
+                res = Math.Max(res, i - st.Peek());
             }
         }
     }
-    return maxLength;
+
+    return res;
 }
