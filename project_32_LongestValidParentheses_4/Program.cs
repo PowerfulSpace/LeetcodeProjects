@@ -17,28 +17,50 @@ static int LongestValidParentheses(string s)
 {
 
     Stack<int> stack = new Stack<int>();
-    stack.Push(-1);
-    int maxLength = 0;
+    int[] arr = new int[s.Length];
 
     for (int i = 0; i < s.Length; i++)
     {
-        if (s[i] == '(')
+        var c = s[i];
+
+        if (c == '(')
         {
             stack.Push(i);
         }
         else
         {
-            stack.Pop();
-
-            if (stack.Count == 0)
+            if (stack.Any())
             {
-                stack.Push(i);
-            }
-            else
-            {
-                maxLength = Math.Max(maxLength, i - stack.Peek());
+                arr[stack.Pop()] = 1;
+                arr[i] = 1;
             }
         }
     }
-    return maxLength;
+
+    int max = 0;
+    int count = 0;
+
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] == 1)
+        {
+            count++;
+        }
+        else
+        {
+            if (count > max)
+            {
+                max = count;
+            }
+
+            count = 0;
+        }
+    }
+
+    if (count > max)
+    {
+        max = count;
+    }
+
+    return max;
 }

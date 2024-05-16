@@ -19,48 +19,29 @@ Console.ReadLine();
 
 static int LongestValidParentheses(string s)
 {
-    if (s.Length <= 1) return 0;
-
-    bool[] matching = new bool[s.Length];
-
-    Stack<int> openingIndexes = new Stack<int>();
+    Stack<int> stack = new Stack<int>();
+    stack.Push(-1);
+    int maxLength = 0;
 
     for (int i = 0; i < s.Length; i++)
     {
-        char c = s[i];
-
-        if (c == '(')
+        if (s[i] == '(')
         {
-            openingIndexes.Push(i);
+            stack.Push(i);
         }
         else
         {
-            if (openingIndexes.Count != 0)
+            stack.Pop();
+
+            if (stack.Count == 0)
             {
-                int openingIndex = openingIndexes.Pop();
-                matching[i] = true;
-                matching[openingIndex] = true;
+                stack.Push(i);
+            }
+            else
+            {
+                maxLength = Math.Max(maxLength, i - stack.Peek());
             }
         }
     }
-
-    int longest = 0;
-    int current = 0;
-    foreach (bool match in matching)
-    {
-        if (match)
-        {
-            current++;
-            if (current > longest)
-            {
-                longest = current;
-            }
-        }
-        else
-        {
-            current = 0;
-        }
-    }
-
-    return longest;
+    return maxLength;
 }
