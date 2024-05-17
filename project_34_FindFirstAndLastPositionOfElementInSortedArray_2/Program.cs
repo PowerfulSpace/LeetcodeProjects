@@ -20,24 +20,23 @@ Console.ReadLine();
 
 static int[] SearchRange(int[] nums, int target)
 {
-    int index1 = -1;
-    int index2 = -1;
+    int[] result = new int[2] { -1, -1 };
 
     for (int i = 0, j = nums.Length - 1; i <= nums.Length - 1; i++,j--)
     {
-        if( index1 != -1 && index2 != -1) { break; }
+        if(result[0] != -1 && result[1] != -1) { break; }
 
-        if (nums[i] == target && index1 == -1)
+        if (nums[i] == target && result[0] == -1)
         {
-            index1 = i;
+            result[0] = i;
         }
-        if (nums[j] == target && index2 == -1)
+        if (nums[j] == target && result[1] == -1)
         {
-            index2 = j;
+            result[1] = j;
         }
     }
 
-    return new int[] { index1, index2 };
+    return result;
 }
 
 
