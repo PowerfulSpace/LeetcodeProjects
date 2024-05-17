@@ -13,9 +13,7 @@ Console.ReadLine();
 
 static int Search(int[] nums, int target)
 {
-
-
-    return 1;
+    return nums.ToList().IndexOf(target);
 }
 
 
