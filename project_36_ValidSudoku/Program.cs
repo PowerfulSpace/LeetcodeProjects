@@ -33,5 +33,29 @@ Console.ReadLine();
 
 static bool IsValidSudoku(char[][] board)
 {
-    return default;
+
+    int length = 9;
+    int x = 0;
+    int y = 0;
+
+    for (int i = 0; i < length; i++)
+    {
+        char num = board[i][i]; 
+        for (x = 0; x < length; x++)
+        {
+            if(num == board[0][x] && board[0][x] != board[i][i])
+            {
+                return false;
+            }
+        }
+        for (y = 0; y < length; y++)
+        {
+            if (num == board[y][0] && board[0][y] != board[i][i])
+            {
+                return false;
+            }
+        }
+    }
+
+    return true;
 }
