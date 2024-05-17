@@ -205,6 +205,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_34_FindFirstAndLast
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_34_FindFirstAndLastPositionOfElementInSortedArray_2", "project_34_FindFirstAndLastPositionOfElementInSortedArray_2\project_34_FindFirstAndLastPositionOfElementInSortedArray_2.csproj", "{B9750494-ABA4-4CCF-AE60-435F58F02DE2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_35_SearchInsertPosition", "project_35_SearchInsertPosition\project_35_SearchInsertPosition.csproj", "{FC200E57-CAF8-45D7-AE70-06837C0C5D16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -615,6 +617,10 @@ Global
 		{B9750494-ABA4-4CCF-AE60-435F58F02DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9750494-ABA4-4CCF-AE60-435F58F02DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9750494-ABA4-4CCF-AE60-435F58F02DE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC200E57-CAF8-45D7-AE70-06837C0C5D16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC200E57-CAF8-45D7-AE70-06837C0C5D16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC200E57-CAF8-45D7-AE70-06837C0C5D16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC200E57-CAF8-45D7-AE70-06837C0C5D16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
