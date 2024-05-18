@@ -42,14 +42,18 @@ static bool IsValidSudoku(char[][] board)
     int adding = 0;
 
 
-    Dictionary<char, char> list = new Dictionary<char, char>();
+    List<char> list = new List<char>();
 
     while (level <= length)
     {
         while (count < level && temp < length)
         {
+            list = new List<char>();
             for (int i = temp; i < temp + 3; i++)
             {
+                if (list.Contains(board[count][i])) { return false; }
+                if(board[count][i] != '.') { list.Add(board[count][i]); }
+                
                 Console.Write(board[count][i] + " ");
             }
             Console.WriteLine();
@@ -63,9 +67,6 @@ static bool IsValidSudoku(char[][] board)
         adding += 3;
         count = adding;
     }
-   
-
-
 
     return true;
 }
