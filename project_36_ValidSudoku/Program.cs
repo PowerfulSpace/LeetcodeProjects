@@ -33,28 +33,24 @@ Console.ReadLine();
 
 static bool IsValidSudoku(char[][] board)
 {
-
     int length = 9;
-    int x = 0;
-    int y = 0;
+    char num = '.';
+    Dictionary<char, char> list = new Dictionary<char, char>();
 
     for (int i = 0; i < length; i++)
     {
-        char num = board[i][i]; 
-        for (x = 0; x < length; x++)
+        for (int x = 0; x < length; x++)
         {
-            if(num == board[0][x] && board[0][x] != board[i][i])
-            {
-                return false;
-            }
+            if (list.ContainsKey(board[i][x])) { return false; }
+            if (board[i][x] != '.') { list.Add(board[i][x],'.'); }
         }
-        for (y = 0; y < length; y++)
+        list.Clear();
+        for (int y = 0; y < length; y++)
         {
-            if (num == board[y][0] && board[0][y] != board[i][i])
-            {
-                return false;
-            }
+            if (list.ContainsKey(board[y][i])) { return false; }
+            if (board[y][i] != '.') { list.Add(board[y][i], '.'); }
         }
+        list.Clear();
     }
 
     return true;
