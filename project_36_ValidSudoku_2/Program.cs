@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 char[][] board1 = {
     new char[]{'5', '3', '.', '.', '7', '.', '.', '.', '.'},
     new char[]{'6', '.', '.', '1', '9', '5', '.', '.', '.'},
@@ -34,36 +36,36 @@ Console.ReadLine();
 static bool IsValidSudoku(char[][] board)
 {
     int length = 9;
-    int count = 3;
+    int count = 0;
     int temp = 0;
+    int level = 3;
+    int adding = 0;
+
+
     Dictionary<char, char> list = new Dictionary<char, char>();
 
-    for (int i = 0; i < length; i++)
+    while (level <= length)
     {
-        count = 3;
-        int index = 0;
-        for (int j = temp; j < length; j++)
+        while (count < level && temp < length)
         {
-            
-            for (int k = temp; k < temp + 3; k++)
+            for (int i = temp; i < temp + 3; i++)
             {
-                Console.Write(board[index][k] + " ");
-                index++;
+                Console.Write(board[count][i] + " ");
             }
-            
             Console.WriteLine();
-            if(count == 0)
-            {
-                if (temp + 3 < length) { temp += 3; }
-                count = 3;
-            }
-            count--;
-            
+
+            count++;
+            if (count == level) { temp += 3; count = adding; }
         }
         Console.WriteLine();
-        if (temp + 3 < length) { temp += 3; }
-       
+        level += 3;
+        temp = 0;
+        adding += 3;
+        count = adding;
     }
+   
+
+
 
     return true;
 }
