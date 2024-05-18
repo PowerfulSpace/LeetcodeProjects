@@ -47,8 +47,7 @@ static bool IsValidSudoku(char[][] board)
     while (level <= length)
     {
         while (count < level && temp < length)
-        {
-            list = new List<char>();
+        {           
             for (int i = temp; i < temp + 3; i++)
             {
                 if (list.Contains(board[count][i])) { return false; }
@@ -59,7 +58,7 @@ static bool IsValidSudoku(char[][] board)
             Console.WriteLine();
 
             count++;
-            if (count == level) { temp += 3; count = adding; }
+            if (count == level) { temp += 3; count = adding; list = new List<char>(); }
         }
         Console.WriteLine();
         level += 3;

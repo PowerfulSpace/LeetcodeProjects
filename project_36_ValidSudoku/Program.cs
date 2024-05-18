@@ -35,23 +35,61 @@ static bool IsValidSudoku(char[][] board)
 {
     int length = 9;
     char num = '.';
-    Dictionary<char, char> list = new Dictionary<char, char>();
+    Dictionary<char, char> dictionary = new Dictionary<char, char>();
 
     for (int i = 0; i < length; i++)
     {
         for (int x = 0; x < length; x++)
         {
-            if (list.ContainsKey(board[i][x])) { return false; }
-            if (board[i][x] != '.') { list.Add(board[i][x],'.'); }
+            if (dictionary.ContainsKey(board[i][x])) { return false; }
+            if (board[i][x] != '.') { dictionary.Add(board[i][x],'.'); }
         }
-        list.Clear();
+        dictionary.Clear();
         for (int y = 0; y < length; y++)
         {
-            if (list.ContainsKey(board[y][i])) { return false; }
-            if (board[y][i] != '.') { list.Add(board[y][i], '.'); }
+            if (dictionary.ContainsKey(board[y][i])) { return false; }
+            if (board[y][i] != '.') { dictionary.Add(board[y][i], '.'); }
         }
-        list.Clear();
+        dictionary.Clear();
     }
+
+
+
+    //int length = 9;
+    int count = 0;
+    int temp = 0;
+    int level = 3;
+    int adding = 0;
+
+
+    List<char> list = new List<char>();
+
+    while (level <= length)
+    {
+        while (count < level && temp < length)
+        {
+            for (int i = temp; i < temp + 3; i++)
+            {
+                if (list.Contains(board[count][i])) { return false; }
+                if (board[count][i] != '.') { list.Add(board[count][i]); }
+
+                Console.Write(board[count][i] + " ");
+            }
+            Console.WriteLine();
+
+            count++;
+            if (count == level) { temp += 3; count = adding; list = new List<char>(); }
+        }
+        Console.WriteLine();
+        level += 3;
+        temp = 0;
+        adding += 3;
+        count = adding;
+    }
+
+
+
+
 
     return true;
 }
