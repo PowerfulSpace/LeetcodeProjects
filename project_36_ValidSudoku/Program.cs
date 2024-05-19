@@ -52,38 +52,34 @@ static bool IsValidSudoku(char[][] board)
         list.Clear();
     }
 
-
-
-    //int length = 9;
-    int count = 0;
-    int temp = 0;
-    int level = 3;
+    int tempY = 0;
+    int tempX = 0;
+    int block = 3;
     int adding = 0;
-
 
     List<char> listChunks = new List<char>();
 
-    while (level <= length)
+    while (block <= length)
     {
-        while (count < level && temp < length)
+        while (tempY < block && tempX < length)
         {
-            for (int i = temp; i < temp + 3; i++)
+            for (int i = tempX; i < tempX + 3; i++)
             {
-                if (listChunks.Contains(board[count][i])) { return false; }
-                if (board[count][i] != '.') { listChunks.Add(board[count][i]); }
+                if (listChunks.Contains(board[tempY][i])) { return false; }
+                if (board[tempY][i] != '.') { listChunks.Add(board[tempY][i]); }
 
-                Console.Write(board[count][i] + " ");
+                Console.Write(board[tempY][i] + " ");
             }
             Console.WriteLine();
 
-            count++;
-            if (count == level) { temp += 3; count = adding; listChunks = new List<char>(); }
+            tempY++;
+            if (tempY == block) { tempX += 3; tempY = adding; listChunks = new List<char>(); }
         }
         Console.WriteLine();
-        level += 3;
-        temp = 0;
+        block += 3;
+        tempX = 0;
         adding += 3;
-        count = adding;
+        tempY = adding;
     }
 
     return true;
