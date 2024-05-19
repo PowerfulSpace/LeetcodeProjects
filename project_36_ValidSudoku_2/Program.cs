@@ -35,40 +35,62 @@ Console.ReadLine();
 
 static bool IsValidSudoku(char[][] board)
 {
-    var rowValues = new HashSet<char>[9];
-    var colValues = new HashSet<char>[9];
-    var boxValues = new HashSet<char>[9];
+    int length = 9;
+    List<char> list = new List<char>();
 
-    for (int i = 0; i < 9; i++)
+    for (int i = 0; i < length; i++)
     {
-        rowValues[i] = new HashSet<char>();
-        colValues[i] = new HashSet<char>();
-        boxValues[i] = new HashSet<char>();
-    }
-
-    for (int row = 0; row < board.Length; row++)
-    {
-        for (int col = 0; col < board[row].Length; col++)
+        for (int x = 0; x < length; x++)
         {
-            char cell = board[row][col];
-
-            if (cell == '.') continue;
-
-            int boxIndex = ((row / 3) * 3) + (col / 3);
-
-            if (rowValues[row].Contains(cell)
-                || colValues[col].Contains(cell)
-                || boxValues[boxIndex].Contains(cell)
-               )
-            {
-                return false;
-            }
-
-            rowValues[row].Add(cell);
-            colValues[col].Add(cell);
-            boxValues[boxIndex].Add(cell);
+            if (list.Contains(board[i][x])) { return false; }
+            if (board[i][x] != '.') { list.Add(board[i][x]); }
         }
+        list.Clear();
+        for (int y = 0; y < length; y++)
+        {
+            if (list.Contains(board[y][i])) { return false; }
+            if (board[y][i] != '.') { list.Add(board[y][i]); }
+        }
+        list.Clear();
     }
+
+
+
+    //int length = 9;
+    int count = 0;
+    int temp = 0;
+    int level = 3;
+    int adding = 0;
+
+
+    List<char> listChunks = new List<char>();
+
+    while (level <= length)
+    {
+        while (count < level && temp < length)
+        {
+            for (int i = temp; i < temp + 3; i++)
+            {
+                if (listChunks.Contains(board[count][i])) { return false; }
+                if (board[count][i] != '.') { listChunks.Add(board[count][i]); }
+
+                Console.Write(board[count][i] + " ");
+            }
+            Console.WriteLine();
+
+            count++;
+            if (count == level) { temp += 3; count = adding; listChunks = new List<char>(); }
+        }
+        Console.WriteLine();
+        level += 3;
+        temp = 0;
+        adding += 3;
+        count = adding;
+    }
+
+
+
+
 
     return true;
 }

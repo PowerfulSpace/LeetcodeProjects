@@ -34,23 +34,22 @@ Console.ReadLine();
 static bool IsValidSudoku(char[][] board)
 {
     int length = 9;
-    char num = '.';
-    Dictionary<char, char> dictionary = new Dictionary<char, char>();
+    List<char> list = new List<char>();
 
     for (int i = 0; i < length; i++)
     {
         for (int x = 0; x < length; x++)
         {
-            if (dictionary.ContainsKey(board[i][x])) { return false; }
-            if (board[i][x] != '.') { dictionary.Add(board[i][x],'.'); }
+            if (list.Contains(board[i][x])) { return false; }
+            if (board[i][x] != '.') { list.Add(board[i][x]); }
         }
-        dictionary.Clear();
+        list.Clear();
         for (int y = 0; y < length; y++)
         {
-            if (dictionary.ContainsKey(board[y][i])) { return false; }
-            if (board[y][i] != '.') { dictionary.Add(board[y][i], '.'); }
+            if (list.Contains(board[y][i])) { return false; }
+            if (board[y][i] != '.') { list.Add(board[y][i]); }
         }
-        dictionary.Clear();
+        list.Clear();
     }
 
 
@@ -62,7 +61,7 @@ static bool IsValidSudoku(char[][] board)
     int adding = 0;
 
 
-    List<char> list = new List<char>();
+    List<char> listChunks = new List<char>();
 
     while (level <= length)
     {
@@ -70,15 +69,15 @@ static bool IsValidSudoku(char[][] board)
         {
             for (int i = temp; i < temp + 3; i++)
             {
-                if (list.Contains(board[count][i])) { return false; }
-                if (board[count][i] != '.') { list.Add(board[count][i]); }
+                if (listChunks.Contains(board[count][i])) { return false; }
+                if (board[count][i] != '.') { listChunks.Add(board[count][i]); }
 
                 Console.Write(board[count][i] + " ");
             }
             Console.WriteLine();
 
             count++;
-            if (count == level) { temp += 3; count = adding; list = new List<char>(); }
+            if (count == level) { temp += 3; count = adding; listChunks = new List<char>(); }
         }
         Console.WriteLine();
         level += 3;
@@ -86,10 +85,6 @@ static bool IsValidSudoku(char[][] board)
         adding += 3;
         count = adding;
     }
-
-
-
-
 
     return true;
 }
