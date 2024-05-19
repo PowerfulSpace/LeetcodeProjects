@@ -35,53 +35,39 @@ Console.ReadLine();
 
 static bool IsValidSudoku(char[][] board)
 {
-    int length = 9;
-    List<char> list = new List<char>();
+    var rowValues = new HashSet<char>[9];
+    var colValues = new HashSet<char>[9];
+    var boxValues = new HashSet<char>[9];
 
-    for (int i = 0; i < length; i++)
+    for (int i = 0; i < 9; i++)
     {
-        for (int x = 0; x < length; x++)
-        {
-            if (list.Contains(board[i][x])) { return false; }
-            if (board[i][x] != '.') { list.Add(board[i][x]); }
-        }
-        list.Clear();
-        for (int y = 0; y < length; y++)
-        {
-            if (list.Contains(board[y][i])) { return false; }
-            if (board[y][i] != '.') { list.Add(board[y][i]); }
-        }
-        list.Clear();
+        rowValues[i] = new HashSet<char>();
+        colValues[i] = new HashSet<char>();
+        boxValues[i] = new HashSet<char>();
     }
 
-    int tempY = 0;
-    int tempX = 0;
-    int block = 3;
-    int adding = 0;
-
-    List<char> listChunks = new List<char>();
-
-    while (block <= length)
+    for (int row = 0; row < board.Length; row++)
     {
-        while (tempY < block && tempX < length)
+        for (int col = 0; col < board[row].Length; col++)
         {
-            for (int i = tempX; i < tempX + 3; i++)
+            char cell = board[row][col];
+
+            if (cell == '.') continue;
+
+            int boxIndex = ((row / 3) * 3) + (col / 3);
+
+            if (rowValues[row].Contains(cell)
+                || colValues[col].Contains(cell)
+                || boxValues[boxIndex].Contains(cell)
+               )
             {
-                if (listChunks.Contains(board[tempY][i])) { return false; }
-                if (board[tempY][i] != '.') { listChunks.Add(board[tempY][i]); }
-
-                Console.Write(board[tempY][i] + " ");
+                return false;
             }
-            Console.WriteLine();
 
-            tempY++;
-            if (tempY == block) { tempX += 3; tempY = adding; listChunks = new List<char>(); }
+            rowValues[row].Add(cell);
+            colValues[col].Add(cell);
+            boxValues[boxIndex].Add(cell);
         }
-        Console.WriteLine();
-        block += 3;
-        tempX = 0;
-        adding += 3;
-        tempY = adding;
     }
 
     return true;
