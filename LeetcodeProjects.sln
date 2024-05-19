@@ -211,7 +211,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_36_ValidSudoku", "p
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_36_ValidSudoku_2", "project_36_ValidSudoku_2\project_36_ValidSudoku_2.csproj", "{B6F3D9D8-80F9-4382-9EA5-2724EF71572D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_36_ValidSudoku_3", "project_36_ValidSudoku_3\project_36_ValidSudoku_3.csproj", "{8DDE7FDB-3B14-4D36-A347-07F27D304472}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_36_ValidSudoku_3", "project_36_ValidSudoku_3\project_36_ValidSudoku_3.csproj", "{8DDE7FDB-3B14-4D36-A347-07F27D304472}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_37_Sudoku Solver", "project_37_Sudoku Solver\project_37_Sudoku Solver.csproj", "{2F32B61F-114B-4F7D-BE0A-932C29128A9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -639,6 +641,10 @@ Global
 		{8DDE7FDB-3B14-4D36-A347-07F27D304472}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DDE7FDB-3B14-4D36-A347-07F27D304472}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DDE7FDB-3B14-4D36-A347-07F27D304472}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F32B61F-114B-4F7D-BE0A-932C29128A9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F32B61F-114B-4F7D-BE0A-932C29128A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F32B61F-114B-4F7D-BE0A-932C29128A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F32B61F-114B-4F7D-BE0A-932C29128A9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

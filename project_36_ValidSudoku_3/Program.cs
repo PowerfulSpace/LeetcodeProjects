@@ -34,25 +34,47 @@ Console.ReadLine();
 static bool IsValidSudoku(char[][] board)
 {
 
-    HashSet<char>[] x = new HashSet<char>[9];
-    HashSet<char>[] y = new HashSet<char>[9];
-    HashSet<char>[] chanks = new HashSet<char>[9];
+    var dic = new Dictionary<string, HashSet<int>>();
 
-    for (int i = 0; i < 9; i++)
+    for (var i = 0; i < 9; i++)
     {
-        x[i] = new HashSet<char>();
-        y[i] = new HashSet<char>();
-        chanks[i] = new HashSet<char>();
-    }
-
-    for (int i = 0; i < board.Length; i++)
-    {
-        for (int j = 0; j < board[i].Length; j++)
+        for (var j = 0; j < 9; j++)
         {
-            Console.Write(board[i][j] + " ");
+            if (board[i][j] == '.')
+            {
+                continue;
+            }
+            var result1 = ValidateCell(dic, i + "i", board[i][j]);
+            var result2 = ValidateCell(dic, j + "j", board[i][j]);
+            var result3 = ValidateCell(dic, ((i / 3) * 3 + (j / 3)).ToString(), board[i][j]);
+            if (!result1 || !result2 || !result3)
+            {
+                return false;
+            }
         }
-        Console.WriteLine();
     }
 
-    return default;
+    return true;
+}
+
+static bool ValidateCell(Dictionary<string, HashSet<int>> dic, string key, int value)
+{
+    var exists = dic.TryGetValue(key, out var hashSet);
+    if (exists)
+    {
+        if (hashSet.Contains(value))
+        {
+            return false;
+        }
+        else
+        {
+            hashSet.Add(value);
+        }
+    }
+    else
+    {
+        dic.Add(key, new HashSet<int> { value });
+    }
+
+    return true;
 }
