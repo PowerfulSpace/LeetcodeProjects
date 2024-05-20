@@ -22,9 +22,6 @@ char[][] board2 = {
     new char[]{'.','.','.','4','1','9','.','.','5'},
     new char[]{'.','.','.','.','8','.','.','7','9'} };
 
-
-
-
 SolveSudoku(board1);
 SolveSudoku(board2);
 
