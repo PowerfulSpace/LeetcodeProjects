@@ -23,8 +23,6 @@ char[][] board2 = {
     new char[]{'.','.','.','.','8','.','.','7','9'} };
 
 
-
-
 Console.WriteLine(IsValidSudoku(board1));
 Console.WriteLine(IsValidSudoku(board2));
 
