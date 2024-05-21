@@ -38,7 +38,9 @@ static void SolveSudoku(char[][] board)
     bool isValid = IsValidSudoku(board, rows, cols, chancks);
     if(!isValid) { return; }
 
-    Dictionary<char, int> priorityCheck = ScanPriorityCheck(rows);
+    List<int> priorityCheck = ScanPriorityCheck(rows);
+
+    FillingTheVoid(priorityCheck,rows,cols,chancks);
 
     Console.WriteLine();
 }
@@ -73,7 +75,7 @@ static bool IsValidSudoku(char[][] board, List<char>[] rows, List<char>[] cols, 
     return true;
 }
 
-static Dictionary<char, int> ScanPriorityCheck(List<char>[] rows)
+static List<int> ScanPriorityCheck(List<char>[] rows)
 {
     Dictionary<char, int> priorityCheck = new Dictionary<char, int>();
 
@@ -87,7 +89,7 @@ static Dictionary<char, int> ScanPriorityCheck(List<char>[] rows)
                 {
                     if (priorityCheck[rows[i][j]] == 8)
                     {
-
+                        priorityCheck.Remove(rows[i][j]);
                     }
                     else
                     {
@@ -100,6 +102,62 @@ static Dictionary<char, int> ScanPriorityCheck(List<char>[] rows)
         }
     }
 
-    return priorityCheck;
+    List<int> result = [.. priorityCheck.Values];
+    result.Sort();
+    result.Reverse();
+    return result;
 }
+
+static void FillingTheVoid(List<int> priorityCheck, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
+{
+
+    Print(rows);
+
+    foreach (var check in priorityCheck)
+    {
+        for (int row = 0; row < rows.Length; row++)
+        {
+            for (int col = 0; col < cols.Length; col++)
+            {
+
+                if(cols[row][col] == 6)
+
+                if (cols[row][col] == '.')
+                    cols[row][col] = '-';
+
+                if (rows[row][col] == '.')
+                    rows[row][col] = '-';
+
+                int chanck = ((row / 3) * 3) + (col / 3);
+
+                if (chancks[chanck][col] == '.')
+                {
+                    chancks[chanck][col] = '-';
+                }
+
+            }
+        }
+    }
+   
+
+    Print(rows);
+
+
+}
+
+
+static void Print(List<char>[] rows)
+{
+    Console.WriteLine();
+    for (int row = 0; row < rows.Length; row++)
+    {
+        for (int col = 0; col < rows.Length; col++)
+        {
+            Console.Write(rows[row][col] + " ");
+        }
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+
 
