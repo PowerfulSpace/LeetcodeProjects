@@ -43,7 +43,6 @@ static void SolveSudoku(char[][] board)
     Console.WriteLine();
 }
 
-
 static bool IsValidSudoku(char[][] board, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
 {
     for (int i = 0; i < 9; i++)
