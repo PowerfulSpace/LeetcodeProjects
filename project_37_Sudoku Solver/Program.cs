@@ -32,3 +32,12 @@ static void SolveSudoku(char[][] board)
 {
 
 }
+
+
+static bool IsValidSudoku(char[][] board)
+{
+    
+
+
+    return true;
+}
