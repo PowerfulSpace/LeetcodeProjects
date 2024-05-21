@@ -122,6 +122,7 @@ static void FillingTheVoid(List<int> priorityCheck, List<char>[] rows, List<char
         {
             for (int col = 0; col < cols.Length; col++)
             {
+                //Добавить проверку для совпадения проверки числа
 
                 if(cols[row][col] == 6)
 
