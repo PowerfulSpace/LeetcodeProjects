@@ -38,6 +38,9 @@ static void SolveSudoku(char[][] board)
     bool isValid = IsValidSudoku(board, rows, cols, chancks);
     if(!isValid) { return; }
 
+    //неправильная логика. Вернуть коллекцию ключей по большему приоритету нахождений элементов
+    //а не отсортированную коллекцию этих элементов
+
     List<int> priorityCheck = ScanPriorityCheck(rows);
 
     FillingTheVoid(priorityCheck,rows,cols,chancks);
