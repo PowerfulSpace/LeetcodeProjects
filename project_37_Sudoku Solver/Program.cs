@@ -38,11 +38,11 @@ static void SolveSudoku(char[][] board)
     if(!isValid) { return; }
 
 
-    char[,] array = FillingArray(rows);
+    char[][] array = FillingArray(rows);
 
-    List<char> priorityCheck = ScanPriorityCheck(rows);
+    List<char> priorityCheck = ScanPriorityCheck(array);
 
-    FillingTheVoid(priorityCheck,rows,cols,chancks);
+    FillingTheVoid(priorityCheck, array, chancks);
 
     Console.WriteLine();
 }
@@ -77,28 +77,28 @@ static bool IsValidSudoku(char[][] board, List<char>[] rows, List<char>[] cols, 
     return true;
 }
 
-static List<char> ScanPriorityCheck(List<char>[] rows)
+static List<char> ScanPriorityCheck(char[][] array)
 {
     Dictionary<char, int> priorityCheck = new Dictionary<char, int>();
 
-    for (int i = 0; i < rows.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        for (int j = 0; j < rows.Length; j++)
+        for (int j = 0; j < array[i].Length; j++)
         {
-            if (rows[i][j] != '.')
+            if (array[i][j] != '.')
             {
-                if (priorityCheck.ContainsKey(rows[i][j]))
+                if (priorityCheck.ContainsKey(array[i][j]))
                 {
-                    if (priorityCheck[rows[i][j]] == 8)
+                    if (priorityCheck[array[i][j]] == 8)
                     {
-                        priorityCheck.Remove(rows[i][j]);
+                        priorityCheck.Remove(array[i][j]);
                     }
                     else
                     {
-                        priorityCheck[rows[i][j]]++;
+                        priorityCheck[array[i][j]]++;
                     }         
                 }
-                else { priorityCheck.Add(rows[i][j], 0); }
+                else { priorityCheck.Add(array[i][j], 0); }
                 
             }
         }
@@ -108,38 +108,41 @@ static List<char> ScanPriorityCheck(List<char>[] rows)
     return result;
 }
 
-static void FillingTheVoid(List<char> priorityCheck, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
+static void FillingTheVoid(List<char> priorityCheck, char[][] array, List<char>[] chancks)
 {
 
-    Print(rows);
+    Print(array);
 
     foreach (var key in priorityCheck)
     {
-        for (int row = 0; row < rows.Length; row++)
+        for (int row = 0; row < array.Length; row++)
         {
-            for (int col = 0; col < cols.Length; col++)
+            for (int col = 0; col < array[row].Length; col++)
             {
-                if (rows[row].Contains(key))
+                if (ContainsArray(array[row], key))
                 {
-                    if (rows[row][col] == '.') { rows[row][col] = '-'; }
+                    if (array[row][col] == '.') { array[row][col] = '-'; }
                 }
-                if (cols[row].Contains(key))
+
+                //Решить проблему выбора элементов по вертикале
+
+                if (ContainsArray(array[col], key))
                 {
-                    if (cols[row][col] == '.') { cols[row][col] = '-'; }
+                    if (array[col][ row] == '.') { array[col][row] = '-'; }
                 }
             }
         }
-
+        Print(array);
     }
 
     Console.WriteLine();
-    Print(rows);
+    Print(array);
 
     Console.WriteLine();
 }
 
 
-static void Print(List<char>[] array)
+static void Print(char[][] array)
 {
     Console.WriteLine();
     for (int row = 0; row < array.Length; row++)
@@ -156,15 +159,29 @@ static void Print(List<char>[] array)
 }
 
 
-static char[,] FillingArray(List<char>[] rows)
+static char[][] FillingArray(List<char>[] rows)
 {
-    char[,] array = new char[9, 9];
+    char[][] array = new char[9][];
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = new char[9];
+    }
+
     for (int i = 0; i < rows.Length; i++)
     {
         for (int j = 0; j < rows.Length; j++)
         {
-            array[i,j] = rows[i][j];
+            array[i][j] = rows[i][j];
         }
     }
     return array;
+}
+
+static bool ContainsArray(char[] array,char key)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] == key) {  return true; }
+    }
+    return false;
 }
