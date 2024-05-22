@@ -34,12 +34,11 @@ static void SolveSudoku(char[][] board)
     List<char>[] cols = new List<char>[9];
     List<char>[] chancks = new List<char>[9];
 
-    
     bool isValid = IsValidSudoku(board, rows, cols, chancks);
     if(!isValid) { return; }
 
-    //неправильная логика. Вернуть коллекцию ключей по большему приоритету нахождений элементов
-    //а не отсортированную коллекцию этих элементов
+
+    char[,] array = FillingArray(rows);
 
     List<char> priorityCheck = ScanPriorityCheck(rows);
 
@@ -157,3 +156,15 @@ static void Print(List<char>[] array)
 }
 
 
+static char[,] FillingArray(List<char>[] rows)
+{
+    char[,] array = new char[9, 9];
+    for (int i = 0; i < rows.Length; i++)
+    {
+        for (int j = 0; j < rows.Length; j++)
+        {
+            array[i,j] = rows[i][j];
+        }
+    }
+    return array;
+}
