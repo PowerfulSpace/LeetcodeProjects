@@ -41,7 +41,7 @@ static void SolveSudoku(char[][] board)
     //неправильная логика. Вернуть коллекцию ключей по большему приоритету нахождений элементов
     //а не отсортированную коллекцию этих элементов
 
-    List<int> priorityCheck = ScanPriorityCheck(rows);
+    List<char> priorityCheck = ScanPriorityCheck(rows);
 
     FillingTheVoid(priorityCheck,rows,cols,chancks);
 
@@ -78,7 +78,7 @@ static bool IsValidSudoku(char[][] board, List<char>[] rows, List<char>[] cols, 
     return true;
 }
 
-static List<int> ScanPriorityCheck(List<char>[] rows)
+static List<char> ScanPriorityCheck(List<char>[] rows)
 {
     Dictionary<char, int> priorityCheck = new Dictionary<char, int>();
 
@@ -105,59 +105,49 @@ static List<int> ScanPriorityCheck(List<char>[] rows)
         }
     }
 
-    List<int> result = [.. priorityCheck.Values];
-    result.Sort();
-    result.Reverse();
+    List<char> result = [.. priorityCheck.Keys];
     return result;
 }
 
-static void FillingTheVoid(List<int> priorityCheck, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
+static void FillingTheVoid(List<char> priorityCheck, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
 {
 
-    Print(rows);
+    bool[,] block = new bool[9,9];
 
-    foreach (var check in priorityCheck)
+    Print(block);
+
+    foreach (var key in priorityCheck)
     {
         for (int row = 0; row < rows.Length; row++)
         {
             for (int col = 0; col < cols.Length; col++)
             {
-                //Добавить проверку для совпадения проверки числа
-
-                if(cols[row][col] == 6)
-
-                if (cols[row][col] == '.')
-                    cols[row][col] = '-';
-
-                if (rows[row][col] == '.')
-                    rows[row][col] = '-';
-
-                int chanck = ((row / 3) * 3) + (col / 3);
-
-                if (chancks[chanck][col] == '.')
+                if (rows[row][col] != '.')
                 {
-                    chancks[chanck][col] = '-';
+                    block[row,col] = true;
                 }
 
             }
         }
     }
-   
 
-    Print(rows);
+    Console.WriteLine();
+    Print(block);
 
-
+    Console.WriteLine();
 }
 
 
-static void Print(List<char>[] rows)
+static void Print(bool[,] array)
 {
     Console.WriteLine();
-    for (int row = 0; row < rows.Length; row++)
+    for (int row = 0; row < array.GetLength(0); row++)
     {
-        for (int col = 0; col < rows.Length; col++)
+        for (int col = 0; col < array.GetLength(1); col++)
         {
-            Console.Write(rows[row][col] + " ");
+            if (array[row,col] == false) { Console.ForegroundColor = ConsoleColor.Red; }
+            Console.Write("{0,6}",array[row,col] + " ");
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
         Console.WriteLine();
     }
