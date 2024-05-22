@@ -112,9 +112,7 @@ static List<char> ScanPriorityCheck(List<char>[] rows)
 static void FillingTheVoid(List<char> priorityCheck, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
 {
 
-    bool[,] block = new bool[9,9];
-
-    Print(block);
+    Print(rows);
 
     foreach (var key in priorityCheck)
     {
@@ -122,31 +120,35 @@ static void FillingTheVoid(List<char> priorityCheck, List<char>[] rows, List<cha
         {
             for (int col = 0; col < cols.Length; col++)
             {
-                if (rows[row][col] != '.')
+                if (rows[row].Contains(key))
                 {
-                    block[row,col] = true;
+                    if (rows[row][col] == '.') { rows[row][col] = '-'; }
                 }
-
+                if (cols[row].Contains(key))
+                {
+                    if (cols[row][col] == '.') { cols[row][col] = '-'; }
+                }
             }
         }
+
     }
 
     Console.WriteLine();
-    Print(block);
+    Print(rows);
 
     Console.WriteLine();
 }
 
 
-static void Print(bool[,] array)
+static void Print(List<char>[] array)
 {
     Console.WriteLine();
-    for (int row = 0; row < array.GetLength(0); row++)
+    for (int row = 0; row < array.Length; row++)
     {
-        for (int col = 0; col < array.GetLength(1); col++)
+        for (int col = 0; col < array.Length; col++)
         {
-            if (array[row,col] == false) { Console.ForegroundColor = ConsoleColor.Red; }
-            Console.Write("{0,6}",array[row,col] + " ");
+            if (array[row][col] == '-') { Console.ForegroundColor = ConsoleColor.Red; }
+            Console.Write("{0,6}", array[row][col] + " ");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
         Console.WriteLine();
