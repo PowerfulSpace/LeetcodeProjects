@@ -110,7 +110,11 @@ static List<char> ScanPriorityCheck(char[,] array)
         }
     }
 
-    List<char> result = [.. priorityCheck.Keys];
+    var sortedList = priorityCheck.OrderBy(x => x.Value);
+
+    List<char> result = sortedList.Select(x => x.Key).ToList();
+    result.Reverse();
+
     return result;
 }
 
