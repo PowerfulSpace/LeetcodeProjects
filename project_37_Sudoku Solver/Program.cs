@@ -170,11 +170,3 @@ static char[,] FillingArray(List<char>[] rows)
     return array;
 }
 
-static bool ContainsArray(char[] array,char key)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i] == key) {  return true; }
-    }
-    return false;
-}
