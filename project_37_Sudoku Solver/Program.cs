@@ -42,12 +42,12 @@ static void SolveSudoku(char[][] board)
 
     List<char> priorityCheck = ScanPriorityCheck(array);
 
-    FillingTheVoid(priorityCheck, array, chancks);
+    FillingTheVoid(priorityCheck, array, rows, cols, chancks);
 
     Console.WriteLine();
 }
 
-static bool IsValidSudoku(char[,] board, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
+static bool IsValidSudoku(char[][] board, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
 {
     for (int i = 0; i < 9; i++)
     {
@@ -56,11 +56,11 @@ static bool IsValidSudoku(char[,] board, List<char>[] rows, List<char>[] cols, L
         chancks[i] = new List<char>();
     }
 
-    for (int row = 0; row < board.GetLength(0); row++)
+    for (int row = 0; row < board.Length; row++)
     {
-        for (int col = 0; col < board.GetLength(1); col++)
+        for (int col = 0; col < board[row].Length; col++)
         {
-            char item = board[row,col];
+            char item = board[row][col];
 
             int chanck = ((row / 3) * 3) + (col / 3);
             if (item != '.')
@@ -77,28 +77,28 @@ static bool IsValidSudoku(char[,] board, List<char>[] rows, List<char>[] cols, L
     return true;
 }
 
-static List<char> ScanPriorityCheck(char[][] array)
+static List<char> ScanPriorityCheck(char[,] array)
 {
     Dictionary<char, int> priorityCheck = new Dictionary<char, int>();
 
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < array[i].Length; j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            if (array[i][j] != '.')
+            if (array[i,j] != '.')
             {
-                if (priorityCheck.ContainsKey(array[i][j]))
+                if (priorityCheck.ContainsKey(array[i,j]))
                 {
-                    if (priorityCheck[array[i][j]] == 8)
+                    if (priorityCheck[array[i,j]] == 8)
                     {
-                        priorityCheck.Remove(array[i][j]);
+                        priorityCheck.Remove(array[i,j]);
                     }
                     else
                     {
-                        priorityCheck[array[i][j]]++;
+                        priorityCheck[array[i,j]]++;
                     }         
                 }
-                else { priorityCheck.Add(array[i][j], 0); }
+                else { priorityCheck.Add(array[i,j], 0); }
                 
             }
         }
@@ -108,7 +108,7 @@ static List<char> ScanPriorityCheck(char[][] array)
     return result;
 }
 
-static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[] chancks)
+static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
 {
 
     Print(array);
@@ -119,16 +119,13 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
         {
             for (int col = 0; col < array.GetLength(1); col++)
             {
-                if (ContainsArray(array[row], key))
+                if (rows[row].Contains(key))
                 {
-                    if (array[row,col] == '.') { array[row,col] = '-'; }
+                    if (array[row, col] == '.') { array[row, col] = '-'; }
                 }
-
-                //Решить проблему выбора элементов по вертикале
-
-                if (ContainsArray(array[col], key))
+                if (cols[row].Contains(key))
                 {
-                    if (array[col,row] == '.') { array[col,row] = '-'; }
+                    if (array[col, row] == '.') { array[col, row] = '-'; }
                 }
             }
         }
@@ -159,19 +156,15 @@ static void Print(char[,] array)
 }
 
 
-static char[][] FillingArray(List<char>[] rows)
+static char[,] FillingArray(List<char>[] rows)
 {
-    char[][] array = new char[9][];
-    for (int i = 0; i < array.Length; i++)
-    {
-        array[i] = new char[9];
-    }
+    char[,] array = new char[9,9];
 
     for (int i = 0; i < rows.Length; i++)
     {
         for (int j = 0; j < rows.Length; j++)
         {
-            array[i][j] = rows[i][j];
+            array[i,j] = rows[i][j];
         }
     }
     return array;
