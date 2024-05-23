@@ -40,6 +40,7 @@ static void SolveSudoku(char[][] board)
 
     char[,] array = FillingArray(rows);
 
+    //соминительная операция, пока не оправданна
     List<char> priorityCheck = ScanPriorityCheck(array);
 
     FillingTheVoid(priorityCheck, array, rows, cols, chancks);
@@ -115,20 +116,80 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
 
     foreach (var key in priorityCheck)
     {
+        //Блокировка линий по определённой цифре (key)
         for (int row = 0; row < array.GetLength(0); row++)
         {
             for (int col = 0; col < array.GetLength(1); col++)
             {
                 if (rows[row].Contains(key))
                 {
-                    if (array[row, col] == '.') { array[row, col] = '-'; }
+                    if (array[row, col] == '.')
+                    {
+                        array[row, col] = '-';
+                        rows[row][col] = '-';
+                    }
                 }
                 if (cols[row].Contains(key))
                 {
-                    if (array[col, row] == '.') { array[col, row] = '-'; }
+                    if (array[col, row] == '.')
+                    {
+                        array[col, row] = '-';
+                        cols[col][row] = '-';
+                    }
                 }
             }
         }
+        Print(array);
+
+        //Поиск на линиях не заблокированного места и заполнение его
+        for (int row = 0; row < array.GetLength(0); row++)
+        {
+            int freePlaces = 0;
+            int freeIndexY = 0;
+            int freeIndexX = 0;
+            for (int col = 0; col < array.GetLength(1); col++)
+            {
+                if (array[row,col] == '.')
+                {
+                    freePlaces++;
+                    freeIndexY = row;
+                    freeIndexX = col;
+                }
+                if(freePlaces > 1) { continue; }
+            }
+
+            if(freePlaces == 1)
+            {
+                array[freeIndexY, freeIndexX] = key;
+                rows[freeIndexX][freeIndexY] = key;
+                cols[freeIndexY][freeIndexX] = key;
+            }
+        }
+
+        //Снятие блокировки линии
+        for (int row = 0; row < array.GetLength(0); row++)
+        {
+            for (int col = 0; col < array.GetLength(1); col++)
+            {
+                if (rows[row].Contains(key))
+                {
+                    if (array[row, col] == '-')
+                    {
+                        array[row, col] = '.';
+                        rows[row][col] = '.';
+                    }
+                }
+                if (cols[row].Contains(key))
+                {
+                    if (array[col, row] == '-')
+                    {
+                        array[col, row] = '.';
+                        cols[col][row] = '.';
+                    }
+                }
+            }
+        }
+
         Print(array);
     }
 
@@ -142,12 +203,12 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
 static void Print(char[,] array)
 {
     Console.WriteLine();
-    for (int row = 0; row < array.Length; row++)
+    for (int row = 0; row < array.GetLength(0); row++)
     {
-        for (int col = 0; col < array.Length; col++)
+        for (int col = 0; col < array.GetLength(1); col++)
         {
             if (array[row,col] == '-') { Console.ForegroundColor = ConsoleColor.Red; }
-            Console.Write("{0,6}", array[row,col] + " ");
+            Console.Write("{0}", array[row,col] + " ");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
         Console.WriteLine();
