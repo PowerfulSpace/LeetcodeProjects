@@ -146,7 +146,6 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
                 }
 
                 //  !!!  написать алгоритм блокирующий элементы в чанке   !!!
-
             }
         }
 
