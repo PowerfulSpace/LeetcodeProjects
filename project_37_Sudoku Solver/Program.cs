@@ -38,7 +38,7 @@ static void SolveSudoku(char[][] board)
     if(!isValid) { return; }
 
 
-    char[][] array = FillingArray(rows);
+    char[,] array = FillingArray(rows);
 
     List<char> priorityCheck = ScanPriorityCheck(array);
 
@@ -47,7 +47,7 @@ static void SolveSudoku(char[][] board)
     Console.WriteLine();
 }
 
-static bool IsValidSudoku(char[][] board, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
+static bool IsValidSudoku(char[,] board, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
 {
     for (int i = 0; i < 9; i++)
     {
@@ -56,11 +56,11 @@ static bool IsValidSudoku(char[][] board, List<char>[] rows, List<char>[] cols, 
         chancks[i] = new List<char>();
     }
 
-    for (int row = 0; row < board.Length; row++)
+    for (int row = 0; row < board.GetLength(0); row++)
     {
-        for (int col = 0; col < board[row].Length; col++)
+        for (int col = 0; col < board.GetLength(1); col++)
         {
-            char item = board[row][col];
+            char item = board[row,col];
 
             int chanck = ((row / 3) * 3) + (col / 3);
             if (item != '.')
@@ -108,27 +108,27 @@ static List<char> ScanPriorityCheck(char[][] array)
     return result;
 }
 
-static void FillingTheVoid(List<char> priorityCheck, char[][] array, List<char>[] chancks)
+static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[] chancks)
 {
 
     Print(array);
 
     foreach (var key in priorityCheck)
     {
-        for (int row = 0; row < array.Length; row++)
+        for (int row = 0; row < array.GetLength(0); row++)
         {
-            for (int col = 0; col < array[row].Length; col++)
+            for (int col = 0; col < array.GetLength(1); col++)
             {
                 if (ContainsArray(array[row], key))
                 {
-                    if (array[row][col] == '.') { array[row][col] = '-'; }
+                    if (array[row,col] == '.') { array[row,col] = '-'; }
                 }
 
                 //Решить проблему выбора элементов по вертикале
 
                 if (ContainsArray(array[col], key))
                 {
-                    if (array[col][ row] == '.') { array[col][row] = '-'; }
+                    if (array[col,row] == '.') { array[col,row] = '-'; }
                 }
             }
         }
@@ -142,15 +142,15 @@ static void FillingTheVoid(List<char> priorityCheck, char[][] array, List<char>[
 }
 
 
-static void Print(char[][] array)
+static void Print(char[,] array)
 {
     Console.WriteLine();
     for (int row = 0; row < array.Length; row++)
     {
         for (int col = 0; col < array.Length; col++)
         {
-            if (array[row][col] == '-') { Console.ForegroundColor = ConsoleColor.Red; }
-            Console.Write("{0,6}", array[row][col] + " ");
+            if (array[row,col] == '-') { Console.ForegroundColor = ConsoleColor.Red; }
+            Console.Write("{0,6}", array[row,col] + " ");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
         Console.WriteLine();
