@@ -40,10 +40,15 @@ static void SolveSudoku(char[][] board)
 
     char[,] array = FillingArray(rows);
 
-    //соминительная операция, пока не оправданна
     List<char> priorityCheck = ScanPriorityCheck(array);
 
-    FillingTheVoid(priorityCheck, array, rows, cols, chancks);
+    while (priorityCheck.Count != 0)
+    {
+        priorityCheck = ScanPriorityCheck(array);
+
+        FillingTheVoid(priorityCheck, array, rows, cols, chancks);
+    }
+   
 
     Console.WriteLine();
 }
@@ -111,9 +116,7 @@ static List<char> ScanPriorityCheck(char[,] array)
 
 static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
 {
-
-    Print(array);
-
+    //Print(array);
     foreach (var key in priorityCheck)
     {
         //Блокировка линий по определённой цифре (key)
@@ -139,7 +142,6 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
                 }
             }
         }
-        Print(array);
 
         //Поиск на линиях не заблокированного места и заполнение его
         for (int row = 0; row < array.GetLength(0); row++)
@@ -189,14 +191,8 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
                 }
             }
         }
-
-        Print(array);
     }
-
-    Console.WriteLine();
-    Print(array);
-
-    Console.WriteLine();
+    //Print(array);
 }
 
 
