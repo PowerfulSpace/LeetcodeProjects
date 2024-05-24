@@ -134,7 +134,14 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
                     }
                 }
 
-                //  !!!  написать алгоритм блокирующий элементы в чанке   !!!
+
+                int chanck = ((row / 3) * 3) + (col / 3);
+                int chanckIndex = ((row % 3) * 3) + (col % 3);
+
+                if (chancks[chanck][chanckIndex] == '.')
+                {
+                    chancks[chanck][chanckIndex] = '-';
+                }
             }
         }
 
