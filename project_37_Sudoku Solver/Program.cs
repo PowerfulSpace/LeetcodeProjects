@@ -117,6 +117,9 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
         {
             for (int col = 0; col < array.GetLength(1); col++)
             {
+                int chanck = ((row / 3) * 3) + (col / 3);
+                int chanckIndex = ((row % 3) * 3) + (col % 3);
+
                 if (rows[row].Contains(key))
                 {
                     if (array[row, col] == '.')
@@ -124,6 +127,12 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
                         array[row, col] = '-';
                         rows[row][col] = '-';
                     }
+
+                    if (chancks[chanck][chanckIndex] == '.')
+                    {
+                        chancks[chanck][chanckIndex] = '-';
+                    }
+
                 }
                 if (cols[row].Contains(key))
                 {
@@ -132,16 +141,13 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
                         array[col, row] = '-';
                         cols[col][row] = '-';
                     }
+
+                    if (chancks[chanck][chanckIndex] == '.')
+                    {
+                        chancks[chanck][chanckIndex] = '-';
+                    }
                 }
 
-
-                int chanck = ((row / 3) * 3) + (col / 3);
-                int chanckIndex = ((row % 3) * 3) + (col % 3);
-
-                if (chancks[chanck][chanckIndex] == '.')
-                {
-                    chancks[chanck][chanckIndex] = '-';
-                }
             }
         }
 
