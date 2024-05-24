@@ -42,6 +42,7 @@ static void SolveSudoku(char[][] board)
 
     List<char> priorityCheck = ScanPriorityCheck(array);
 
+    //Исправить цикл проверки
     while (priorityCheck.Count != 0)
     {
         priorityCheck = ScanPriorityCheck(array);
