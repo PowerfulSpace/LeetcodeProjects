@@ -84,8 +84,10 @@ static List<char> ScanPriorityCheck(char[,] array)
             {
                 if (priorityCheck.ContainsKey(array[i,j]))
                 {
-                    if (priorityCheck[array[i,j]] == 8)
+                    //Решить вопрос. Переписать логику алгоритма
+                    if (priorityCheck[array[i,j]] == 7)
                     {
+                        var a = array[i, j];
                         priorityCheck.Remove(array[i,j]);
                     }
                     else
@@ -112,13 +114,12 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
     Print(array);
     foreach (var key in priorityCheck)
     {
-        //Блокировка линий по определённой цифре (key) + блокировка элементов в чанк
+        //Блокировка линий по определённой цифре (key) + блокировка элементов в чанка
         for (int row = 0; row < array.GetLength(0); row++)
         {
             for (int col = 0; col < array.GetLength(1); col++)
             {
-                int chanck = ((row / 3) * 3) + (col / 3);
-                int chanckIndex = ((row % 3) * 3) + (col % 3);
+               
 
                 if (rows[row].Contains(key))
                 {
@@ -127,12 +128,6 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
                         array[row, col] = '-';
                         rows[row][col] = '-';
                     }
-
-                    if (chancks[chanck][chanckIndex] == '.')
-                    {
-                        chancks[chanck][chanckIndex] = '-';
-                    }
-
                 }
                 if (cols[row].Contains(key))
                 {
@@ -141,17 +136,14 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
                         array[col, row] = '-';
                         cols[col][row] = '-';
                     }
-
-                    if (chancks[chanck][chanckIndex] == '.')
-                    {
-                        chancks[chanck][chanckIndex] = '-';
-                    }
                 }
-
             }
         }
 
         Print(array);
+
+        //Заполнение чанков
+        BlockChanks(array, chancks);
 
         //Поиск на линиях не заблокированного места и заполнение его
         for (int row = 0; row < array.GetLength(0); row++)
@@ -178,6 +170,26 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
             }
         }
 
+        bool found = false;
+        //Поиск элементов в чанках и установка значения
+        for (int i = 0; i < chancks.Length; i++)
+        {
+            if (chancks[i].Contains(key)) { continue; }
+
+            if (chancks[i].Where(x => x == '.').Count() != 1) { continue; }
+
+            int index = chancks[i].IndexOf('.');
+
+            chancks[i][index] = key;
+            found = true;
+        }
+
+        if (found)
+        {
+            Overwriting(array, rows, cols, chancks);
+        }
+
+
         //Снятие блокировки линии
         for (int row = 0; row < array.GetLength(0); row++)
         {
@@ -201,6 +213,10 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
                 }
             }
         }
+
+        //Снятие блокировки с чанков
+        BlockChanks(array, chancks);
+
     }
     //Print(array);
 }
@@ -235,5 +251,38 @@ static char[,] FillingArray(List<char>[] rows)
         }
     }
     return array;
+}
+
+static void BlockChanks(char[,] array, List<char>[] chancks)
+{
+    for (int row = 0; row < array.GetLength(0); row++)
+    {
+        for (int col = 0; col < array.GetLength(1); col++)
+        {
+            int chanck = ((row / 3) * 3) + (col / 3);
+            int chanckIndex = ((row % 3) * 3) + (col % 3);
+
+            chancks[chanck][chanckIndex] = array[row, col];
+        }
+    }
+}
+
+
+//Допилить метод, позволяющий перезаписать данные с чанков
+static void Overwriting(char[,] array, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
+{
+    for (int row = 0; row < array.GetLength(0); row++)
+    {
+        for (int col = 0; col < array.GetLength(1); col++)
+        {
+            int chanck = ((row / 3) * 3) + (col / 3);
+            int chanckIndex = ((row % 3) * 3) + (col % 3);
+
+            rows[row][col] = chancks[chanck][chanckIndex];
+
+            array[row, col] = chancks[chanck][chanckIndex];
+            cols[col][row] = chancks[chanck][chanckIndex];
+        }
+    }
 }
 
