@@ -99,20 +99,20 @@ static List<char> ScanPriorityCheck(char[,] array)
         }
     }
 
-    var sortedList = priorityCheck.OrderBy(x => x.Value);
+    var sortedList = priorityCheck.OrderByDescending(x => x.Value);
 
     List<char> result = sortedList.Select(x => x.Key).ToList();
-    result.Reverse();
+    //result.Reverse();
 
     return result;
 }
 
 static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
 {
-    //Print(array);
+    Print(array);
     foreach (var key in priorityCheck)
     {
-        //Блокировка линий по определённой цифре (key)
+        //Блокировка линий по определённой цифре (key) + блокировка элементов в чанк
         for (int row = 0; row < array.GetLength(0); row++)
         {
             for (int col = 0; col < array.GetLength(1); col++)
@@ -150,6 +150,8 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
 
             }
         }
+
+        Print(array);
 
         //Поиск на линиях не заблокированного места и заполнение его
         for (int row = 0; row < array.GetLength(0); row++)
