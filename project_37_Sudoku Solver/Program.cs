@@ -84,7 +84,6 @@ static List<char> ScanPriorityCheck(char[,] array)
             {
                 if (priorityCheck.ContainsKey(array[i,j]))
                 {
-                    //Решить вопрос. Переписать логику алгоритма
                     if (priorityCheck[array[i,j]] == 8)
                     {
                         var a = array[i, j];
