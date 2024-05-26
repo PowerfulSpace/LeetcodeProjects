@@ -104,6 +104,12 @@ static List<char> ScanPriorityCheck(char[,] array)
     List<char> result = sortedList.Select(x => x.Key).ToList();
     //result.Reverse();
 
+    if(result.Count == 7)
+    {
+        Console.WriteLine();
+        Print(array);
+    }
+
     return result;
 }
 
@@ -112,6 +118,11 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
     Print(array);
     foreach (var key in priorityCheck)
     {
+        if(key == '1')
+        {
+            Console.WriteLine();
+        }
+
         //Блокировка линий по определённой цифре (key) + блокировка элементов в чанка
         for (int row = 0; row < array.GetLength(0); row++)
         {
@@ -274,9 +285,9 @@ static void Overwriting(char[,] array, List<char>[] rows, List<char>[] cols, Lis
             int chanck = ((row / 3) * 3) + (col / 3);
             int chanckIndex = ((row % 3) * 3) + (col % 3);
 
-            rows[row][col] = chancks[chanck][chanckIndex];
-
             array[row, col] = chancks[chanck][chanckIndex];
+
+            rows[row][col] = chancks[chanck][chanckIndex];
             cols[col][row] = chancks[chanck][chanckIndex];
         }
     }
