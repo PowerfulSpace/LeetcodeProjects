@@ -104,7 +104,7 @@ static List<char> ScanPriorityCheck(char[,] array)
     List<char> result = sortedList.Select(x => x.Key).ToList();
     //result.Reverse();
 
-    if(result.Count == 7)
+    if (result.Count == 7)
     {
         Console.WriteLine();
         Print(array);
@@ -115,16 +115,19 @@ static List<char> ScanPriorityCheck(char[,] array)
 
 static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
 {
-    Print(array);
+    //Print(array);
     foreach (var key in priorityCheck)
     {
-
+        if(key == '1')
+        {
+            Console.WriteLine();
+        }
         //Блокировка линий по определённой цифре (key) + блокировка элементов в чанка
         for (int row = 0; row < array.GetLength(0); row++)
         {
             for (int col = 0; col < array.GetLength(1); col++)
             {
-                if(key == '1')
+                if(row == 3 && col == 0)
                 {
                     Console.WriteLine();
                 }
@@ -169,12 +172,22 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
                 }
                 if(freePlaces > 1) { continue; }
             }
-
+           
             if(freePlaces == 1)
             {
+                //Не попадаю под ключ 1
+                if (key == '1')
+                {
+                    Console.WriteLine();
+                }
+
                 array[freeIndexY, freeIndexX] = key;
-                rows[freeIndexX][freeIndexY] = key;
-                cols[freeIndexY][freeIndexX] = key;
+
+                //rows[freeIndexX][freeIndexY] = key;
+                //cols[freeIndexY][freeIndexX] = key;
+
+                rows[freeIndexY][freeIndexX] = key;
+                cols[freeIndexX][freeIndexY] = key;
             }
         }
 
@@ -189,11 +202,11 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
             int index = chancks[i].IndexOf('.');
 
             //Проверка на подлинность блокирповки
-            if (key == '1' && i == 6)
-            {
-                Print(array);
-                Console.WriteLine();
-            }
+            //if (key == '1' && i == 6)
+            //{
+            //    Print(array);
+            //    Console.WriteLine();
+            //}
 
             chancks[i][index] = key;
             found = true;
