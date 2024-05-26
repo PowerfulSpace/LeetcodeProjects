@@ -118,18 +118,16 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
     Print(array);
     foreach (var key in priorityCheck)
     {
-        if(key == '1')
-        {
-            Console.WriteLine();
-        }
 
         //Блокировка линий по определённой цифре (key) + блокировка элементов в чанка
         for (int row = 0; row < array.GetLength(0); row++)
         {
             for (int col = 0; col < array.GetLength(1); col++)
             {
-               
-
+                if(key == '1')
+                {
+                    Console.WriteLine();
+                }
                 if (rows[row].Contains(key))
                 {
                     if (array[row, col] == '.')
@@ -143,10 +141,11 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
                     if (array[col, row] == '.')
                     {
                         array[col, row] = '-';
-                        cols[col][row] = '-';
+                        cols[row][col] = '-';
                     }
                 }
-            }
+
+            }   
         }
 
         Print(array);
@@ -188,6 +187,13 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
             if (chancks[i].Where(x => x == '.').Count() != 1) { continue; }
 
             int index = chancks[i].IndexOf('.');
+
+            //Проверка на подлинность блокирповки
+            if (key == '1' && i == 6)
+            {
+                Print(array);
+                Console.WriteLine();
+            }
 
             chancks[i][index] = key;
             found = true;
