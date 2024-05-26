@@ -85,17 +85,12 @@ static List<char> ScanPriorityCheck(char[,] array)
                 if (priorityCheck.ContainsKey(array[i,j]))
                 {
                     //Решить вопрос. Переписать логику алгоритма
-                    if (priorityCheck[array[i,j]] == 7)
+                    if (priorityCheck[array[i,j]] != 9)
                     {
-                        var a = array[i, j];
-                        priorityCheck.Remove(array[i,j]);
-                    }
-                    else
-                    {
-                        priorityCheck[array[i,j]]++;
-                    }         
+                        priorityCheck[array[i, j]]++;
+                    }       
                 }
-                else { priorityCheck.Add(array[i,j], 0); }
+                else { priorityCheck.Add(array[i,j], 1); }
                 
             }
         }
