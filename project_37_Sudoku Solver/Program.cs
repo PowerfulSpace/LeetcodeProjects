@@ -100,7 +100,6 @@ static List<char> ScanPriorityCheck(char[,] array)
             }
         }
     }
-
     var sortedList = priorityCheck.OrderByDescending(x => x.Value);
 
     List<char> result = sortedList.Select(x => x.Key).ToList();
