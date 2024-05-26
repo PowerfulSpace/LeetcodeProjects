@@ -220,8 +220,6 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
     }
     //Print(array);
 }
-
-
 static void Print(char[,] array)
 {
     Console.WriteLine();
