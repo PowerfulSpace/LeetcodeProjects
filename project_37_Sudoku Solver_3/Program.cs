@@ -129,7 +129,7 @@ static void FillingTheVoid(List<char> priorityCheck, char[][] array, List<char>[
                 {
                     if (array[col][row] == '.')
                     {
-                        array[col][row] = '-';
+                        array[col][ row] = '-';
                         cols[row][col] = '-';
                     }
                 }
@@ -272,8 +272,8 @@ static void Print(char[][] array)
     {
         for (int col = 0; col < array[row].Length; col++)
         {
-            if (array[row][col] == '-') { Console.ForegroundColor = ConsoleColor.Red; }
-            Console.Write("{0}", array[row][col] + " ");
+            if (array[row][ col] == '-') { Console.ForegroundColor = ConsoleColor.Red; }
+            Console.Write("{0}", array[row][ col] + " ");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
         Console.WriteLine();
