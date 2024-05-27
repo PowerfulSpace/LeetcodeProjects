@@ -22,7 +22,7 @@ char[][] board2 = {
  new char[]{'.','.','.','.','.','.','.','.','6'},
  new char[]{'.','.','.','2','7','5','9','.','.'}};
 
-SolveSudoku(board1);
+SolveSudoku(board2);
 
 
 Console.ReadLine();
@@ -48,6 +48,8 @@ static void SolveSudoku(char[][] board)
     }
 
     Print(board);
+
+    Console.ReadLine();
 }
 
 static bool IsValidSudoku(char[][] board, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
@@ -110,6 +112,7 @@ static List<char> ScanPriorityCheck(char[][] array)
     var sortedList = priorityCheck.OrderByDescending(x => x.Value);
 
     List<char> result = sortedList.Select(x => x.Key).ToList();
+
 
     return result;
 }
