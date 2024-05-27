@@ -18,6 +18,8 @@ Console.ReadLine();
 
 static void SolveSudoku(char[][] board)
 {
+    if(board == null || board.Length != 9) { return; }
+
     List<char>[] rows = new List<char>[9];
     List<char>[] cols = new List<char>[9];
     List<char>[] chancks = new List<char>[9];
@@ -52,7 +54,11 @@ static bool IsValidSudoku(char[][] board, List<char>[] rows, List<char>[] cols, 
     {
         for (int col = 0; col < board[row].Length; col++)
         {
+            if(col > 8) { return false; }
+
             char item = board[row][col];
+
+            if(item < 49 && item > 57 && item != '.') { return false; }
 
             int chanck = ((row / 3) * 3) + (col / 3);
             if (item != '.')
