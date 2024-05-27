@@ -21,7 +21,7 @@ char[][] board2 = {
  new char[]{'.','.','.','.','.','.','.','.','6'},
  new char[]{'.','.','.','2','7','5','9','.','.'}};
 
-SolveSudoku(board2);
+SolveSudoku(board1);
 
 
 Console.ReadLine();
@@ -116,11 +116,11 @@ static List<char> ScanPriorityCheck(char[][] array)
 
     List<char> result = sortedList.Select(x => x.Key).ToList();
 
-    if(result.Count == 7)
-    {
-        Console.WriteLine();
-        Print(array);
-    }
+    //if(result.Count == 7)
+    //{
+    //    Console.WriteLine();
+    //    Print(array);
+    //}
 
     return result;
 }
@@ -163,7 +163,7 @@ static void FillingTheVoid(List<char> priorityCheck, char[][] array, List<char>[
         //Заполнение чанков
         BlockChanks(array, chancks);
 
-        //Поиск на линиях не заблокированного места и заполнение его
+        //Поиск на линии (горизонтально) не заблокированного места и заполнение его
         for (int row = 0; row < array.Length; row++)
         {
             int freePlaces = 0;
@@ -187,6 +187,33 @@ static void FillingTheVoid(List<char> priorityCheck, char[][] array, List<char>[
                 rows[freeIndexY][freeIndexX] = key;
                 cols[freeIndexX][freeIndexY] = key;
             }
+
+
+            //Поиск на линии (вертикально) не заблокированного места и заполнение его
+
+            freePlaces = 0;
+            freeIndexY = 0;
+            freeIndexX = 0;
+
+            for (int col = 0; col < array.Length; col++)
+            {
+                if (array[col][row] == '.')
+                {
+                    freePlaces++;
+                    freeIndexY = row;
+                    freeIndexX = col;
+                }
+                if (freePlaces > 1) { continue; }
+            }
+
+            if (freePlaces == 1)
+            {
+                array[freeIndexX][freeIndexY] = key;
+
+                rows[freeIndexX][freeIndexY] = key;
+                cols[freeIndexY][freeIndexX] = key;
+            }
+
         }
 
         bool found = false;
