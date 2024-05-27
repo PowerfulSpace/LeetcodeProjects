@@ -116,11 +116,11 @@ static List<char> ScanPriorityCheck(char[][] array)
 
     List<char> result = sortedList.Select(x => x.Key).ToList();
 
-    //if(result.Count == 7)
-    //{
-    //    Console.WriteLine();
-    //    Print(array);
-    //}
+    if (result.Count <= 7)
+    {
+        Console.WriteLine();
+        Print(array);
+    }
 
     return result;
 }
