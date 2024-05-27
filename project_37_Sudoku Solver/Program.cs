@@ -27,7 +27,6 @@ static void SolveSudoku(char[][] board)
 
 
     char[,] array = FillingArray(rows);
-
     List<char> priorityCheck = ScanPriorityCheck(array);
 
     //Исправить цикл проверки
@@ -37,7 +36,7 @@ static void SolveSudoku(char[][] board)
 
         FillingTheVoid(priorityCheck, array, rows, cols, chancks);
     }
-   
+    Print(array);
 
     Console.WriteLine();
 }
@@ -104,10 +103,10 @@ static List<char> ScanPriorityCheck(char[,] array)
     List<char> result = sortedList.Select(x => x.Key).ToList();
     //result.Reverse();
 
-    if (result.Count == 7)
+    if (result.Count == 5)
     {
         Console.WriteLine();
-        Print(array);
+        //Print(array);
     }
 
     return result;
@@ -115,22 +114,14 @@ static List<char> ScanPriorityCheck(char[,] array)
 
 static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
 {
-    //Print(array);
     foreach (var key in priorityCheck)
     {
-        if(key == '1')
-        {
-            Console.WriteLine();
-        }
         //Блокировка линий по определённой цифре (key) + блокировка элементов в чанка
         for (int row = 0; row < array.GetLength(0); row++)
         {
+            Console.WriteLine();
             for (int col = 0; col < array.GetLength(1); col++)
             {
-                if(row == 3 && col == 0)
-                {
-                    Console.WriteLine();
-                }
                 if (rows[row].Contains(key))
                 {
                     if (array[row, col] == '.')
@@ -139,6 +130,11 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
                         rows[row][col] = '-';
                     }
                 }
+                else { continue; }
+
+            }
+            for (int col = 0; col < array.GetLength(1); col++)
+            {
                 if (cols[row].Contains(key))
                 {
                     if (array[col, row] == '.')
@@ -147,11 +143,10 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
                         cols[row][col] = '-';
                     }
                 }
+                else { continue; }
+            }
 
-            }   
         }
-
-        Print(array);
 
         //Заполнение чанков
         BlockChanks(array, chancks);
@@ -182,9 +177,6 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
                 }
 
                 array[freeIndexY, freeIndexX] = key;
-
-                //rows[freeIndexX][freeIndexY] = key;
-                //cols[freeIndexY][freeIndexX] = key;
 
                 rows[freeIndexY][freeIndexX] = key;
                 cols[freeIndexX][freeIndexY] = key;
@@ -236,7 +228,8 @@ static void FillingTheVoid(List<char> priorityCheck, char[,] array, List<char>[]
                     if (array[col, row] == '-')
                     {
                         array[col, row] = '.';
-                        cols[col][row] = '.';
+
+                        cols[row][col] = '.';
                     }
                 }
             }
