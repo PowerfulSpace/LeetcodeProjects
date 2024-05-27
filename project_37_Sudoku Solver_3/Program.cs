@@ -21,7 +21,7 @@ char[][] board2 = {
  new char[]{'.','.','.','.','.','.','.','.','6'},
  new char[]{'.','.','.','2','7','5','9','.','.'}};
 
-SolveSudoku(board1);
+SolveSudoku(board2);
 
 
 Console.ReadLine();
@@ -189,6 +189,9 @@ static void FillingTheVoid(List<char> priorityCheck, char[][] array, List<char>[
             }
 
 
+
+            //Происходит сбой
+
             //Поиск на линии (вертикально) не заблокированного места и заполнение его
 
             freePlaces = 0;
@@ -206,7 +209,7 @@ static void FillingTheVoid(List<char> priorityCheck, char[][] array, List<char>[
                 if (freePlaces > 1) { continue; }
             }
 
-            if (freePlaces == 1)
+            if (freePlaces == 1 && !cols[freeIndexY].Contains(key))
             {
                 array[freeIndexX][freeIndexY] = key;
 
