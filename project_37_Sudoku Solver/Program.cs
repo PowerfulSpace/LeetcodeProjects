@@ -10,7 +10,6 @@ char[][] board1 = {
     new char[]{'.', '.', '.', '4', '1', '9', '.', '.', '5'},
     new char[]{'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
 
-
 char[][] board2 = {
  new char[]{'.','.','9','7','4','8','.','.','.'},
  new char[]{'7','.','.','.','.','.','.','.','.'},
@@ -22,13 +21,15 @@ char[][] board2 = {
  new char[]{'.','.','.','.','.','.','.','.','6'},
  new char[]{'.','.','.','2','7','5','9','.','.'}};
 
-SolveSudoku(board2);
+SolveSudoku(board1);
 
 
 Console.ReadLine();
 
 static void SolveSudoku(char[][] board)
 {
+    if (board == null || board.Length != 9) { return; }
+
     List<char>[] rows = new List<char>[9];
     List<char>[] cols = new List<char>[9];
     List<char>[] chancks = new List<char>[9];
@@ -48,8 +49,6 @@ static void SolveSudoku(char[][] board)
     }
 
     Print(board);
-
-    Console.ReadLine();
 }
 
 static bool IsValidSudoku(char[][] board, List<char>[] rows, List<char>[] cols, List<char>[] chancks)
@@ -65,7 +64,11 @@ static bool IsValidSudoku(char[][] board, List<char>[] rows, List<char>[] cols, 
     {
         for (int col = 0; col < board[row].Length; col++)
         {
+            if (col > 8) { return false; }
+
             char item = board[row][col];
+
+            if (item < 49 && item > 57 && item != '.') { return false; }
 
             int chanck = ((row / 3) * 3) + (col / 3);
             if (item != '.')
@@ -113,6 +116,11 @@ static List<char> ScanPriorityCheck(char[][] array)
 
     List<char> result = sortedList.Select(x => x.Key).ToList();
 
+    if (result.Count <= 7)
+    {
+        Console.WriteLine();
+        Print(array);
+    }
 
     return result;
 }
@@ -155,7 +163,7 @@ static void FillingTheVoid(List<char> priorityCheck, char[][] array, List<char>[
         //Заполнение чанков
         BlockChanks(array, chancks);
 
-        //Поиск на линиях не заблокированного места и заполнение его
+        //Поиск на линии (горизонтально) не заблокированного места и заполнение его
         for (int row = 0; row < array.Length; row++)
         {
             int freePlaces = 0;
@@ -179,6 +187,36 @@ static void FillingTheVoid(List<char> priorityCheck, char[][] array, List<char>[
                 rows[freeIndexY][freeIndexX] = key;
                 cols[freeIndexX][freeIndexY] = key;
             }
+
+
+
+            //Происходит сбой
+
+            //Поиск на линии (вертикально) не заблокированного места и заполнение его
+
+            freePlaces = 0;
+            freeIndexY = 0;
+            freeIndexX = 0;
+
+            for (int col = 0; col < array.Length; col++)
+            {
+                if (array[col][row] == '.')
+                {
+                    freePlaces++;
+                    freeIndexY = row;
+                    freeIndexX = col;
+                }
+                if (freePlaces > 1) { continue; }
+            }
+
+            if (freePlaces == 1 && !cols[freeIndexY].Contains(key))
+            {
+                array[freeIndexX][freeIndexY] = key;
+
+                rows[freeIndexX][freeIndexY] = key;
+                cols[freeIndexY][freeIndexX] = key;
+            }
+
         }
 
         bool found = false;
@@ -294,3 +332,5 @@ static void Print(char[][] array)
     }
     Console.WriteLine();
 }
+
+//нет алгоритма для определения полная ли линия по вертикали, если 8 элементов добавить недостающий
