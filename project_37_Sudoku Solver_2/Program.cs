@@ -33,7 +33,7 @@ HashSet<char>[] rowValues;
 HashSet<char>[] colValues;
 HashSet<char>[] boxValues;
 
-char[][] SolveSudoku(char[][] board)
+void SolveSudoku(char[][] board)
 {
     rowValues = new HashSet<char>[9];
     colValues = new HashSet<char>[9];
@@ -63,8 +63,6 @@ char[][] SolveSudoku(char[][] board)
     }
 
     Solve(board, 0, 0);
-
-    return board;
 
 }
 
