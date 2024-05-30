@@ -21,9 +21,10 @@ char[][] board2 = {
  new char[]{'.','.','.','.','.','.','.','.','6'},
  new char[]{'.','.','.','2','7','5','9','.','.'}};
 
+Print(board2);
 SolveSudoku(board2);
 
-
+Print(board2);
 Console.ReadLine();
 
 HashSet<char>[] rows;
@@ -69,8 +70,80 @@ void SolveSudoku(char[][] board)
 
 bool Selection(char[][] board, int row, int col)
 {
+    if (row == 9 || row == 8 && col == 8)
+    {
+        return true;
+    }
+
+    char item = board[row][col];
+
+    while (item != '.')
+    {
+        col++;
+        if (col == 9)
+        {
+            row++;
+            col = 0;
+        }
+
+        if (row == 9 || row == 8 && col > 8)
+        {
+            return true;
+        }
+        item = board[row][col];
+    }
+
+    bool isValid = false;
+    int chunk = ((row / 3) * 3) + (col / 3);
+
+    for (int i = 1; i <= 9; i++)
+    {
+        char currentItem = Convert.ToChar(i + 48);
+
+       
+
+        if (rows[row].Contains(currentItem) || cols[col].Contains(currentItem) || chunks[chunk].Contains(currentItem))
+        {
+            continue;
+        }
+
+        board[row][col] = currentItem;
+        rows[row].Add(currentItem);
+        cols[col].Add(currentItem);
+        chunks[chunk].Add(currentItem);
+
+        isValid = Selection(board, row, col);
+
+        if (isValid)
+        {
+            return true;
+        }
+        else
+        {
+            board[row][col] = '.';
+            rows[row].Remove(currentItem);
+            cols[col].Remove(currentItem);
+            chunks[chunk].Remove(currentItem);
+        }
+
+    }
 
 
+    return isValid;
+}
 
-
+static void Print(char[][] array)
+{
+    Console.WriteLine();
+    for (int row = 0; row < array.Length; row++)
+    {
+        for (int col = 0; col < array[row].Length; col++)
+        {
+            if (array[row][col] == '-') { Console.ForegroundColor = ConsoleColor.Red; }
+            Console.Write("{0}", array[row][col] + " ");
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+        Console.WriteLine();
+    }
+    Console.WriteLine();
 }
