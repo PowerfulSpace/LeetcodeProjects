@@ -21,7 +21,7 @@ char[][] board2 = {
  new char[]{'.','.','.','.','.','.','.','.','6'},
  new char[]{'.','.','.','2','7','5','9','.','.'}};
 
-SolveSudoku(board1);
+SolveSudoku(board2);
 
 
 Console.ReadLine();
