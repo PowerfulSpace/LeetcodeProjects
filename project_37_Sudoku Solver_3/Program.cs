@@ -26,7 +26,51 @@ SolveSudoku(board2);
 
 Console.ReadLine();
 
-static void SolveSudoku(char[][] board)
+HashSet<char>[] rows;
+HashSet<char>[] cols;
+HashSet<char>[] chunks;
+
+void SolveSudoku(char[][] board)
 {
-   
+    rows = new HashSet<char>[board.Length];
+    cols = new HashSet<char>[board.Length];
+    chunks = new HashSet<char>[board.Length];
+
+    for (int row = 0; row < board.Length; row++)
+    {
+        for (int col = 0; col < board[row].Length; col++)
+        {
+            rows[col] = new HashSet<char>();
+            cols[col] = new HashSet<char>();
+            chunks[col] = new HashSet<char>();
+        }
+    }
+
+    for (int row = 0; row < board.Length; row++)
+    {
+        for (int col = 0; col < board[row].Length; col++)
+        {
+            char item = board[row][col];
+            if(item == '.') { continue; }
+
+            int chunck = ((row / 3) * 3) + (col / 3);
+
+            rows[row].Add(item);
+            cols[col].Add(item);
+            chunks[chunck].Add(item);
+
+        }
+    }
+
+    Selection(board, 0, 0);
+}
+
+
+
+bool Selection(char[][] board, int row, int col)
+{
+
+
+
+
 }
