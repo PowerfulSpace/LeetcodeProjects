@@ -115,7 +115,7 @@ void Backtrack(int row, int col)
 
 
 
-
+//Удлаить вконце метод
 
 static void Print(char[][] array)
 {
