@@ -223,7 +223,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_38_CountAndSay", "p
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_38_CountAndSay_2", "project_38_CountAndSay_2\project_38_CountAndSay_2.csproj", "{19431271-7086-4798-814E-CE561AB3F318}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_38_CountAndSay_3", "project_38_CountAndSay_3\project_38_CountAndSay_3.csproj", "{5E0308E0-2102-4889-A207-A4750DDBB786}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_38_CountAndSay_3", "project_38_CountAndSay_3\project_38_CountAndSay_3.csproj", "{5E0308E0-2102-4889-A207-A4750DDBB786}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_39_CombinationSum", "project_39_CombinationSum\project_39_CombinationSum.csproj", "{E537E727-1E78-4B7B-B2B1-161FF8E7FE57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -675,6 +677,10 @@ Global
 		{5E0308E0-2102-4889-A207-A4750DDBB786}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E0308E0-2102-4889-A207-A4750DDBB786}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E0308E0-2102-4889-A207-A4750DDBB786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E537E727-1E78-4B7B-B2B1-161FF8E7FE57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E537E727-1E78-4B7B-B2B1-161FF8E7FE57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E537E727-1E78-4B7B-B2B1-161FF8E7FE57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E537E727-1E78-4B7B-B2B1-161FF8E7FE57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
