@@ -10,11 +10,11 @@ int input4 = 4;
 int input5 = 5;
 int input6 = 6;
 
-//Console.WriteLine(CountAndSay(input1));
-//Console.WriteLine(CountAndSay(input2));
-//Console.WriteLine(CountAndSay(input3));
-//Console.WriteLine(CountAndSay(input4));
-//Console.WriteLine(CountAndSay(input5));
+Console.WriteLine(CountAndSay(input1));
+Console.WriteLine(CountAndSay(input2));
+Console.WriteLine(CountAndSay(input3));
+Console.WriteLine(CountAndSay(input4));
+Console.WriteLine(CountAndSay(input5));
 Console.WriteLine(CountAndSay(input6));
 
 
