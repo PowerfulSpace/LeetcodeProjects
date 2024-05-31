@@ -3,9 +3,17 @@
 
 using System.Text;
 
-int input1 = 4;
+int input1 = 1;
+int input2 = 2;
+int input3 = 3;
+int input4 = 4;
+int input5 = 5;
 
 Console.WriteLine(CountAndSay(input1));
+Console.WriteLine(CountAndSay(input2));
+Console.WriteLine(CountAndSay(input3));
+Console.WriteLine(CountAndSay(input4));
+Console.WriteLine(CountAndSay(input5));
 
 
 
@@ -15,15 +23,13 @@ Console.ReadLine();
 StringBuilder resultCompression;
 string CountAndSay(int n)
 {
-    //Compression(new StringBuilder("11122311556633333"));
-
     if(n == 1) { return "1"; }
 
     resultCompression = new StringBuilder();
 
     StringBuilder result = new StringBuilder("1");
 
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i < n; i++)
 	{
         Compression(result);
         result.Clear();
@@ -50,6 +56,11 @@ void Compression(StringBuilder str)
 
             count = 1;
             digit = str[i];
+
+            if (i + 1 == str.Length)
+            {
+                resultCompression.Append(count).Append(digit);
+            }
         }
     }
     if(count > 1)
