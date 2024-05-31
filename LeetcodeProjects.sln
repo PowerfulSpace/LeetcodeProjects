@@ -221,6 +221,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_37_Sudoku Solver_3"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_38_CountAndSay", "project_38_CountAndSay\project_38_CountAndSay.csproj", "{61F6C8A5-E7EA-4E32-A4AD-7450CD068C10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_38_CountAndSay_2", "project_38_CountAndSay_2\project_38_CountAndSay_2.csproj", "{19431271-7086-4798-814E-CE561AB3F318}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -663,6 +665,10 @@ Global
 		{61F6C8A5-E7EA-4E32-A4AD-7450CD068C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61F6C8A5-E7EA-4E32-A4AD-7450CD068C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61F6C8A5-E7EA-4E32-A4AD-7450CD068C10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19431271-7086-4798-814E-CE561AB3F318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19431271-7086-4798-814E-CE561AB3F318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19431271-7086-4798-814E-CE561AB3F318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19431271-7086-4798-814E-CE561AB3F318}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
