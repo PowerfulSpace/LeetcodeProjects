@@ -12,9 +12,6 @@ IList<IList<int>> CombinationSum(int[] candidates, int target)
 
     List<IList<int>> result = new List<IList<int>>();
 
-
-
-
     return result;
 }
 
