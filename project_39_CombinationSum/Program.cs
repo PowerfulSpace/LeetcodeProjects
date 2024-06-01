@@ -9,13 +9,31 @@ Console.ReadLine();
 
 IList<IList<int>> CombinationSum(int[] candidates, int target)
 {
-
-    List<IList<int>> result = new List<IList<int>>();
+    List<IList<int>> result = GetCombination(candidates, new List<IList<int>>(), target, 0);
 
     return result;
 }
 
-int GetCombination()
+List<IList<int>> GetCombination(int[] array,List<IList<int>> result, int target, int index)
 {
-    return 1;
+    if (index == array.Length) { return result; }
+
+    List<int> kit =new List<int>();
+    int sum = 0;
+
+    for (int i = 0; i < array.Length; i++)
+    {
+        kit.Add(array[i]);
+        if(sum > target) { break; }
+
+        if(sum == target)
+        {
+            result.Add(kit);
+            break;
+        }
+    }
+
+    GetCombination(array, result, target, index++);
+
+    return result;
 }
