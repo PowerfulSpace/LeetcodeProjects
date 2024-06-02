@@ -7,18 +7,40 @@ CombinationSum(candidates1, target1);
 
 Console.ReadLine();
 
+List<IList<int>> output;
+
 IList<IList<int>> CombinationSum(int[] candidates, int target)
 {
-    List<IList<int>> result = GetCombination(candidates, new List<IList<int>>(), target, 0, 0, new List<int>());
+    output = new List<IList<int>>();
 
-    return result;
+    Array.Sort(candidates);
+
+    Sum(0, candidates.ToList(), target, new List<int>());
+
+    return output;
 }
 
-List<IList<int>> GetCombination(int[] array, List<IList<int>> result, int target, int index, int sum, List<int> list)
+void Sum(int sum, List<int> candidates, int target, List<int> combination)
 {
+    List<int> candidatesCopy = new List<int>(candidates);
 
+    foreach (int candidate in candidates)
+    {
+        List<int> combinationCopy = new List<int>(combination);
+        int sumcopy = sum + candidate;
 
+        if (sumcopy > target) return;
 
+        combinationCopy.Add(candidate);
 
-    return result;
+        if (sumcopy == target)
+        {
+            output.Add(combinationCopy);
+            return;
+        }
+
+        Sum(sumcopy, candidatesCopy, target, combinationCopy);
+        candidatesCopy.RemoveAt(0);
+    }
 }
+
