@@ -11,39 +11,37 @@ Console.ReadLine();
 
 IList<IList<int>> CombinationSum(int[] candidates, int target)
 {
-    List<IList<int>> result = GetCombination(candidates, new List<IList<int>>(), target, 0, 0, new List<int>());
+    Array.Sort(candidates);
+
+    List<IList<int>> result = GetCombination(candidates.ToList(), target, 0, new List<int>(), new List<IList<int>>());
 
     return result;
 }
 
-List<IList<int>> GetCombination(int[] array, List<IList<int>> result, int target, int index, int sum, List<int> list)
+List<IList<int>> GetCombination(List<int> candidates, int target, int sum, List<int> combo, List<IList<int>> result)
 {
-    if (sum >= target) { return result; }
+    List<int> candidatesCopy = new List<int>(candidates);
 
-    List<int> kit = new List<int>(list);
-
-    while (index < array.Length)
+    foreach (int item in candidates)
     {
-        kit.Add(array[index]);
-        sum += array[index];
+        List<int> kit = new List<int>(combo);
 
-        GetCombination(array, result, target, index, sum, kit.Take(kit.Count).ToList());
+        int sumCoppy = sum + item;
 
-        if (sum > target)
+        if (sumCoppy > target) { return result; }
+
+        kit.Add(item);
+
+        if (sumCoppy == target)
         {
-            kit.Remove(array[index]);
+            result.Add(kit);
+            return result;
         }
 
-        if (sum == target)
-        {
-            result.Add(kit.Take(kit.Count).ToList());
-        }
-        if(index == 3)
-        {
-            Console.WriteLine();
-        }
-        index++;
+        GetCombination(candidatesCopy, target, sumCoppy, kit, result);
+        candidatesCopy.RemoveAt(0);
     }
+
 
     return result;
 }
