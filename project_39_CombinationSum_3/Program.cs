@@ -10,37 +10,32 @@ Console.ReadLine();
 
 IList<IList<int>> CombinationSum(int[] candidates, int target)
 {
-    Array.Sort(candidates);
-
-    List<IList<int>> result = GetCombination(candidates.ToList(), target, 0, new List<int>(), new List<IList<int>>());
-
-    return result;
+    IList<IList<int>> res = new List<IList<int>>();
+    IList<int> cur = new List<int>();
+    dfs(candidates, 0, target, cur, res);
+    return res;
 }
 
-List<IList<int>> GetCombination(List<int> candidates, int target,int sum, List<int> combo, List<IList<int>> result)
+void dfs(int[] candidates, int level, int remain, IList<int> cur, IList<IList<int>> res)
 {
-    List<int> candidatesCopy = new List<int>(candidates);
-
-    foreach (int item in candidates)
+    if (remain < 0)
     {
-        List<int> kit = new List<int>(combo);
-
-        int sumCoppy = sum + item;
-
-        if(sumCoppy > target) { return result; }
-
-        kit.Add(item);
-
-        if(sumCoppy == target)
-        {
-            result.Add(kit);
-            return result;
-        }
-
-        GetCombination(candidatesCopy, target, sumCoppy, kit, result);
-        candidatesCopy.RemoveAt(0);
+        return;
     }
+    else if (remain == 0)
+    {
+        IList<int> tmp = new List<int>(cur);
+        res.Add(tmp);
+        return;
+    }
+    else
+    {
+        for (int i = level; i < candidates.Length; i++)
+        {
+            cur.Add(candidates[i]);
+            dfs(candidates, i, remain - candidates[i], cur, res);
+            cur.RemoveAt(cur.Count - 1);
 
-
-    return result;
+        }
+    }
 }
