@@ -1,5 +1,7 @@
 ﻿
 
+using System.Collections.Generic;
+
 int[] candidates1 = { 2, 3, 6, 7 };
 int target1 = 7;
 
@@ -16,23 +18,14 @@ IList<IList<int>> CombinationSum(int[] candidates, int target)
 
 List<IList<int>> GetCombination(int[] array, List<IList<int>> result, int target, int index, int sum, List<int> list)
 {
-    if (index == 3)
-    {
-        Console.WriteLine();
-    }
-    if (index == array.Length || sum > target) { return result; }
+    if (sum >= target) { return result; }
 
     List<int> kit = new List<int>(list);
 
-    while (sum < target)
+    while (index < array.Length)
     {
         kit.Add(array[index]);
         sum += array[index];
-
-        if (sum == 11)
-        {
-            Console.WriteLine();
-        }
 
         GetCombination(array, result, target, index, sum, kit.Take(kit.Count).ToList());
 
@@ -44,8 +37,10 @@ List<IList<int>> GetCombination(int[] array, List<IList<int>> result, int target
         if (sum == target)
         {
             result.Add(kit.Take(kit.Count).ToList());
-            kit.Clear();
-            return result;
+        }
+        if(index == 3)
+        {
+            Console.WriteLine();
         }
         index++;
     }
