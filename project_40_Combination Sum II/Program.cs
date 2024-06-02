@@ -1,24 +1,22 @@
 ﻿
 
-using System.Collections.Generic;
-
 int[] candidates1 = { 2, 3, 6, 7 };
 int target1 = 7;
 
-CombinationSum(candidates1, target1);
+CombinationSum2(candidates1, target1);
 
 Console.ReadLine();
 
-IList<IList<int>> CombinationSum(int[] candidates, int target)
+IList<IList<int>> CombinationSum2(int[] candidates, int target)
 {
-    List<IList<int>> result = new List<IList<int>>();
+	List<IList<int>> result = new List<IList<int>>();
 
-    Combinations(candidates, target, 0, 0, new List<int>(), result);
+	Combinations(candidates, target,0,0,new List<int>(),result);
 
     return result;
 }
 
-void Combinations(int[] candidates, int target, int sum, int index, List<int> comb, List<IList<int>> result)
+void Combinations(int[] candidates, int target,int sum,int index,List<int> comb, List<IList<int>> result)
 {
 
     if (sum > target) { return; }
