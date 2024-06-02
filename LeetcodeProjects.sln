@@ -229,7 +229,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_39_CombinationSum",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_39_CombinationSum_2", "project_39_CombinationSum_2\project_39_CombinationSum_2.csproj", "{A33D676B-B441-4217-A1DE-E93A163DAA2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_39_CombinationSum_3", "project_39_CombinationSum_3\project_39_CombinationSum_3.csproj", "{57930139-DCDA-467C-BDD0-EDD9FAAF86FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_39_CombinationSum_3", "project_39_CombinationSum_3\project_39_CombinationSum_3.csproj", "{57930139-DCDA-467C-BDD0-EDD9FAAF86FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_39_CombinationSum_4", "project_39_CombinationSum_4\project_39_CombinationSum_4.csproj", "{34D8EA86-54F5-4DB9-908E-6E658EABDB94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -693,6 +695,10 @@ Global
 		{57930139-DCDA-467C-BDD0-EDD9FAAF86FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57930139-DCDA-467C-BDD0-EDD9FAAF86FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57930139-DCDA-467C-BDD0-EDD9FAAF86FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34D8EA86-54F5-4DB9-908E-6E658EABDB94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34D8EA86-54F5-4DB9-908E-6E658EABDB94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34D8EA86-54F5-4DB9-908E-6E658EABDB94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34D8EA86-54F5-4DB9-908E-6E658EABDB94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
