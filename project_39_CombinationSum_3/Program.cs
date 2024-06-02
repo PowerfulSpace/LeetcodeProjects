@@ -25,23 +25,19 @@ List<IList<int>> GetCombination(List<int> candidates, int target,int sum, List<i
     {
         List<int> kit = new List<int>(combo);
 
-        
+        int sumCoppy = sum + item;
 
-        if (sum < target)
-        {
-            sum += item;
-            kit.Add(item);
-        }
+        if(sumCoppy > target) { return result; }
 
-        if (sum > target) { return result; }
+        kit.Add(item);
 
-        if(sum == target)
+        if(sumCoppy == target)
         {
             result.Add(kit);
             return result;
         }
 
-        GetCombination(candidatesCopy, target, sum, kit, result);
+        GetCombination(candidatesCopy, target, sumCoppy, kit, result);
         candidatesCopy.RemoveAt(0);
     }
 
