@@ -16,10 +16,10 @@ candidates5[67] = 2;
 int target5 = 30;
 
 
-//CombinationSum2(candidates1, target1);
-//CombinationSum2(candidates2, target2);
-//CombinationSum2(candidates3, target3);
-//CombinationSum2(candidates4, target4);
+CombinationSum2(candidates1, target1);
+CombinationSum2(candidates2, target2);
+CombinationSum2(candidates3, target3);
+CombinationSum2(candidates4, target4);
 CombinationSum2(candidates5, target5);
 
 Console.ReadLine();
