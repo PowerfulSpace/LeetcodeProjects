@@ -1,7 +1,4 @@
 ﻿
-
-using System.Linq;
-
 int[] candidates1 = { 10, 1, 2, 7, 6, 1, 5 };
 int target1 = 8;
 
