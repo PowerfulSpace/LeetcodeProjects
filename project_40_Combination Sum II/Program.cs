@@ -18,6 +18,7 @@ int[] candidates5 = Enumerable.Range(0, 100).Select(x => x = 1).ToArray();
 candidates5[67] = 2;
 int target5 = 30;
 
+
 //CombinationSum2(candidates1, target1);
 //CombinationSum2(candidates2, target2);
 //CombinationSum2(candidates3, target3);
@@ -78,22 +79,16 @@ IList<IList<int>> CombinationSum2(int[] candidates, int target)
             if(item.Value == target)
             {
                 result.Add(Enumerable.Range(0,target).Select(x => x = item.Key).ToList());
-
-                //int count = list.Count;
-                //for (int i = 25; i < count; i++)
-                //{
-                //    list.Remove(item.Key);
-                //}
             }
             else
             {
                 List<int> kit = candidates.Where(x => x == item.Key).ToList();
-
-                while(kit.Count < target)
+                int itemCount = kit.Count;
+                while(kit.Count < target - itemCount)
                 {
                     kit.Add(max);
                 }
-                kit.Reverse();
+                //kit.Reverse();
                 result.Add(kit);
             }
         }
@@ -114,7 +109,6 @@ void Combinations(int[] candidates, int target,int sum,int index, Dictionary<int
     if (sum == target)
     {
         List<int> kit = comb.Values.ToList();
-        //kit.Sort();
 
         if(result.Count == 0)
         {
@@ -125,7 +119,6 @@ void Combinations(int[] candidates, int target,int sum,int index, Dictionary<int
         {
             foreach (var item in result)
             {
-                //var count = kit.Except(item).Count();
                 if (kit.Except(item).Count() == 0 && item.Except(kit).Count() == 0 && kit.Count == item.Count)
                 {
                     return;
@@ -151,3 +144,8 @@ void Combinations(int[] candidates, int target,int sum,int index, Dictionary<int
         }
     }
 }
+
+
+
+
+
