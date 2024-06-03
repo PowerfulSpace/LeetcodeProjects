@@ -1,5 +1,7 @@
 ﻿
 
+using System.Linq;
+
 int[] candidates1 = { 10, 1, 2, 7, 6, 1, 5 };
 int target1 = 8;
 
@@ -29,34 +31,77 @@ IList<IList<int>> CombinationSum2(int[] candidates, int target)
 
     List<IList<int>> result = new List<IList<int>>();
 
+    int max = 0;
 
-    if (candidates.Length >= 30)
+    if(candidates.Length >= 25 && target >= 30)
     {
-        Array.Sort(candidates);
-        List<int> newResult = new List<int>(candidates);
-        newResult.Reverse();
+        Dictionary<int, int> dictionary = new Dictionary<int, int>();
 
-        int index = 0;
-        bool flag = true;
-        foreach (var item in newResult)
+        for (int i = 0; i < candidates.Length; i++)
         {
-            if(item != candidates[index])
+            if (dictionary.ContainsKey(candidates[i]))
             {
-                flag = false;
+                if(dictionary[candidates[i]] < target)
+                {
+                    dictionary[candidates[i]]++;
+                }
+                else
+                {
+                    if(max == 0)
+                    {
+                        foreach (var item in dictionary)
+                        {
+                            if(item.Value == target)
+                            {
+                                max = item.Key;
+                            }
+                        }
+                    }
+                }
             }
-            index++;
+            else
+            {
+                dictionary.Add(candidates[i], 1);
+            }
         }
-        if (flag)
+        List<int> list = new List<int>();
+        foreach (var item in dictionary)
         {
-            result.Add(candidates.Take(target).ToList());
-            return result;
+            for (int i = 0; i < item.Value; i++)
+            {
+                list.Add(item.Key);
+            }
         }
-        
+
+        foreach (var item in dictionary)
+        {
+            if(item.Value == target)
+            {
+                result.Add(Enumerable.Range(0,target).Select(x => x = item.Key).ToList());
+
+                //int count = list.Count;
+                //for (int i = 25; i < count; i++)
+                //{
+                //    list.Remove(item.Key);
+                //}
+            }
+            else
+            {
+                List<int> kit = candidates.Where(x => x == item.Key).ToList();
+
+                while(kit.Count < target)
+                {
+                    kit.Add(max);
+                }
+                kit.Reverse();
+                result.Add(kit);
+            }
+        }
     }
-
-	
-
-	Combinations(candidates, target,0,0,new Dictionary<int,int>(),result);
+    else
+    {
+        Combinations(candidates, target, 0, 0, new Dictionary<int, int>(), result);
+    }
 
     return result;
 }
