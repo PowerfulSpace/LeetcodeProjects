@@ -235,7 +235,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_39_CombinationSum_4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_40_Combination Sum II", "project_40_Combination Sum II\project_40_Combination Sum II.csproj", "{43FBF123-AAC2-4469-9EEA-22028F029B8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_40_Combination Sum II_2", "project_40_Combination Sum II_2\project_40_Combination Sum II_2.csproj", "{133368CF-916C-4C89-87E9-26181CA41558}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project_40_Combination Sum II_2", "project_40_Combination Sum II_2\project_40_Combination Sum II_2.csproj", "{133368CF-916C-4C89-87E9-26181CA41558}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_40_Combination Sum II_3", "project_40_Combination Sum II_3\project_40_Combination Sum II_3.csproj", "{3144B8B9-BEBE-42EF-824B-24EE07C8E8FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -711,6 +713,10 @@ Global
 		{133368CF-916C-4C89-87E9-26181CA41558}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{133368CF-916C-4C89-87E9-26181CA41558}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{133368CF-916C-4C89-87E9-26181CA41558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3144B8B9-BEBE-42EF-824B-24EE07C8E8FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3144B8B9-BEBE-42EF-824B-24EE07C8E8FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3144B8B9-BEBE-42EF-824B-24EE07C8E8FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3144B8B9-BEBE-42EF-824B-24EE07C8E8FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
