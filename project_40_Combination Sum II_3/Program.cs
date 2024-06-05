@@ -53,6 +53,10 @@ void Backtrack(int[] candidates, int start, int sum, int target, List<int> numbe
     var hashSet = new HashSet<int>();
     for (int i = start; i < candidates.Length; i++)
     {
+        if(i == 29)
+        {
+            Console.WriteLine();
+        }
         if (hashSet.Add(candidates[i]))
         {
             numbers.Add(candidates[i]);
